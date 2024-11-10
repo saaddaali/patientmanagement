@@ -1,0 +1,157 @@
+version: '3'
+# in visuale studio code "ctrl + shift + p " then use this "Convert Indentation to Spaces" : formatage
+services:
+  prometheus:
+    image: prom/prometheus
+    hostname: prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./grafana/grafana-data:/var/lib/grafana
+    ports:
+      - "9090:9090"
+    networks:
+      - app-network
+    depends_on:
+      - patientmanagementms1-back
+      - patientmanagementms2-back
+
+  grafana:
+    image: grafana/grafana
+    hostname: grafana
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin # new pass is zyn@1987
+    volumes:
+      - ./grafana:/var/lib/grafana
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+    ports:
+      - "4000:3000"  # Using port 4000 instead of 3000 to avoid conflicts
+    networks:
+      - app-network
+    depends_on:
+      - prometheus
+
+
+
+
+
+  front-end:
+    build: ../frontend
+    container_name: frontend
+    ports:
+      - '${FRONT_END_PORT}:80'
+    expose:
+      - '${FRONT_END_PORT}'
+    networks:
+      - app-network
+    restart: always
+
+  patientmanagementms1-db:
+    image: ${PATIENTMANAGEMENTMS1_DB_IMAGE_NAME}
+    container_name: ${PATIENTMANAGEMENTMS1_DB_CONTAINER_NAME}
+    volumes:
+      - patientmanagementms1-data:/var/lib/mysql #postgre /var/lib/postgresql/data
+    ports:
+      - "${PATIENTMANAGEMENTMS1_DB_PORT}:3306" #postgre 5432
+    environment:
+      - MYSQL_DATABASE=${PATIENTMANAGEMENTMS1_DB_NAME} #POSTGRES_DB=${ZYN1724669534506MS1_DB_NAME}
+      - MYSQL_USER=${PATIENTMANAGEMENTMS1_DB_USER} #POSTGRES_USER=${ZYN1724669534506MS1_DB_USER}
+      - MYSQL_PASSWORD=${PATIENTMANAGEMENTMS1_DB_PASSWORD} #POSTGRES_PASSWORD=${ZYN1724669534506MS1_DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${PATIENTMANAGEMENTMS1_DB_PASSWORD_ROOT}
+    networks:
+      - app-network
+  phpmyadmin-patientmanagementms1:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: ${PATIENTMANAGEMENTMS1_DB_CONTAINER_NAME}
+      MYSQL_ROOT_PASSWORD: ''
+    ports:
+      - "808:80"
+    depends_on:
+      - patientmanagementms1-db
+    networks:
+      - app-network
+  patientmanagementms1-back:
+    build:
+      context: ${PATIENTMANAGEMENTMS1_PROJECT_PATH}
+      dockerfile: DockerfileWithPackage
+    container_name: ${PATIENTMANAGEMENTMS1_CONTAINER_NAME}
+    image: ${PATIENTMANAGEMENTMS1_IMAGE_NAME}
+    ports:
+      - "${PATIENTMANAGEMENTMS1_BACK_PORT}:${PATIENTMANAGEMENTMS1_BACK_PORT}"
+    environment:
+      - PATIENTMANAGEMENTMS1_DB_URL=${PATIENTMANAGEMENTMS1_DB_URL}
+      - PATIENTMANAGEMENTMS1_DB_USER=${PATIENTMANAGEMENTMS1_DB_USER}
+      - PATIENTMANAGEMENTMS1_DB_PASSWORD=${PATIENTMANAGEMENTMS1_DB_PASSWORD}
+    depends_on:
+      - patientmanagementms1-db
+    networks:
+      - app-network
+    restart: always
+  patientmanagementms2-db:
+    image: ${PATIENTMANAGEMENTMS2_DB_IMAGE_NAME}
+    container_name: ${PATIENTMANAGEMENTMS2_DB_CONTAINER_NAME}
+    volumes:
+      - patientmanagementms2-data:/var/lib/mysql #postgre /var/lib/postgresql/data
+    ports:
+      - "${PATIENTMANAGEMENTMS2_DB_PORT}:3306" #postgre 5432
+    environment:
+      - MYSQL_DATABASE=${PATIENTMANAGEMENTMS2_DB_NAME} #POSTGRES_DB=${ZYN1724669534506MS1_DB_NAME}
+      - MYSQL_USER=${PATIENTMANAGEMENTMS2_DB_USER} #POSTGRES_USER=${ZYN1724669534506MS1_DB_USER}
+      - MYSQL_PASSWORD=${PATIENTMANAGEMENTMS2_DB_PASSWORD} #POSTGRES_PASSWORD=${ZYN1724669534506MS1_DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${PATIENTMANAGEMENTMS2_DB_PASSWORD_ROOT}
+    networks:
+      - app-network
+  phpmyadmin-patientmanagementms2:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: ${PATIENTMANAGEMENTMS2_DB_CONTAINER_NAME}
+      MYSQL_ROOT_PASSWORD: ''
+    ports:
+      - "809:80"
+    depends_on:
+      - patientmanagementms2-db
+    networks:
+      - app-network
+  patientmanagementms2-back:
+    build:
+      context: ${PATIENTMANAGEMENTMS2_PROJECT_PATH}
+      dockerfile: DockerfileWithPackage
+    container_name: ${PATIENTMANAGEMENTMS2_CONTAINER_NAME}
+    image: ${PATIENTMANAGEMENTMS2_IMAGE_NAME}
+    ports:
+      - "${PATIENTMANAGEMENTMS2_BACK_PORT}:${PATIENTMANAGEMENTMS2_BACK_PORT}"
+    environment:
+      - PATIENTMANAGEMENTMS2_DB_URL=${PATIENTMANAGEMENTMS2_DB_URL}
+      - PATIENTMANAGEMENTMS2_DB_USER=${PATIENTMANAGEMENTMS2_DB_USER}
+      - PATIENTMANAGEMENTMS2_DB_PASSWORD=${PATIENTMANAGEMENTMS2_DB_PASSWORD}
+    depends_on:
+      - patientmanagementms2-db
+    networks:
+      - app-network
+    restart: always
+  minio:
+    image: ${MINIO_IMAGE_NAME}
+    container_name: ${MINIO_CONTAINER_NAME}
+    restart: always
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - ./data/minio_data:/data
+    ports:
+      - "${MINIO_HOME_PORT}:9000"
+      - "${MINIO_URL_PORT}:9001" # tap localhost:9001 to access to minio
+    networks:
+      - app-network
+volumes:
+  patientmanagementms1-data:
+  patientmanagementms2-data:
+networks:
+  app-network:
+    external: true # change external: true to driver: bridge
+

@@ -1,0 +1,15 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+            <include file="classpath:db/migration/changelog/warning/WarningType.xml"/>
+        <include file="classpath:db/migration/changelog/staff/Infirmier.xml"/>
+        <include file="classpath:db/migration/changelog/staff/Specialization.xml"/>
+        <include file="classpath:db/migration/changelog/healthcare/InfirmierPatient.xml"/>
+        <include file="classpath:db/migration/changelog/warning/WarningPatient.xml"/>
+        <include file="classpath:db/migration/changelog/staff/Doctor.xml"/>
+        <include file="classpath:db/migration/changelog/patient/Patient.xml"/>
+        <include file="classpath:db/migration/changelog/patient/Gender.xml"/>
+
+</databaseChangeLog>

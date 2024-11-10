@@ -1,0 +1,63 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="infirmier_patient">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="date_debut" type="TIMESTAMP"/>
+        <column name="date_fin" type="TIMESTAMP"/>
+
+        <column name="patient_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="infirmier_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="infirmier_patient"
+              baseColumnNames="patient_id"
+              referencedTableName="patient"
+              referencedColumnNames="id"
+              constraintName="fk_infirmier_patient_patient"/>
+      <addForeignKeyConstraint
+              baseTableName="infirmier_patient"
+              baseColumnNames="infirmier_id"
+              referencedTableName="infirmier"
+              referencedColumnNames="id"
+              constraintName="fk_infirmier_patient_infirmier"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="infirmier_patient_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/healthcare/InfirmierPatient.csv"
+            tableName="infirmier_patient">
+      <column name="id" type="NUMERIC"/>
+          <column name="date_debut" type="TIMESTAMP"/>
+          <column name="date_fin" type="TIMESTAMP"/>
+        <column name="patient" type="BIGINT"/>
+        <column name="infirmier" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

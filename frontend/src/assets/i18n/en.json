@@ -1,0 +1,325 @@
+{
+    "from-to": "Elements from {first} to {last} (total {totalRecords})",
+    "new" : "New",
+    "search": "Search",
+    "export": "Export",
+    "validate": "Validate",
+    "search": "Seach...",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "next": "Next",
+    "yes": "Yes",
+    "no": "No",
+    "actions": "Actions",
+    "confirm": "Confirm",
+    "creation": "Creation",
+    "list": "List",
+	"actionPermission":{
+        "reference": "Reference",
+        "libelle": "Libelle",
+        "actionPermission": "Action permission",
+        "tabPan": "Action permission",
+        "header": "Liste des action permissions",
+        "deleteActionPermissionConfirmationMessage": "Are you sure you want to delete action permission",
+        "deleteActionPermissionsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "modelPermissionUser":{
+        "actionPermission": "Action permission",
+        "actionPermissionPlaceHolder": "Select a Action permission",
+        "actionPermissionPlaceHolderFilter": "Search by Action permission",
+        "modelPermission": "Model permission",
+        "modelPermissionPlaceHolder": "Select a Model permission",
+        "modelPermissionPlaceHolderFilter": "Search by Model permission",
+        "value": "Value",
+        "user": "User",
+        "userPlaceHolder": "Select a User",
+        "userPlaceHolderFilter": "Search by User",
+        "subAttribute": "Sub attribute",
+        "modelPermissionUser": "Model permission user",
+        "tabPan": "Model permission user",
+        "header": "Liste des model permission users",
+        "deleteModelPermissionUserConfirmationMessage": "Are you sure you want to delete model permission user",
+        "deleteModelPermissionUsersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+    "role":{
+        "authority": "Authority",
+        "role": "Role",
+        "tabPan": "Role",
+        "header": "Liste des roles",
+        "deleteRoleConfirmationMessage": "Are you sure you want to delete role",
+        "deleteRolesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+
+    "roleUser":{
+        "role": "Role",
+        "rolePlaceHolder": "Select a Role",
+        "rolePlaceHolderFilter": "Search by Role",
+        "user": "User",
+        "userPlaceHolder": "Select a User",
+        "userPlaceHolderFilter": "Search by User",
+        "roleUser": "Role user",
+        "tabPan": "Role user",
+        "header": "Liste des role users",
+        "deleteRoleUserConfirmationMessage": "Are you sure you want to delete role user",
+        "deleteRoleUsersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "user":{
+        "credentialsNonExpired": "Credentials non expired",
+        "enabled": "Enabled",
+        "email": "Email",
+        "accountNonExpired": "Account non expired",
+        "accountNonLocked": "Account non locked",
+        "username": "Username",
+        "password": "Password",
+        "passwordChanged": "Password changed",
+        "modelPermissionUsers": "Model permission users",
+        "roleUsers": "Role users",
+        "RoleUsersPlaceHolder": "Select multiple Roles",
+        "user": "User",
+        "tabPan": "User",
+        "header": "Liste des users",
+        "deleteUserConfirmationMessage": "Are you sure you want to delete user",
+        "deleteUsersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "modelPermission":{
+        "reference": "Reference",
+        "libelle": "Libelle",
+        "modelPermission": "Model permission",
+        "tabPan": "Model permission",
+        "header": "Liste des model permissions",
+        "deleteModelPermissionConfirmationMessage": "Are you sure you want to delete model permission",
+        "deleteModelPermissionsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+
+    "gender":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "gender": "Gender",
+        "tabPan": "Gender",
+        "header": "Liste des genders",
+        "deleteGenderConfirmationMessage": "Are you sure you want to delete gender",
+        "deleteGendersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "localisation":{
+        "patient": "Patient",
+        "patientPlaceHolder": "Select a Patient",
+        "patientPlaceHolderFilter": "Search by Patient",
+        "dateLocalisation": "Date localisation",
+        "dateLocalisationMin": "Date localisation Min",
+        "dateLocalisationMax": "Date localisation Max",
+        "longitude": "Longitude",
+        "longitudeMin": "Longitude Min",
+        "longitudeMax": "Longitude Max",
+        "latitude": "Latitude",
+        "latitudeMin": "Latitude Min",
+        "latitudeMax": "Latitude Max",
+        "capteur": "Capteur",
+        "capteurPlaceHolder": "Select a Capteur",
+        "capteurPlaceHolderFilter": "Search by Capteur",
+        "localisation": "Localisation",
+        "tabPan": "Localisation",
+        "header": "Liste des localisations",
+        "deleteLocalisationConfirmationMessage": "Are you sure you want to delete localisation",
+        "deleteLocalisationsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "patient":{
+        "dateOfBirth": "Date of birth",
+        "dateOfBirthMin": "Date of birth Min",
+        "dateOfBirthMax": "Date of birth Max",
+        "gender": "Gender",
+        "genderPlaceHolder": "Select a Gender",
+        "genderPlaceHolderFilter": "Search by Gender",
+        "address": "Address",
+        "emergencyContact": "Emergency contact",
+        "doctorInCharge": "Doctor in charge",
+        "doctorInChargePlaceHolder": "Select a Doctor in charge",
+        "doctorInChargePlaceHolderFilter": "Search by Doctor in charge",
+        "infirmierPatients": "Infirmier patients",
+        "warningPatients": "Warning patients",
+        "passwordChanged": "Password changed",
+        "accountNonLocked": "Account non locked",
+        "password": "Password",
+        "email": "Email",
+        "enabled": "Enabled",
+        "credentialsNonExpired": "Credentials non expired",
+        "accountNonExpired": "Account non expired",
+        "username": "Username",
+        "patient": "Patient",
+        "tabPan": "Patient",
+        "header": "Liste des patients",
+        "deletePatientConfirmationMessage": "Are you sure you want to delete patient",
+        "deletePatientsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "safeZone":{
+        "centreLongitude": "Centre longitude",
+        "centreLongitudeMin": "Centre longitude Min",
+        "centreLongitudeMax": "Centre longitude Max",
+        "centreLatitude": "Centre latitude",
+        "centreLatitudeMin": "Centre latitude Min",
+        "centreLatitudeMax": "Centre latitude Max",
+        "rayon": "Rayon",
+        "rayonMin": "Rayon Min",
+        "rayonMax": "Rayon Max",
+        "linkedPatient": "Linked patient",
+        "linkedPatientPlaceHolder": "Select a Linked patient",
+        "linkedPatientPlaceHolderFilter": "Search by Linked patient",
+        "safeZone": "Safe zone",
+        "tabPan": "Safe zone",
+        "header": "Liste des safe zones",
+        "deleteSafeZoneConfirmationMessage": "Are you sure you want to delete safe zone",
+        "deleteSafeZonesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "warningType":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "warningType": "Warning type",
+        "tabPan": "Warning type",
+        "header": "Liste des warning types",
+        "deleteWarningTypeConfirmationMessage": "Are you sure you want to delete warning type",
+        "deleteWarningTypesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "infirmier":{
+        "specialization": "Specialization",
+        "specializationPlaceHolder": "Select a Specialization",
+        "specializationPlaceHolderFilter": "Search by Specialization",
+        "passwordChanged": "Password changed",
+        "accountNonLocked": "Account non locked",
+        "password": "Password",
+        "email": "Email",
+        "enabled": "Enabled",
+        "credentialsNonExpired": "Credentials non expired",
+        "accountNonExpired": "Account non expired",
+        "username": "Username",
+        "infirmier": "Infirmier",
+        "tabPan": "Infirmier",
+        "header": "Liste des infirmiers",
+        "deleteInfirmierConfirmationMessage": "Are you sure you want to delete infirmier",
+        "deleteInfirmiersConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "capteurType":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "capteurType": "Capteur type",
+        "tabPan": "Capteur type",
+        "header": "Liste des capteur types",
+        "deleteCapteurTypeConfirmationMessage": "Are you sure you want to delete capteur type",
+        "deleteCapteurTypesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "specialization":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "specialization": "Specialization",
+        "tabPan": "Specialization",
+        "header": "Liste des specializations",
+        "deleteSpecializationConfirmationMessage": "Are you sure you want to delete specialization",
+        "deleteSpecializationsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "infirmierPatient":{
+        "patient": "Patient",
+        "patientPlaceHolder": "Select a Patient",
+        "patientPlaceHolderFilter": "Search by Patient",
+        "infirmier": "Infirmier",
+        "infirmierPlaceHolder": "Select a Infirmier",
+        "infirmierPlaceHolderFilter": "Search by Infirmier",
+        "dateDebut": "Date debut",
+        "dateDebutMin": "Date debut Min",
+        "dateDebutMax": "Date debut Max",
+        "dateFin": "Date fin",
+        "dateFinMin": "Date fin Min",
+        "dateFinMax": "Date fin Max",
+        "infirmierPatient": "Infirmier patient",
+        "tabPan": "Infirmier patient",
+        "header": "Liste des infirmier patients",
+        "deleteInfirmierPatientConfirmationMessage": "Are you sure you want to delete infirmier patient",
+        "deleteInfirmierPatientsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "warningPatient":{
+        "patient": "Patient",
+        "patientPlaceHolder": "Select a Patient",
+        "patientPlaceHolderFilter": "Search by Patient",
+        "message": "Message",
+        "warningType": "Warning type",
+        "warningTypePlaceHolder": "Select a Warning type",
+        "warningTypePlaceHolderFilter": "Search by Warning type",
+        "dateWarning": "Date warning",
+        "dateWarningMin": "Date warning Min",
+        "dateWarningMax": "Date warning Max",
+        "warningPatient": "Warning patient",
+        "tabPan": "Warning patient",
+        "header": "Liste des warning patients",
+        "deleteWarningPatientConfirmationMessage": "Are you sure you want to delete warning patient",
+        "deleteWarningPatientsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "capteur":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "description": "Description",
+        "capteurType": "Capteur type",
+        "capteurTypePlaceHolder": "Select a Capteur type",
+        "capteurTypePlaceHolderFilter": "Search by Capteur type",
+        "capteur": "Capteur",
+        "tabPan": "Capteur",
+        "header": "Liste des capteurs",
+        "deleteCapteurConfirmationMessage": "Are you sure you want to delete capteur",
+        "deleteCapteursConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "doctor":{
+        "specialization": "Specialization",
+        "specializationPlaceHolder": "Select a Specialization",
+        "specializationPlaceHolderFilter": "Search by Specialization",
+        "passwordChanged": "Password changed",
+        "accountNonLocked": "Account non locked",
+        "password": "Password",
+        "email": "Email",
+        "enabled": "Enabled",
+        "credentialsNonExpired": "Credentials non expired",
+        "accountNonExpired": "Account non expired",
+        "username": "Username",
+        "doctor": "Doctor",
+        "tabPan": "Doctor",
+        "header": "Liste des doctors",
+        "deleteDoctorConfirmationMessage": "Are you sure you want to delete doctor",
+        "deleteDoctorsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+"appName": "GED"
+}
+
+

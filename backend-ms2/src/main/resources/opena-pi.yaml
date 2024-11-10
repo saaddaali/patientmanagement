@@ -1,0 +1,704 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /warningTypes:
+    get:
+      summary: List all warningTypes
+      operationId: listWarningTypes
+      tags:
+        - warningTypes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of warningTypes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/WarningTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a warningType
+      operationId: createWarningTypes
+      tags:
+        - warningTypes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /warningTypes/{warningTypeId}:
+    get:
+      summary: Info for a specific warningType
+      operationId: showWarningTypeById
+      tags:
+        - warningTypes
+      parameters:
+        - name: warningTypeId
+          in: path
+          required: true
+          description: The id of the warningType to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/WarningTypes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /infirmiers:
+    get:
+      summary: List all infirmiers
+      operationId: listInfirmiers
+      tags:
+        - infirmiers
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of infirmiers
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Infirmiers'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a infirmier
+      operationId: createInfirmiers
+      tags:
+        - infirmiers
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /infirmiers/{infirmierId}:
+    get:
+      summary: Info for a specific infirmier
+      operationId: showInfirmierById
+      tags:
+        - infirmiers
+      parameters:
+        - name: infirmierId
+          in: path
+          required: true
+          description: The id of the infirmier to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Infirmiers'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /specializations:
+    get:
+      summary: List all specializations
+      operationId: listSpecializations
+      tags:
+        - specializations
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of specializations
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Specializations'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a specialization
+      operationId: createSpecializations
+      tags:
+        - specializations
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /specializations/{specializationId}:
+    get:
+      summary: Info for a specific specialization
+      operationId: showSpecializationById
+      tags:
+        - specializations
+      parameters:
+        - name: specializationId
+          in: path
+          required: true
+          description: The id of the specialization to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Specializations'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /infirmierPatients:
+    get:
+      summary: List all infirmierPatients
+      operationId: listInfirmierPatients
+      tags:
+        - infirmierPatients
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of infirmierPatients
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/InfirmierPatients'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a infirmierPatient
+      operationId: createInfirmierPatients
+      tags:
+        - infirmierPatients
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /infirmierPatients/{infirmierPatientId}:
+    get:
+      summary: Info for a specific infirmierPatient
+      operationId: showInfirmierPatientById
+      tags:
+        - infirmierPatients
+      parameters:
+        - name: infirmierPatientId
+          in: path
+          required: true
+          description: The id of the infirmierPatient to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/InfirmierPatients'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /warningPatients:
+    get:
+      summary: List all warningPatients
+      operationId: listWarningPatients
+      tags:
+        - warningPatients
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of warningPatients
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/WarningPatients'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a warningPatient
+      operationId: createWarningPatients
+      tags:
+        - warningPatients
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /warningPatients/{warningPatientId}:
+    get:
+      summary: Info for a specific warningPatient
+      operationId: showWarningPatientById
+      tags:
+        - warningPatients
+      parameters:
+        - name: warningPatientId
+          in: path
+          required: true
+          description: The id of the warningPatient to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/WarningPatients'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /doctors:
+    get:
+      summary: List all doctors
+      operationId: listDoctors
+      tags:
+        - doctors
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of doctors
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Doctors'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a doctor
+      operationId: createDoctors
+      tags:
+        - doctors
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /doctors/{doctorId}:
+    get:
+      summary: Info for a specific doctor
+      operationId: showDoctorById
+      tags:
+        - doctors
+      parameters:
+        - name: doctorId
+          in: path
+          required: true
+          description: The id of the doctor to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Doctors'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /patients:
+    get:
+      summary: List all patients
+      operationId: listPatients
+      tags:
+        - patients
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of patients
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Patients'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a patient
+      operationId: createPatients
+      tags:
+        - patients
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /patients/{patientId}:
+    get:
+      summary: Info for a specific patient
+      operationId: showPatientById
+      tags:
+        - patients
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          description: The id of the patient to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Patients'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /genders:
+    get:
+      summary: List all genders
+      operationId: listGenders
+      tags:
+        - genders
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of genders
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Genders'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a gender
+      operationId: createGenders
+      tags:
+        - genders
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /genders/{genderId}:
+    get:
+      summary: Info for a specific gender
+      operationId: showGenderById
+      tags:
+        - genders
+      parameters:
+        - name: genderId
+          in: path
+          required: true
+          description: The id of the gender to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Genders'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  WarningType:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - description
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      description:
+        type: string
+  WarningTypes:
+    type: array
+    items:
+      $ref: '#/definitions/WarningType'
+  Infirmier:
+    type: "object"
+    required:
+      - id
+      - passwordChanged
+      - accountNonLocked
+      - password
+      - email
+      - enabled
+      - credentialsNonExpired
+      - accountNonExpired
+      - username
+    properties:
+      id:
+        type: int
+      passwordChanged:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      password:
+        type: string
+      email:
+        type: string
+      enabled:
+        type: boolean
+      credentialsNonExpired:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      username:
+        type: string
+  Infirmiers:
+    type: array
+    items:
+      $ref: '#/definitions/Infirmier'
+  Specialization:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - description
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      description:
+        type: string
+  Specializations:
+    type: array
+    items:
+      $ref: '#/definitions/Specialization'
+  InfirmierPatient:
+    type: "object"
+    required:
+      - id
+      - dateDebut
+      - dateFin
+    properties:
+      id:
+        type: int
+      dateDebut:
+        type: date
+      dateFin:
+        type: date
+  InfirmierPatients:
+    type: array
+    items:
+      $ref: '#/definitions/InfirmierPatient'
+  WarningPatient:
+    type: "object"
+    required:
+      - id
+      - message
+      - dateWarning
+    properties:
+      id:
+        type: int
+      message:
+        type: string
+      dateWarning:
+        type: date
+  WarningPatients:
+    type: array
+    items:
+      $ref: '#/definitions/WarningPatient'
+  Doctor:
+    type: "object"
+    required:
+      - id
+      - passwordChanged
+      - accountNonLocked
+      - password
+      - email
+      - enabled
+      - credentialsNonExpired
+      - accountNonExpired
+      - username
+    properties:
+      id:
+        type: int
+      passwordChanged:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      password:
+        type: string
+      email:
+        type: string
+      enabled:
+        type: boolean
+      credentialsNonExpired:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      username:
+        type: string
+  Doctors:
+    type: array
+    items:
+      $ref: '#/definitions/Doctor'
+  Patient:
+    type: "object"
+    required:
+      - id
+      - dateOfBirth
+      - address
+      - emergencyContact
+      - passwordChanged
+      - accountNonLocked
+      - password
+      - email
+      - enabled
+      - credentialsNonExpired
+      - accountNonExpired
+      - username
+    properties:
+      id:
+        type: int
+      dateOfBirth:
+        type: date
+      address:
+        type: string
+      emergencyContact:
+        type: string
+      passwordChanged:
+        type: boolean
+      accountNonLocked:
+        type: boolean
+      password:
+        type: string
+      email:
+        type: string
+      enabled:
+        type: boolean
+      credentialsNonExpired:
+        type: boolean
+      accountNonExpired:
+        type: boolean
+      username:
+        type: string
+  Patients:
+    type: array
+    items:
+      $ref: '#/definitions/Patient'
+  Gender:
+    type: "object"
+    required:
+      - id
+      - code
+      - libelle
+      - description
+    properties:
+      id:
+        type: int
+      code:
+        type: string
+      libelle:
+        type: string
+      description:
+        type: string
+  Genders:
+    type: array
+    items:
+      $ref: '#/definitions/Gender'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
