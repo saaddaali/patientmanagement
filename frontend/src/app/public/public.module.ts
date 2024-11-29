@@ -34,6 +34,10 @@ import {FooterComponent} from './footer/footer.component';
 import {HomePublicComponent} from './home/home-public.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
 import {TopComponent} from './top/top.component';
+import {SearchPublicComponent} from "./search/search-public.component";
+import {CardModule} from "primeng/card";
+import {SelectButtonModule} from "primeng/selectbutton";
+import {AutoCompleteModule} from "primeng/autocomplete";
 
 
 @NgModule({
@@ -44,6 +48,7 @@ import {TopComponent} from './top/top.component';
         FrameworksComponent,
         FooterComponent,
         HomePublicComponent,
+        SearchPublicComponent,
         ContactUsComponent,
         TopComponent
     ],
@@ -73,6 +78,9 @@ import {TopComponent} from './top/top.component';
         InputNumberModule,
         BadgeModule,
         MultiSelectModule,
+        CardModule,
+        SelectButtonModule,
+        AutoCompleteModule,
     ],
     exports: [
         PreloadpageComponent,

@@ -1,0 +1,178 @@
+/* transport-search.component.scss */
+:host ::ng-deep {
+    .search-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .search-form {
+        display: flex;
+        align-items: center;
+        background: #FFFFFF;
+        border-radius: 100px;
+        padding: 0.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        gap: 0.5rem;
+    }
+
+    .form-group {
+        flex: 1;
+        min-width: 0;
+
+        &.passengers {
+            max-width: 100px;
+        }
+    }
+
+    .form-divider {
+        width: 1px;
+        height: 24px;
+        background-color: #E0E0E0;
+        margin: 0 0.5rem;
+    }
+
+
+
+    .transparent-input {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+
+    .location-input {
+        width: 100%;
+
+        .p-autocomplete-input {
+            padding-left: 2rem;
+        }
+    }
+
+    .custom-location-icon {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #FF9800;
+        z-index: 1;
+
+        &.destination {
+            color: #4CAF50;
+        }
+    }
+
+    .p-calendar {
+        width: 100%;
+
+        .p-button {
+            display: none;
+        }
+
+        .p-inputtext {
+            width: 100%;
+            padding-left: 2rem;
+        }
+
+        &::before {
+            font-family: "PrimeIcons";
+            content: "\e927";
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2196F3;
+            z-index: 1;
+        }
+    }
+
+    .passenger-input {
+        width: 100%;
+
+        .p-inputnumber-input {
+            text-align: center;
+            padding-left: 2rem;
+        }
+
+        .pi-user {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9E9E9E;
+            z-index: 1;
+        }
+    }
+
+    .search-button {
+        background: #4CAF50;
+        border: none;
+        min-width: 120px;
+        height: 40px;
+
+        &:hover {
+            background: #45a049;
+        }
+
+        .p-button-icon {
+            font-size: 1rem;
+        }
+    }
+
+    // Responsive styles
+    @media screen and (max-width: 768px) {
+        .search-form {
+            flex-direction: column;
+            border-radius: 16px;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        .form-divider {
+            display: none;
+        }
+
+        .form-group {
+            width: 100%;
+
+            &.passengers {
+                max-width: 100%;
+            }
+        }
+
+        .search-button {
+            width: 100%;
+        }
+    }
+}
+
+// Additional styles for the background and hero section
+.body1 {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}

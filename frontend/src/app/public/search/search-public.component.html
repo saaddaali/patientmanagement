@@ -1,0 +1,101 @@
+<div class="body1">
+    <div class="body">
+        <div class="header">
+            <app-top></app-top>
+        </div>
+
+        <!-- transport-search.component.html -->
+        <div class="search-container p-4">
+            <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+                <div class="form-group">
+                    <div class="p-inputgroup">
+        <span class="p-float-label">
+          <p-autoComplete formControlName="departure"
+                          [suggestions]="cities"
+                          [forceSelection]="true"
+                          [dropdown]="true"
+                          field="name"
+                          styleClass="location-input"
+                          [inputStyleClass]="'transparent-input'">
+            <ng-template pTemplate="header">
+              <i class="pi pi-map-marker custom-location-icon"></i>
+            </ng-template>
+          </p-autoComplete>
+          <label>Départ</label>
+        </span>
+                    </div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-group">
+                    <div class="p-inputgroup">
+        <span class="p-float-label">
+          <p-autoComplete formControlName="destination"
+                          [suggestions]="cities"
+                          [forceSelection]="true"
+                          [dropdown]="true"
+                          field="name"
+                          styleClass="location-input"
+                          [inputStyleClass]="'transparent-input'">
+            <ng-template pTemplate="header">
+              <i class="pi pi-map-marker custom-location-icon destination"></i>
+            </ng-template>
+          </p-autoComplete>
+          <label>Destination</label>
+        </span>
+                    </div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-group">
+                    <div class="p-inputgroup">
+        <span class="p-float-label">
+          <p-calendar formControlName="date"
+                      [showIcon]="true"
+                      [inputStyleClass]="'transparent-input'"
+                      dateFormat="dd/mm/yy"
+                      placeholder="Aujourd'hui">
+          </p-calendar>
+          <label>Aujourd'hui</label>
+        </span>
+                    </div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-group passengers">
+                    <div class="p-inputgroup">
+        <span class="p-float-label">
+          <p-inputNumber formControlName="passengers"
+                         [showButtons]="false"
+                         [min]="1"
+                         styleClass="passenger-input"
+                         [inputStyleClass]="'transparent-input'">
+            <ng-template pTemplate="prefix">
+              <i class="pi pi-user"></i>
+            </ng-template>
+          </p-inputNumber>
+          <label>1</label>
+        </span>
+                    </div>
+                </div>
+
+                <p-button type="submit"
+                          label="Recherche"
+                          icon="pi pi-search"
+                          styleClass="p-button-rounded search-button">
+                </p-button>
+            </form>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<footer>
+    <app-footer></app-footer>
+</footer>
