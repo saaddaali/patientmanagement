@@ -1,270 +1,245 @@
-        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'patient.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
-            <ng-template pTemplate="content" >
-                        <p-tabView>
-                            <p-tabPanel header="{{'patient.tabPan' | translate}}">
-                                <div class="grid">
+<p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}"
+          header="{{'patient.tabPan' | translate}}"
+          [modal]="true"
+          styleClass="p-fluid"
+          [maximizable]="true"
+          [draggable]="false"
+          [resizable]="false">
 
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="1">{{'patient.dateOfBirth' | translate}}</label>
-                                                    <p-calendar appendTo="body" id="1"  [showTime]="true" [showSeconds]="false" placeholder="{{'patient.dateOfBirth' | translate}}"  [(ngModel)]="item.dateOfBirth"
-                                                            dateFormat="{{dateFormat}}"  >
-                                                    </p-calendar>
-                                                    
-                                                </div>
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'patient.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="15">{{'patient.username' | translate}}</label>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-user"></i>
+                            <input class="mb-2 mr-2 w-full" type="text" pInputText
+                                   placeholder="{{'patient.username' | translate}}"
+                                   id="15" [(ngModel)]="item.username"/>
+                        </div>
+                    </div>
 
-                                            <div class="field col-11 md:col-6">
-                                                <label for="2">{{'patient.gender' | translate}}</label>
-                                                <p-dropdown  appendTo="body"  [options]="genders" [(ngModel)]="item.gender" id="2" [filter]="true" filterMatchMode="contains"
-                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'patient.gender' | translate}}"  >
-                                                </p-dropdown>
-                                                
-                                            </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="11">{{'patient.email' | translate}}</label>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-envelope"></i>
+                            <input class="mb-2 mr-2 w-full" type="text" pInputText
+                                   placeholder="{{'patient.email' | translate}}"
+                                   id="11" [(ngModel)]="item.email"/>
+                        </div>
+                    </div>
 
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="3">{{'patient.address' | translate}}</label>
-                                                    <textarea id="3" pInputTextarea rows="5" cols="30" placeholder="{{'patient.address' | translate}}"  [(ngModel)]="item.address"
-                                                             ></textarea>
-                                                    
-                                                </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'patient.dateOfBirth' | translate}}</label>
+                        <p-calendar appendTo="body" id="1" [showTime]="true" [showSeconds]="false"
+                                    placeholder="{{'patient.dateOfBirth' | translate}}"
+                                    [(ngModel)]="item.dateOfBirth"
+                                    dateFormat="{{dateFormat}}"
+                                    styleClass="w-full">
+                        </p-calendar>
+                    </div>
 
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="4">{{'patient.emergencyContact' | translate}}</label>
-                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'patient.emergencyContact' | translate}}" id="4" [(ngModel)]="item.emergencyContact"
-                                                             />
-                                                    
-                                                </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'patient.gender' | translate}}</label>
+                        <p-dropdown appendTo="body" [options]="genders" [(ngModel)]="item.gender"
+                                    id="2" [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true" optionLabel="libelle"
+                                    placeholder="{{'patient.gender' | translate}}"
+                                    styleClass="w-full">
+                        </p-dropdown>
+                    </div>
 
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'patient.emergencyContact' | translate}}</label>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-phone"></i>
+                            <input class="mb-2 mr-2 w-full" type="text" pInputText
+                                   placeholder="{{'patient.emergencyContact' | translate}}"
+                                   id="4" [(ngModel)]="item.emergencyContact"/>
+                        </div>
+                    </div>
 
-                                            <div class="field col-11 md:col-6">
-                                                <label for="5">{{'patient.doctorInCharge' | translate}}</label>
-                                                <p-dropdown  appendTo="body"  [options]="doctorInCharges" [(ngModel)]="item.doctorInCharge" id="5" [filter]="true" filterMatchMode="contains"
-                                                        [showClear]="true" optionLabel="email" placeholder="{{'patient.doctorInCharge' | translate}}"  >
-                                                </p-dropdown>
-                                                
-                                            </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'patient.doctorInCharge' | translate}}</label>
+                        <p-dropdown appendTo="body" [options]="doctorInCharges"
+                                    [(ngModel)]="item.doctorInCharge" id="5"
+                                    [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true" optionLabel="email"
+                                    placeholder="{{'patient.doctorInCharge' | translate}}"
+                                    styleClass="w-full">
+                        </p-dropdown>
+                    </div>
 
-                                                <div class="field align-inputswitch col-12  md:col-6">
-                                                    <div  class="label-inputswitch">
-                                                        <label for="8">{{'patient.passwordChanged' | translate}}</label>
-                                                    </div>
-                                                    <div class="input-switch">
-                                                        <p-inputSwitch id="8"  [(ngModel)]="item.passwordChanged"
-                                                                 >
-                                                        </p-inputSwitch>
-                                                        
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="field align-inputswitch col-12  md:col-6">
-                                                    <div  class="label-inputswitch">
-                                                        <label for="9">{{'patient.accountNonLocked' | translate}}</label>
-                                                    </div>
-                                                    <div class="input-switch">
-                                                        <p-inputSwitch id="9"  [(ngModel)]="item.accountNonLocked"
-                                                                 >
-                                                        </p-inputSwitch>
-                                                        
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="10">{{'patient.password' | translate}}</label>
-                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'patient.password' | translate}}" id="10" [(ngModel)]="item.password"
-                                                             />
-                                                    
-                                                </div>
-
-
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="11">{{'patient.email' | translate}}</label>
-                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'patient.email' | translate}}" id="11" [(ngModel)]="item.email"
-                                                             />
-                                                    
-                                                </div>
-
-
-                                                <div class="field align-inputswitch col-12  md:col-6">
-                                                    <div  class="label-inputswitch">
-                                                        <label for="12">{{'patient.enabled' | translate}}</label>
-                                                    </div>
-                                                    <div class="input-switch">
-                                                        <p-inputSwitch id="12"  [(ngModel)]="item.enabled"
-                                                                 >
-                                                        </p-inputSwitch>
-                                                        
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="field align-inputswitch col-12  md:col-6">
-                                                    <div  class="label-inputswitch">
-                                                        <label for="13">{{'patient.credentialsNonExpired' | translate}}</label>
-                                                    </div>
-                                                    <div class="input-switch">
-                                                        <p-inputSwitch id="13"  [(ngModel)]="item.credentialsNonExpired"
-                                                                 >
-                                                        </p-inputSwitch>
-                                                        
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="field align-inputswitch col-12  md:col-6">
-                                                    <div  class="label-inputswitch">
-                                                        <label for="14">{{'patient.accountNonExpired' | translate}}</label>
-                                                    </div>
-                                                    <div class="input-switch">
-                                                        <p-inputSwitch id="14"  [(ngModel)]="item.accountNonExpired"
-                                                                 >
-                                                        </p-inputSwitch>
-                                                        
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="15">{{'patient.username' | translate}}</label>
-                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'patient.username' | translate}}" id="15" [(ngModel)]="item.username"
-                                                             />
-                                                    
-                                                </div>
-
-
-                                </div>
-                            </p-tabPanel>
-                                    <p-tabPanel header="{{'patient.infirmierPatients' | translate}}">
-                                                <div class="p-col">
-                                                    <div class="grid">
-                                                                    <div class="field col-11 md:col-6">
-                                                                        <label>Infirmier</label>
-                                                                        <p-dropdown  appendTo="body"  [options]="infirmiers" [(ngModel)]="infirmierPatientsElement.infirmier"
-                                                                                     id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="email"
-                                                                                     placeholder="Infirmier"  >
-                                                                        </p-dropdown>
-                                                                        
-                                                                    </div>
-
-                                                                    <div class="field col-12 md:col-6">
-                                                                        <label for="3">Date debut</label>
-                                                                        <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="Date debut" [(ngModel)]="infirmierPatientsElement.dateDebut"
-                                                                                dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
-                                                                        
-                                                                    </div>
-                                                                    <div class="field col-12 md:col-6">
-                                                                        <label for="4">Date fin</label>
-                                                                        <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="Date fin" [(ngModel)]="infirmierPatientsElement.dateFin"
-                                                                                dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
-                                                                        
-                                                                    </div>
-                                                        <div class="field col-12 md:col-1">
-                                                            <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addInfirmierPatients()"></button>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="p-col">
-                                                    <div class="card">
-                                                        <p-table [value]="item.infirmierPatients" [scrollable]="true" scrollHeight="200px">
-                                                            <ng-template pTemplate="header">
-                                                                <tr>
-                                                                                <th>Infirmier</th>
-                                                                                <th>Date debut</th>
-                                                                                <th>Date fin</th>
-                                                                    <th>Actions</th>
-                                                                </tr>
-                                                            </ng-template>
-                                                            <ng-template pTemplate="body" let-p let-i="rowIndex">
-                                                                <tr>
-                                                                            <td>{{p.infirmier?.email}}</td>
-                                                                                <td>{{p.dateDebut | date: dateFormatColumn}}</td>
-                                                                                <td>{{p.dateFin | date: dateFormatColumn}}</td>
-                                                                    <td>
-                                                                        <button (click)="deleteInfirmierPatients(p,i)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
-                                                                        <button (click)="editInfirmierPatients(p,i)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
-                                                                    </td>
-                                                                </tr>
-                                                            </ng-template>
-                                                        </p-table>
-                                                    </div>
-
-                                                </div>
-                                    </p-tabPanel>
-
-                                    <p-tabPanel header="{{'patient.warningPatients' | translate}}">
-                                                <div class="p-col">
-                                                    <div class="grid">
-                                                                    <div class="field col-12 md:col-6">
-                                                                        <label for="2">{{'warningPatient.message' | translate}}</label>
-                                                                        <textarea id="2" pInputTextarea rows="5" cols="30" placeholder="{{'warningPatient.message' | translate}}"  [(ngModel)]="warningPatientsElement.message"
-                                                                                 ></textarea>
-                                                                        
-                                                                    </div>
-                                                                    <div class="field col-11 md:col-6">
-                                                                        <label>Warning type</label>
-                                                                        <p-dropdown  appendTo="body"  [options]="warningTypes" [(ngModel)]="warningPatientsElement.warningType"
-                                                                                     id="3"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="libelle"
-                                                                                     placeholder="Warning type"  >
-                                                                        </p-dropdown>
-                                                                        
-                                                                    </div>
-
-                                                                    <div class="field col-12 md:col-6">
-                                                                        <label for="4">Date warning</label>
-                                                                        <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="Date warning" [(ngModel)]="warningPatientsElement.dateWarning"
-                                                                                dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
-                                                                        
-                                                                    </div>
-                                                        <div class="field col-12 md:col-1">
-                                                            <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addWarningPatients()"></button>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="p-col">
-                                                    <div class="card">
-                                                        <p-table [value]="item.warningPatients" [scrollable]="true" scrollHeight="200px">
-                                                            <ng-template pTemplate="header">
-                                                                <tr>
-                                                                                <th>Message</th>
-                                                                                <th>Warning type</th>
-                                                                                <th>Date warning</th>
-                                                                    <th>Actions</th>
-                                                                </tr>
-                                                            </ng-template>
-                                                            <ng-template pTemplate="body" let-p let-i="rowIndex">
-                                                                <tr>
-                                                                                <td>{{p.message}}</td>
-                                                                            <td>{{p.warningType?.libelle}}</td>
-                                                                                <td>{{p.dateWarning | date: dateFormatColumn}}</td>
-                                                                    <td>
-                                                                        <button (click)="deleteWarningPatients(p,i)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
-                                                                        <button (click)="editWarningPatients(p,i)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
-                                                                    </td>
-                                                                </tr>
-                                                            </ng-template>
-                                                        </p-table>
-                                                    </div>
-
-                                                </div>
-                                    </p-tabPanel>
-
-
-                        </p-tabView>
-
-            </ng-template>
-
-            <ng-template pTemplate="footer" >
-                <div class="p-flexbox">
-
-                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
-
-
-                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
-
-
+                    <div class="field col-12">
+                        <label for="3">{{'patient.address' | translate}}</label>
+                        <textarea id="3" pInputTextarea rows="5" cols="30"
+                                  placeholder="{{'patient.address' | translate}}"
+                                  [(ngModel)]="item.address"
+                                  class="w-full">
+                        </textarea>
+                    </div>
                 </div>
-            </ng-template>
+            </p-tabPanel>
 
-    </p-dialog>
+            <!-- Infirmier Patients Tab -->
+            <p-tabPanel header="{{'patient.infirmierPatients' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label>Infirmier</label>
+                        <p-dropdown appendTo="body" [options]="infirmiers"
+                                    [(ngModel)]="infirmierPatientsElement.infirmier"
+                                    [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true" optionLabel="email"
+                                    placeholder="Infirmier" styleClass="w-full">
+                        </p-dropdown>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <label>Date debut</label>
+                        <p-calendar appendTo="body" [showTime]="true"
+                                    [showSeconds]="false" placeholder="Date debut"
+                                    [(ngModel)]="infirmierPatientsElement.dateDebut"
+                                    dateFormat="{{dateFormat}}" [showIcon]="true"
+                                    styleClass="w-full">
+                        </p-calendar>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <label>Date fin</label>
+                        <p-calendar appendTo="body" [showTime]="true"
+                                    [showSeconds]="false" placeholder="Date fin"
+                                    [(ngModel)]="infirmierPatientsElement.dateFin"
+                                    dateFormat="{{dateFormat}}" [showIcon]="true"
+                                    styleClass="w-full">
+                        </p-calendar>
+                    </div>
+
+                    <div class="field col-12">
+                        <button pButton pRipple type="button" icon="pi pi-plus"
+                                class="p-button-ok" label="OK"
+                                (click)="addInfirmierPatients()">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card data-table">
+                    <p-table [value]="item.infirmierPatients" [scrollable]="true"
+                             scrollHeight="200px" styleClass="p-datatable-sm">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Infirmier</th>
+                                <th>Date debut</th>
+                                <th>Date fin</th>
+                                <th>Actions</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-p let-i="rowIndex">
+                            <tr>
+                                <td>{{p.infirmier?.email}}</td>
+                                <td>{{p.dateDebut | date: dateFormatColumn}}</td>
+                                <td>{{p.dateFin | date: dateFormatColumn}}</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button (click)="editInfirmierPatients(p,i)" pButton type="button"
+                                                icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2">
+                                        </button>
+                                        <button (click)="deleteInfirmierPatients(p,i)" pButton type="button"
+                                                icon="pi pi-times" class="p-button-rounded p-button-danger">
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel>
+
+            <!-- Warning Patients Tab -->
+            <p-tabPanel header="{{'patient.warningPatients' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label>{{'warningPatient.message' | translate}}</label>
+                        <textarea pInputTextarea rows="5" cols="30"
+                                  placeholder="{{'warningPatient.message' | translate}}"
+                                  [(ngModel)]="warningPatientsElement.message"
+                                  class="w-full">
+                        </textarea>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <label>Warning type</label>
+                        <p-dropdown appendTo="body" [options]="warningTypes"
+                                    [(ngModel)]="warningPatientsElement.warningType"
+                                    [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true" optionLabel="libelle"
+                                    placeholder="Warning type" styleClass="w-full">
+                        </p-dropdown>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <label>Date warning</label>
+                        <p-calendar appendTo="body" [showTime]="true"
+                                    [showSeconds]="false" placeholder="Date warning"
+                                    [(ngModel)]="warningPatientsElement.dateWarning"
+                                    dateFormat="{{dateFormat}}" [showIcon]="true"
+                                    styleClass="w-full">
+                        </p-calendar>
+                    </div>
+
+                    <div class="field col-12">
+                        <button pButton pRipple type="button" icon="pi pi-plus"
+                                class="p-button-ok" label="OK"
+                                (click)="addWarningPatients()">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card data-table">
+                    <p-table [value]="item.warningPatients" [scrollable]="true"
+                             scrollHeight="200px" styleClass="p-datatable-sm">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Message</th>
+                                <th>Warning type</th>
+                                <th>Date warning</th>
+                                <th>Actions</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-p let-i="rowIndex">
+                            <tr>
+                                <td>{{p.message}}</td>
+                                <td>{{p.warningType?.libelle}}</td>
+                                <td>{{p.dateWarning | date: dateFormatColumn}}</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button (click)="editWarningPatients(p,i)" pButton type="button"
+                                                icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2">
+                                        </button>
+                                        <button (click)="deleteWarningPatients(p,i)" pButton type="button"
+                                                icon="pi pi-times" class="p-button-rounded p-button-danger">
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div class="p-flexbox">
+            <button pButton pRipple label="{{'cancel' | translate}}"
+                    icon="pi pi-times" class="p-button-outlined"
+                    (click)="hideCreateDialog()">
+            </button>
+
+            <button pButton pRipple label="{{'validate' | translate}}"
+                    icon="pi pi-check" class="p-button-primary"
+                    (click)="save()">
+            </button>
+        </div>
+    </ng-template>
+</p-dialog>

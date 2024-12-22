@@ -34,7 +34,8 @@ import {WarningTypeDoctorService} from 'src/app/shared/service/doctor/warning/Wa
 
 @Component({
   selector: 'app-patient-edit-doctor',
-  templateUrl: './patient-edit-doctor.component.html'
+  templateUrl: './patient-edit-doctor.component.html',
+    styleUrls: ['./patient-edit-doctor.component.scss']
 })
 export class PatientEditDoctorComponent implements OnInit {
 

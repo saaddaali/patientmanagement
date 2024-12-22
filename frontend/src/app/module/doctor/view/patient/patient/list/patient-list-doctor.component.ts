@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {PatientDoctorService} from 'src/app/shared/service/doctor/patient/PatientDoctor.service';
 import {PatientDto} from 'src/app/shared/model/patient/Patient.model';
 import {PatientCriteria} from 'src/app/shared/criteria/patient/PatientCriteria.model';
@@ -39,7 +39,9 @@ import {WarningTypeDoctorService} from 'src/app/shared/service/doctor/warning/Wa
 
 @Component({
   selector: 'app-patient-list-doctor',
-  templateUrl: './patient-list-doctor.component.html'
+  templateUrl: './patient-list-doctor.component.html',
+    styleUrls: ['./patient-list-doctor.component.scss']
+    //encapsulation: ViewEncapsulation.None
 })
 export class PatientListDoctorComponent implements OnInit {
 

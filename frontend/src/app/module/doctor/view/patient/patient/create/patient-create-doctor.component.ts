@@ -31,12 +31,13 @@ import {WarningPatientDoctorService} from 'src/app/shared/service/doctor/warning
 import {WarningTypeDto} from 'src/app/shared/model/warning/WarningType.model';
 import {WarningTypeDoctorService} from 'src/app/shared/service/doctor/warning/WarningTypeDoctor.service';
 @Component({
-  selector: 'app-patient-create-doctor',
-  templateUrl: './patient-create-doctor.component.html'
+    selector: 'app-patient-create-doctor',
+    templateUrl: './patient-create-doctor.component.html',
+    styleUrls: ['./patient-create-doctor.component.scss']
 })
 export class PatientCreateDoctorComponent  implements OnInit {
 
-	protected _submitted = false;
+    protected _submitted = false;
     protected _errorMessages = new Array<string>();
 
     protected datePipe: DatePipe;
@@ -54,7 +55,7 @@ export class PatientCreateDoctorComponent  implements OnInit {
 
 
 
-	constructor(private service: PatientDoctorService , private infirmierService: InfirmierDoctorService, private infirmierPatientService: InfirmierPatientDoctorService, private genderService: GenderDoctorService, private doctorService: DoctorDoctorService, private warningPatientService: WarningPatientDoctorService, private warningTypeService: WarningTypeDoctorService, @Inject(PLATFORM_ID) private platformId? ) {
+    constructor(private service: PatientDoctorService , private infirmierService: InfirmierDoctorService, private infirmierPatientService: InfirmierPatientDoctorService, private genderService: GenderDoctorService, private doctorService: DoctorDoctorService, private warningPatientService: WarningPatientDoctorService, private warningTypeService: WarningTypeDoctorService, @Inject(PLATFORM_ID) private platformId? ) {
         this.datePipe = ServiceLocator.injector.get(DatePipe);
         this.messageService = ServiceLocator.injector.get(MessageService);
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);
@@ -123,19 +124,19 @@ export class PatientCreateDoctorComponent  implements OnInit {
         if( this.item.infirmierPatients == null )
             this.item.infirmierPatients = new Array<InfirmierPatientDto>();
 
-       this.validateInfirmierPatients();
+        this.validateInfirmierPatients();
 
-       if (this.errorMessages.length === 0) {
+        if (this.errorMessages.length === 0) {
             if (this.infirmierPatientsIndex == -1){
                 this.item.infirmierPatients.push({... this.infirmierPatientsElement});
             }else {
                 this.item.infirmierPatients[this.infirmierPatientsIndex] =this.infirmierPatientsElement;
             }
-              this.infirmierPatientsElement = new InfirmierPatientDto();
-              this.infirmierPatientsIndex = -1;
-       }else{
-           this.messageService.add({severity: 'error',summary: 'Erreurs',detail: 'Merci de corrigé les erreurs suivant : ' + this.errorMessages});
-       }
+            this.infirmierPatientsElement = new InfirmierPatientDto();
+            this.infirmierPatientsIndex = -1;
+        }else{
+            this.messageService.add({severity: 'error',summary: 'Erreurs',detail: 'Merci de corrigé les erreurs suivant : ' + this.errorMessages});
+        }
     }
 
     public deleteInfirmierPatients(p: InfirmierPatientDto, index: number) {
@@ -151,19 +152,19 @@ export class PatientCreateDoctorComponent  implements OnInit {
         if( this.item.warningPatients == null )
             this.item.warningPatients = new Array<WarningPatientDto>();
 
-       this.validateWarningPatients();
+        this.validateWarningPatients();
 
-       if (this.errorMessages.length === 0) {
+        if (this.errorMessages.length === 0) {
             if (this.warningPatientsIndex == -1){
                 this.item.warningPatients.push({... this.warningPatientsElement});
             }else {
                 this.item.warningPatients[this.warningPatientsIndex] =this.warningPatientsElement;
             }
-              this.warningPatientsElement = new WarningPatientDto();
-              this.warningPatientsIndex = -1;
-       }else{
-           this.messageService.add({severity: 'error',summary: 'Erreurs',detail: 'Merci de corrigé les erreurs suivant : ' + this.errorMessages});
-       }
+            this.warningPatientsElement = new WarningPatientDto();
+            this.warningPatientsIndex = -1;
+        }else{
+            this.messageService.add({severity: 'error',summary: 'Erreurs',detail: 'Merci de corrigé les erreurs suivant : ' + this.errorMessages});
+        }
     }
 
     public deleteWarningPatients(p: WarningPatientDto, index: number) {
@@ -184,15 +185,15 @@ export class PatientCreateDoctorComponent  implements OnInit {
 
 
     public async openCreateGender(gender: string) {
-    const isPermistted = await this.roleService.isPermitted('Gender', 'add');
-    if(isPermistted) {
-         this.gender = new GenderDto();
-         this.createGenderDialog = true;
-    }else{
-        this.messageService.add({
-        severity: 'error', summary: 'erreur', detail: 'problème de permission'
-        });
-     }
+        const isPermistted = await this.roleService.isPermitted('Gender', 'add');
+        if(isPermistted) {
+            this.gender = new GenderDto();
+            this.createGenderDialog = true;
+        }else{
+            this.messageService.add({
+                severity: 'error', summary: 'erreur', detail: 'problème de permission'
+            });
+        }
     }
 
     get doctorInCharge(): DoctorDto {
