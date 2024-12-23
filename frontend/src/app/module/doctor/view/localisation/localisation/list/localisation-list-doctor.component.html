@@ -1,184 +1,211 @@
-<div class="grid"  *ngIf="listActionIsValid">
+<div class="grid" *ngIf="listActionIsValid">
     <div class="col-12">
         <p-toast></p-toast>
-        <div class="card">
-            <p-toolbar styleClass="mb-4">
-                <ng-template pTemplate="left">
-                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate()" *ngIf="createActionIsValid"></button>
-                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
-                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
-                </ng-template>
-                <ng-template pTemplate="right">
-                    <div class="flex">
-                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+        <div class="content-card">
+            <div class="list-header">
+                <div class="title-container">
+                    <h2>{{'localisation.header' | translate}}</h2>
+                    <span class="patient-count">{{totalRecords}} {{'localisations' | translate}}</span>
+                </div>
+            </div>
+
+            <div class="actions-container">
+                <div class="left-actions">
+                    <button pButton
+                            label="{{'delete' | translate}}"
+                            icon="pi pi-trash"
+                            class="p-button-danger"
+                            [disabled]="isSelectionDisabled()"
+                            *ngIf="deleteActionIsValid"
+                            (click)="deleteMultiple()">
+                    </button>
+
+                    <button pButton
+                            label="{{'search' | translate}}"
+                            icon="pi pi-search"
+                            class="p-button-secondary"
+                            (click)="showSearch()">
+                    </button>
+                </div>
+
+                <div class="right-actions">
+                    <button pButton
+                            label="{{'new' | translate}}"
+                            icon="pi pi-plus"
+                            class="p-button-primary"
+                            *ngIf="createActionIsValid"
+                            (click)="openCreate()">
+                    </button>
+                </div>
+            </div>
+
+            <div class="search-panel" *ngIf="findByCriteriaShow">
+                <div class="grid">
+                    <div class="col-12 md:col-4">
+                        <label for="1-2">{{'localisation.patient' | translate}}</label>
+                        <p-dropdown [options]="patients"
+                                    [(ngModel)]="criteria.patient"
+                                    id="1"
+                                    [filter]="true"
+                                    [showClear]="true"
+                                    placeholder="{{'localisation.patient' | translate}}"
+                                    optionLabel="email">
+                        </p-dropdown>
                     </div>
-                </ng-template>
 
-            </p-toolbar>
-            <p-toolbar *ngIf="findByCriteriaShow">
-
-                <div class="col-12">
-                    <div class="flex flex-wrap p-fluid col-12">
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="1-2">{{'localisation.patient' | translate}}</label>
-                            <p-dropdown [options]="patients" [(ngModel)]="criteria.patient" id="1" [filter]="true" class="p-fluid"
-                                        [showClear]="true"  placeholder="{{'localisation.patient' | translate}}" optionLabel="email">
-                            </p-dropdown>
-                        </div>
-
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label class="font-bold block mb-2" for="2-1">{{'localisation.dateLocalisationMin' | translate}}</label>
-                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateLocalisationFrom"
-                                    id="2-1" dateFormat="dd-MM-yy"  [showIcon]="true"  class="p-fluid"></p-calendar>
-                        </div>
-
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="2-2">{{'localisation.dateLocalisationMax' | translate}}</label>
-                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateLocalisationTo"
-                                    id="2-2" dateFormat="dd-MM-yy"  [showIcon]="true" class="p-fluid"></p-calendar>
-                        </div>
-
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="3-1">{{'localisation.longitudeMin' | translate}}</label>
-                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.longitudeMin" id="3-1"></p-inputNumber>
-                        </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="3-2">{{'localisation.longitudeMax' | translate}}</label>
-                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.longitudeMax" id="3-2"></p-inputNumber>
-                       </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="4-1">{{'localisation.latitudeMin' | translate}}</label>
-                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.latitudeMin" id="4-1"></p-inputNumber>
-                        </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="4-2">{{'localisation.latitudeMax' | translate}}</label>
-                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.latitudeMax" id="4-2"></p-inputNumber>
-                       </div>
-                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
-                            <label  class="font-bold block mb-2" for="5-2">{{'localisation.capteur' | translate}}</label>
-                            <p-dropdown [options]="capteurs" [(ngModel)]="criteria.capteur" id="5" [filter]="true" class="p-fluid"
-                                        [showClear]="true"  placeholder="{{'localisation.capteur' | translate}}" optionLabel="libelle">
-                            </p-dropdown>
-                        </div>
+                    <div class="col-12 md:col-4">
+                        <label for="2-1">{{'localisation.dateLocalisationMin' | translate}}</label>
+                        <p-calendar [(ngModel)]="criteria.dateLocalisationFrom"
+                                    id="2-1"
+                                    [showIcon]="true"
+                                    dateFormat="dd-MM-yy"
+                                    [showButtonBar]="true"
+                                    styleClass="w-full">
+                        </p-calendar>
                     </div>
-                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
-                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
+
+                    <div class="col-12 md:col-4">
+                        <label for="2-2">{{'localisation.dateLocalisationMax' | translate}}</label>
+                        <p-calendar [(ngModel)]="criteria.dateLocalisationTo"
+                                    id="2-2"
+                                    [showIcon]="true"
+                                    dateFormat="dd-MM-yy"
+                                    [showButtonBar]="true"
+                                    styleClass="w-full">
+                        </p-calendar>
+                    </div>
+
+                    <div class="col-12 md:col-4">
+                        <label for="3-1">{{'localisation.longitudeMin' | translate}}</label>
+                        <p-inputNumber mode="decimal" [(ngModel)]="criteria.longitudeMin" id="3-1"></p-inputNumber>
+                    </div>
+
+                    <div class="col-12 md:col-4">
+                        <label for="3-2">{{'localisation.longitudeMax' | translate}}</label>
+                        <p-inputNumber mode="decimal" [(ngModel)]="criteria.longitudeMax" id="3-2"></p-inputNumber>
+                    </div>
+
+                    <div class="col-12 md:col-4">
+                        <label for="4-1">{{'localisation.latitudeMin' | translate}}</label>
+                        <p-inputNumber mode="decimal" [(ngModel)]="criteria.latitudeMin" id="4-1"></p-inputNumber>
+                    </div>
+
+                    <div class="col-12 md:col-4">
+                        <label for="4-2">{{'localisation.latitudeMax' | translate}}</label>
+                        <p-inputNumber mode="decimal" [(ngModel)]="criteria.latitudeMax" id="4-2"></p-inputNumber>
+                    </div>
+
+                    <div class="col-12 md:col-4">
+                        <label for="5-2">{{'localisation.capteur' | translate}}</label>
+                        <p-dropdown [options]="capteurs"
+                                    [(ngModel)]="criteria.capteur"
+                                    id="5"
+                                    [filter]="true"
+                                    [showClear]="true"
+                                    placeholder="{{'localisation.capteur' | translate}}"
+                                    optionLabel="libelle">
+                        </p-dropdown>
                     </div>
                 </div>
 
+                <div class="text-right">
+                    <button pButton
+                            label="{{'validate' | translate}}"
+                            icon="pi pi-search"
+                            class="search-button"
+                            (click)="findPaginatedByCriteria()">
+                    </button>
+                </div>
+            </div>
 
-            </p-toolbar>
+            <p-table #dt [value]="items"
+                     [columns]="cols"
+                     [rows]="10"
+                     [(selection)]="selections"
+                     [rowHover]="true"
+                     dataKey="id"
+                     styleClass="p-datatable-sm">
 
-
-            <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
-                    [globalFilterFields]="['patientemail', 'dateLocalisation', 'longitude', 'latitude', 'capteurlibelle']" [(selection)]="selections"
-                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
-                    currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
-                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
-                <ng-template pTemplate="caption">
-                    <div class="flex flex-column flex-row justify-content-between table-header">
-                        <h5 class="p-m-0">{{'localisation.header' | translate}}</h5>
-                        <span class="p-input-icon-left ml-auto">
-                            <i class="pi pi-search"></i>
-                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')"/>
-                        </span>
-                    </div>
-                </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
                         <th style="width: 3rem">
                             <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                         </th>
-                                
-                        <th pSortableColumn="patient">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'localisation.patient' | translate}}</span>
-                                <p-sortIcon field="patient"></p-sortIcon>
-                            </div>
-                        </th>
-                                
-                                
-                        <th pSortableColumn="dateLocalisation">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'localisation.dateLocalisation' | translate}}</span>
-                                <p-sortIcon field="dateLocalisation"></p-sortIcon>
-                            </div>
-                        </th>
-                                
-                                
-                        <th pSortableColumn="longitude">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'localisation.longitude' | translate}}</span>
-                                <p-sortIcon field="longitude"></p-sortIcon>
-                            </div>
-                        </th>
-                                
-                                
-                        <th pSortableColumn="latitude">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'localisation.latitude' | translate}}</span>
-                                <p-sortIcon field="latitude"></p-sortIcon>
-                            </div>
-                        </th>
-                                
-                                
-                        <th pSortableColumn="capteur">
-                            <div class="p-d-flex p-jc-between p-ai-center">
-                                <span>{{'localisation.capteur' | translate}}</span>
-                                <p-sortIcon field="capteur"></p-sortIcon>
-                            </div>
-                        </th>
-                                
-                        <th>Actions</th>
+                        <th>PATIENT</th>
+                        <th>DATE LOCALISATION</th>
+                        <th>LONGITUDE</th>
+                        <th>LATITUDE</th>
+                        <th>CAPTEUR</th>
+                        <th style="width: 120px">ACTIONS</th>
                     </tr>
                 </ng-template>
+
                 <ng-template pTemplate="body" let-element>
                     <tr>
                         <td>
                             <p-tableCheckbox [value]="element"></p-tableCheckbox>
                         </td>
-                            
                         <td>{{element.patient?.email}}</td>
-                            
-                            
-                        <td>{{element.dateLocalisation | date :'dd/MM/yyyy HH:mm' }}</td>
-                            
-                            
+                        <td>{{element.dateLocalisation | date:'dd/MM/yyyy HH:mm'}}</td>
                         <td>{{element.longitude}}</td>
-                            
-                            
                         <td>{{element.latitude}}</td>
-                            
-                            
                         <td>{{element.capteur?.libelle}}</td>
-                            
                         <td>
-                            <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
-                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
-                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
-                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+                            <div class="action-buttons">
+                                <button pButton
+                                        icon="pi pi-pencil"
+                                        class="p-button-text p-button-info"
+                                        *ngIf="editActionIsValid"
+                                        (click)="edit(element)"
+                                        pTooltip="Edit">
+                                </button>
+                                <button pButton
+                                        icon="pi pi-eye"
+                                        class="p-button-text p-button-help"
+                                        *ngIf="viewActionIsValid"
+                                        (click)="view(element)"
+                                        pTooltip="View">
+                                </button>
+                                <button pButton
+                                        icon="pi pi-trash"
+                                        class="p-button-text p-button-danger"
+                                        *ngIf="deleteActionIsValid"
+                                        (click)="delete(element)"
+                                        pTooltip="Delete">
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 </ng-template>
-
-                <ng-template pTemplate="summary">
-                    <p-paginator  [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)"></p-paginator>
-                    <div class="p-d-flex p-ai-center p-jc-between">
-                        En totale il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'localisation' : 'localisations' : 0 }}.
-                    </div>
-                </ng-template>
             </p-table>
+
+            <!-- Export Button -->
+            <div class="export-container">
+                <p-splitButton label="{{'export' | translate}}"
+                               icon="pi pi-download"
+                               [model]="excelPdfButons"
+                               styleClass="p-button-primary export-button">
+                </p-splitButton>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-wrapper">
+                <p-paginator [rows]="10"
+                             [totalRecords]="totalRecords"
+                             (onPageChange)="onPage($event)"
+                             [showCurrentPageReport]="false"
+                             [showFirstLastIcon]="false">
+                </p-paginator>
+            </div>
         </div>
 
-        <app-localisation-create-doctor  *ngIf="createDialog  && createActionIsValid"></app-localisation-create-doctor>
-        <app-localisation-edit-doctor  *ngIf="editDialog  && editActionIsValid"></app-localisation-edit-doctor>
-        <app-localisation-view-doctor  *ngIf="viewDialog  && viewActionIsValid"></app-localisation-view-doctor>
+        <app-localisation-create-doctor *ngIf="createDialog && createActionIsValid"></app-localisation-create-doctor>
+        <app-localisation-edit-doctor *ngIf="editDialog && editActionIsValid"></app-localisation-edit-doctor>
+        <app-localisation-view-doctor *ngIf="viewDialog && viewActionIsValid"></app-localisation-view-doctor>
         <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
     </div>
 </div>
 
 <p-card header="Permission not allowed" *ngIf="!listActionIsValid">
-    <p class="m-0">
-        You don't have permission to access !
-    </p>
+    <p class="m-0">You don't have permission to access!</p>
 </p-card>

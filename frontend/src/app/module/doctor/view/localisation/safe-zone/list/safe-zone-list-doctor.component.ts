@@ -29,7 +29,8 @@ import {PatientDoctorService} from 'src/app/shared/service/doctor/patient/Patien
 
 @Component({
   selector: 'app-safe-zone-list-doctor',
-  templateUrl: './safe-zone-list-doctor.component.html'
+  templateUrl: './safe-zone-list-doctor.component.html',
+    styleUrls: ['./safe-zone-list-doctor.component.scss']
 })
 export class SafeZoneListDoctorComponent implements OnInit {
 

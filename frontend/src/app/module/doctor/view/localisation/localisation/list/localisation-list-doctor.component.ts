@@ -31,7 +31,8 @@ import {PatientDoctorService} from 'src/app/shared/service/doctor/patient/Patien
 
 @Component({
   selector: 'app-localisation-list-doctor',
-  templateUrl: './localisation-list-doctor.component.html'
+  templateUrl: './localisation-list-doctor.component.html',
+    styleUrls: ['./localisation-list-doctor.component.scss']
 })
 export class LocalisationListDoctorComponent implements OnInit {
 

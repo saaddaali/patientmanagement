@@ -31,7 +31,8 @@ import {WarningTypeDoctorService} from 'src/app/shared/service/doctor/warning/Wa
 
 @Component({
   selector: 'app-warning-patient-list-doctor',
-  templateUrl: './warning-patient-list-doctor.component.html'
+  templateUrl: './warning-patient-list-doctor.component.html',
+    styleUrls: ['./warning-patient-list-doctor.component.scss']
 })
 export class WarningPatientListDoctorComponent implements OnInit {
 

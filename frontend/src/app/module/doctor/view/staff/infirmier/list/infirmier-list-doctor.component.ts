@@ -29,7 +29,8 @@ import {SpecializationDoctorService} from 'src/app/shared/service/doctor/staff/S
 
 @Component({
   selector: 'app-infirmier-list-doctor',
-  templateUrl: './infirmier-list-doctor.component.html'
+  templateUrl: './infirmier-list-doctor.component.html',
+    styleUrls: ['./infirmier-list-doctor.component.scss']
 })
 export class InfirmierListDoctorComponent implements OnInit {
 
