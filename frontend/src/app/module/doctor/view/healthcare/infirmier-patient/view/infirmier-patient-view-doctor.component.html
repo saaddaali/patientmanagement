@@ -1,40 +1,85 @@
+<!-- view-infirmier-patient.component.html -->
+<p-dialog [(visible)]="viewDialog"
+          [style]="{width: '70vw'}"
+          header="{{'infirmierPatient.tabPan' | translate}}"
+          [modal]="true"
+          styleClass="p-fluid edit-dialog"
+          [draggable]="false"
+          [resizable]="false">
 
-<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'infirmierPatient.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <p-tabView>
             <p-tabPanel header="{{'infirmierPatient.tabPan' | translate}}">
                 <div class="grid">
                     <div class="field col-12 md:col-6">
                         <label for="1">{{'infirmierPatient.patient' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'infirmierPatient.patient' | translate}}" autofocus  id="1" [ngModel]="item.patient?.email">
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-user"></i>
+                            <input class="mb-2 mr-2 w-full"
+                                   type="text"
+                                   pInputText
+                                   [disabled]="true"
+                                   placeholder="{{'infirmierPatient.patient' | translate}}"
+                                   id="1"
+                                   [ngModel]="item.patient?.email"/>
+                        </div>
                     </div>
+
                     <div class="field col-12 md:col-6">
                         <label for="2">{{'infirmierPatient.infirmier' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'infirmierPatient.infirmier' | translate}}" autofocus  id="2" [ngModel]="item.infirmier?.email">
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-user"></i>
+                            <input class="mb-2 mr-2 w-full"
+                                   type="text"
+                                   pInputText
+                                   [disabled]="true"
+                                   placeholder="{{'infirmierPatient.infirmier' | translate}}"
+                                   id="2"
+                                   [ngModel]="item.infirmier?.email"/>
+                        </div>
                     </div>
+
                     <div class="field col-12 md:col-6">
                         <label for="3">{{'infirmierPatient.dateDebut' | translate}}</label>
-                        <p-calendar id="3" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'infirmierPatient.dateDebut' | translate}}"  [ngModel]="item.dateDebut" dateFormat="{{dateFormat}}"></p-calendar>
+                        <p-calendar appendTo="body"
+                                    id="3"
+                                    [disabled]="true"
+                                    [showTime]="true"
+                                    [showSeconds]="false"
+                                    placeholder="{{'infirmierPatient.dateDebut' | translate}}"
+                                    [ngModel]="item.dateDebut"
+                                    dateFormat="{{dateFormat}}"
+                                    styleClass="w-full">
+                        </p-calendar>
                     </div>
+
                     <div class="field col-12 md:col-6">
                         <label for="4">{{'infirmierPatient.dateFin' | translate}}</label>
-                        <p-calendar id="4" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'infirmierPatient.dateFin' | translate}}"  [ngModel]="item.dateFin" dateFormat="{{dateFormat}}"></p-calendar>
+                        <p-calendar appendTo="body"
+                                    id="4"
+                                    [disabled]="true"
+                                    [showTime]="true"
+                                    [showSeconds]="false"
+                                    placeholder="{{'infirmierPatient.dateFin' | translate}}"
+                                    [ngModel]="item.dateFin"
+                                    dateFormat="{{dateFormat}}"
+                                    styleClass="w-full">
+                        </p-calendar>
                     </div>
                 </div>
             </p-tabPanel>
-
         </p-tabView>
-
     </ng-template>
 
-    <ng-template pTemplate="footer" >
-        <div class="p-flexbox">
-            <div>
-                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
-            </div>
+    <ng-template pTemplate="footer">
+        <div class="dialog-footer">
+            <button pButton
+                    pRipple
+                    label="{{'cancel' | translate}}"
+                    icon="pi pi-times"
+                    class="p-button-text"
+                    (click)="hideViewDialog()">
+            </button>
         </div>
     </ng-template>
 </p-dialog>
-
-
-
