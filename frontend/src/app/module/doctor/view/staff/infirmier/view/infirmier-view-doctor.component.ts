@@ -26,7 +26,8 @@ import {SpecializationDto} from 'src/app/shared/model/staff/Specialization.model
 import {SpecializationDoctorService} from 'src/app/shared/service/doctor/staff/SpecializationDoctor.service';
 @Component({
   selector: 'app-infirmier-view-doctor',
-  templateUrl: './infirmier-view-doctor.component.html'
+  templateUrl: './infirmier-view-doctor.component.html',
+    styleUrls: ['./infirmier-view-doctor.component.scss']
 })
 export class InfirmierViewDoctorComponent implements OnInit {
 
