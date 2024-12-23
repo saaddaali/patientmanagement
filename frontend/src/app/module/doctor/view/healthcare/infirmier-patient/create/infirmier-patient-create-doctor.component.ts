@@ -24,7 +24,8 @@ import {PatientDto} from 'src/app/shared/model/patient/Patient.model';
 import {PatientDoctorService} from 'src/app/shared/service/doctor/patient/PatientDoctor.service';
 @Component({
   selector: 'app-infirmier-patient-create-doctor',
-  templateUrl: './infirmier-patient-create-doctor.component.html'
+  templateUrl: './infirmier-patient-create-doctor.component.html',
+    styleUrls: ['./infirmier-patient-create-doctor.component.scss']
 })
 export class InfirmierPatientCreateDoctorComponent  implements OnInit {
 

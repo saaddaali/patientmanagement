@@ -1,0 +1,206 @@
+/* create-infirmier-patient.component.scss */
+:host ::ng-deep {
+    .p-dialog {
+        border-radius: 20px;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+
+        .p-dialog-header {
+            padding: 1.5rem 2rem;
+            background: #ffffff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+
+            .p-dialog-title {
+                color: #4338ca;
+                font-weight: 600;
+                font-size: 1.75rem;
+                flex: 0 1 auto;
+            }
+        }
+
+        .p-dialog-header-icons {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .p-dialog-header-icon:not(.p-dialog-header-close) {
+            display: none;
+        }
+
+        .p-dialog-content {
+            padding: 0 2rem 2rem;
+            background: #ffffff;
+        }
+    }
+
+    .field {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+
+        .p-input-icon-right {
+            width: 100%;
+
+            > i {
+                color: #4338ca;
+                font-size: 1rem;
+                right: 0.75rem;
+            }
+
+            > input {
+                padding-right: 2.5rem;
+            }
+        }
+
+        .p-inputtext,
+        .p-dropdown,
+        .p-calendar .p-inputtext,
+        .p-inputtextarea {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.625rem 0.75rem;
+            font-size: 0.875rem;
+            background: #ffffff;
+            color: #1f2937;
+            transition: all 0.2s;
+            width: 100%;
+
+            &:hover {
+                border-color: #4f46e5;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: #4f46e5;
+                box-shadow: 0 0 0 2px #eef2ff;
+            }
+
+            &::placeholder {
+                color: #9ca3af;
+            }
+        }
+
+        .p-calendar {
+            width: 100%;
+
+            .p-button {
+                background: transparent;
+                border: none;
+                color: #4338ca;
+
+                &:hover {
+                    background: transparent;
+                }
+
+                .pi {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .p-dropdown {
+            .p-dropdown-label {
+                padding: 0.625rem 0.75rem;
+                font-size: 0.875rem;
+
+                &.p-placeholder {
+                    color: #9ca3af;
+                }
+            }
+
+            .p-dropdown-trigger {
+                width: 2.5rem;
+                padding: 0 0.75rem;
+                color: #4338ca;
+            }
+        }
+    }
+
+    .p-tabview {
+        .p-tabview-nav {
+            border: none;
+            padding: 0.5rem 0;
+            margin-bottom: 1.5rem;
+            background: transparent;
+            border-bottom: 1px solid #f0f0f0;
+
+            li {
+                margin-right: 1rem;
+
+                .p-tabview-nav-link {
+                    background: transparent;
+                    border: none;
+                    border-radius: 8px;
+                    padding: 0.75rem 1rem;
+                    font-weight: 500;
+                    color: #666;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        background: #f4f4f5;
+                        color: #4338ca;
+                    }
+                }
+
+                &.p-highlight .p-tabview-nav-link {
+                    background: #eef2ff;
+                    color: #4338ca;
+                }
+            }
+        }
+
+        .p-tabview-panels {
+            padding: 1.5rem 0;
+            background: transparent;
+        }
+    }
+
+    .p-flexbox {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem;
+        background: #ffffff;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        .p-button {
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            padding: 0.625rem 1.25rem;
+
+            &.p-button-outlined {
+                background: #ef4444;
+                border: none;
+                color: white;
+
+                &:hover {
+                    background: #dc2626;
+                }
+            }
+
+            &.p-button-primary {
+                background: #4338ca;
+                border: none;
+                color: white;
+
+                &:hover {
+                    background: #3730a3;
+                }
+            }
+        }
+    }
+}
