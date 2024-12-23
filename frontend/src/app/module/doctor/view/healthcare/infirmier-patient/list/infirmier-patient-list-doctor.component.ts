@@ -31,7 +31,8 @@ import {PatientDoctorService} from 'src/app/shared/service/doctor/patient/Patien
 
 @Component({
   selector: 'app-infirmier-patient-list-doctor',
-  templateUrl: './infirmier-patient-list-doctor.component.html'
+  templateUrl: './infirmier-patient-list-doctor.component.html',
+    styleUrls: ['./infirmier-patient-list-doctor.component.scss']
 })
 export class InfirmierPatientListDoctorComponent implements OnInit {
 
@@ -81,6 +82,8 @@ export class InfirmierPatientListDoctorComponent implements OnInit {
 
     }
 
+    first: number = 0;
+    rows: number = 10;
 
 
 
@@ -124,8 +127,10 @@ export class InfirmierPatientListDoctorComponent implements OnInit {
     }
 
     public onPage(event: any) {
-        this.criteria.page = event.page;
-        this.criteria.maxResults = event.rows;
+        this.first = event.first;
+        this.rows = event.rows;
+        this.criteria.page = Math.floor(this.first / this.rows);
+        this.criteria.maxResults = this.rows;
         this.findPaginatedByCriteria();
     }
 

@@ -26,7 +26,8 @@ import {PatientDoctorService} from 'src/app/shared/service/doctor/patient/Patien
 
 @Component({
   selector: 'app-infirmier-patient-edit-doctor',
-  templateUrl: './infirmier-patient-edit-doctor.component.html'
+  templateUrl: './infirmier-patient-edit-doctor.component.html',
+    styleUrls: ['./infirmier-patient-edit-doctor.component.scss']
 })
 export class InfirmierPatientEditDoctorComponent implements OnInit {
 

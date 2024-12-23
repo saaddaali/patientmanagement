@@ -41,7 +41,6 @@ import {WarningTypeDoctorService} from 'src/app/shared/service/doctor/warning/Wa
   selector: 'app-patient-list-doctor',
   templateUrl: './patient-list-doctor.component.html',
     styleUrls: ['./patient-list-doctor.component.scss']
-    //encapsulation: ViewEncapsulation.None
 })
 export class PatientListDoctorComponent implements OnInit {
 
