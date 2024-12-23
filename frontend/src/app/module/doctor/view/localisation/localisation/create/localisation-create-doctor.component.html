@@ -1,64 +1,85 @@
-        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'localisation.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
-            <ng-template pTemplate="content" >
-                        <p-tabView>
-                            <p-tabPanel header="{{'localisation.tabPan' | translate}}">
-                                <div class="grid">
+<p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}"
+          header="{{'localisation.tabPan' | translate}}"
+          [modal]="true"
+          styleClass="p-fluid"
+          [draggable]="false"
+          [resizable]="false">
 
-                                            <div class="field col-11 md:col-6">
-                                                <label for="1">{{'localisation.patient' | translate}}</label>
-                                                <p-dropdown  appendTo="body"  [options]="patients" [(ngModel)]="item.patient" id="1" [filter]="true" filterMatchMode="contains"
-                                                        [showClear]="true" optionLabel="email" placeholder="{{'localisation.patient' | translate}}"  >
-                                                </p-dropdown>
-                                                
-                                            </div>
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'localisation.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'localisation.patient' | translate}}</label>
+                        <p-dropdown appendTo="body" [options]="patients"
+                                    [(ngModel)]="item.patient" id="1"
+                                    [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true" optionLabel="email"
+                                    placeholder="{{'localisation.patient' | translate}}"
+                                    styleClass="w-full">
+                        </p-dropdown>
+                    </div>
 
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="2">{{'localisation.dateLocalisation' | translate}}</label>
-                                                    <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'localisation.dateLocalisation' | translate}}"  [(ngModel)]="item.dateLocalisation"
-                                                            dateFormat="{{dateFormat}}"  >
-                                                    </p-calendar>
-                                                    
-                                                </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'localisation.dateLocalisation' | translate}}</label>
+                        <p-calendar appendTo="body" id="2" [showTime]="true"
+                                    [showSeconds]="false"
+                                    placeholder="{{'localisation.dateLocalisation' | translate}}"
+                                    [(ngModel)]="item.dateLocalisation"
+                                    dateFormat="{{dateFormat}}"
+                                    [showIcon]="true"
+                                    styleClass="w-full">
+                        </p-calendar>
+                    </div>
 
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="3">{{'localisation.longitude' | translate}}</label>
-                                                    <p-inputNumber class="mb-2 mr-2" id="3" placeholder="{{'localisation.longitude' | translate}}" [(ngModel)]="item.longitude"  >
-                                                    </p-inputNumber>
-                                                    
-                                                </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'localisation.longitude' | translate}}</label>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-map-marker"></i>
+                            <p-inputNumber class="w-full" id="3"
+                                           placeholder="{{'localisation.longitude' | translate}}"
+                                           [(ngModel)]="item.longitude">
+                            </p-inputNumber>
+                        </div>
+                    </div>
 
-                                                <div class="field col-12 md:col-6">
-                                                    <label for="4">{{'localisation.latitude' | translate}}</label>
-                                                    <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'localisation.latitude' | translate}}" [(ngModel)]="item.latitude"  >
-                                                    </p-inputNumber>
-                                                    
-                                                </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'localisation.latitude' | translate}}</label>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-map-marker"></i>
+                            <p-inputNumber class="w-full" id="4"
+                                           placeholder="{{'localisation.latitude' | translate}}"
+                                           [(ngModel)]="item.latitude">
+                            </p-inputNumber>
+                        </div>
+                    </div>
 
-                                            <div class="field col-11 md:col-6">
-                                                <label for="5">{{'localisation.capteur' | translate}}</label>
-                                                <p-dropdown  appendTo="body"  [options]="capteurs" [(ngModel)]="item.capteur" id="5" [filter]="true" filterMatchMode="contains"
-                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'localisation.capteur' | translate}}"  >
-                                                </p-dropdown>
-                                                
-                                            </div>
-
-                                </div>
-                            </p-tabPanel>
-
-                        </p-tabView>
-
-            </ng-template>
-
-            <ng-template pTemplate="footer" >
-                <div class="p-flexbox">
-
-                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
-
-
-                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
-
-
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'localisation.capteur' | translate}}</label>
+                        <p-dropdown appendTo="body" [options]="capteurs"
+                                    [(ngModel)]="item.capteur" id="5"
+                                    [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true" optionLabel="libelle"
+                                    placeholder="{{'localisation.capteur' | translate}}"
+                                    styleClass="w-full">
+                        </p-dropdown>
+                    </div>
                 </div>
-            </ng-template>
+            </p-tabPanel>
+        </p-tabView>
+    </ng-template>
 
-    </p-dialog>
+    <ng-template pTemplate="footer">
+        <div class="p-flexbox">
+            <button pButton pRipple label="{{'cancel' | translate}}"
+                    icon="pi pi-times" class="p-button-outlined"
+                    (click)="hideCreateDialog()">
+            </button>
+
+            <button pButton pRipple label="{{'validate' | translate}}"
+                    icon="pi pi-check" class="p-button-primary"
+                    (click)="save()">
+            </button>
+        </div>
+    </ng-template>
+</p-dialog>

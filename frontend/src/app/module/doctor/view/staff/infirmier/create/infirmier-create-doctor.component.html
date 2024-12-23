@@ -1,10 +1,12 @@
-<p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}"
-          header="{{'infirmier.tabPan' | translate}}"
-          [modal]="true"
-          [maximizable]="false"
-          [draggable]="false"
-          [resizable]="false"
-          styleClass="p-fluid">
+<p-dialog
+    [(visible)]="createDialog"
+    [style]="{width: '70vw'}"
+    header="Create Infirmier"
+    [modal]="true"
+    [maximizable]="false"
+    [draggable]="false"
+    [resizable]="false"
+    styleClass="p-fluid">
 
     <ng-template pTemplate="content">
         <p-tabView>
@@ -49,6 +51,41 @@
                                     placeholder="{{'infirmier.specialization' | translate}}"
                                     styleClass="w-full">
                         </p-dropdown>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <div class="field-with-switch">
+                            <label for="2">{{'infirmier.passwordChanged' | translate}}</label>
+                            <p-inputSwitch id="2" [(ngModel)]="item.passwordChanged"></p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <div class="field-with-switch">
+                            <label for="3">{{'infirmier.accountNonLocked' | translate}}</label>
+                            <p-inputSwitch id="3" [(ngModel)]="item.accountNonLocked"></p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <div class="field-with-switch">
+                            <label for="6">{{'infirmier.enabled' | translate}}</label>
+                            <p-inputSwitch id="6" [(ngModel)]="item.enabled"></p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <div class="field-with-switch">
+                            <label for="7">{{'infirmier.credentialsNonExpired' | translate}}</label>
+                            <p-inputSwitch id="7" [(ngModel)]="item.credentialsNonExpired"></p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                        <div class="field-with-switch">
+                            <label for="8">{{'infirmier.accountNonExpired' | translate}}</label>
+                            <p-inputSwitch id="8" [(ngModel)]="item.accountNonExpired"></p-inputSwitch>
+                        </div>
                     </div>
                 </div>
             </p-tabPanel>

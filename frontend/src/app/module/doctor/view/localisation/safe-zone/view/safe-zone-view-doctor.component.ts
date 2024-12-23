@@ -26,7 +26,8 @@ import {PatientDto} from 'src/app/shared/model/patient/Patient.model';
 import {PatientDoctorService} from 'src/app/shared/service/doctor/patient/PatientDoctor.service';
 @Component({
   selector: 'app-safe-zone-view-doctor',
-  templateUrl: './safe-zone-view-doctor.component.html'
+  templateUrl: './safe-zone-view-doctor.component.html',
+    styleUrls: ['./safe-zone-view-doctor.component.scss']
 })
 export class SafeZoneViewDoctorComponent implements OnInit {
 

@@ -1,55 +1,72 @@
-    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'safeZone.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
-        <ng-template pTemplate="content" >
-                <p-tabView>
-                    <p-tabPanel header="{{'safeZone.tabPan' | translate}}">
-                        <div class="grid">
+<p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}"
+          header="{{'safeZone.tabPan' | translate}}"
+          [modal]="true"
+          styleClass="p-fluid edit-dialog"
+          [draggable]="false"
+          [resizable]="false">
 
-                                        <div class="field col-12 md:col-6">
-                                            <label for="1">{{'safeZone.centreLongitude' | translate}}</label>
-                                            <p-inputNumber class="mb-2 mr-2" id="1" placeholder="{{'safeZone.centreLongitude' | translate}}" [(ngModel)]="item.centreLongitude"  >
-                                            </p-inputNumber>
-                                            
-                                        </div>
-
-                                        <div class="field col-12 md:col-6">
-                                            <label for="2">{{'safeZone.centreLatitude' | translate}}</label>
-                                            <p-inputNumber class="mb-2 mr-2" id="2" placeholder="{{'safeZone.centreLatitude' | translate}}" [(ngModel)]="item.centreLatitude"  >
-                                            </p-inputNumber>
-                                            
-                                        </div>
-
-                                        <div class="field col-12 md:col-6">
-                                            <label for="3">{{'safeZone.rayon' | translate}}</label>
-                                            <p-inputNumber class="mb-2 mr-2" id="3" placeholder="{{'safeZone.rayon' | translate}}" [(ngModel)]="item.rayon"  >
-                                            </p-inputNumber>
-                                            
-                                        </div>
-
-                                    <div class="field col-11 md:col-6">
-                                        <label for="4">{{'safeZone.linkedPatient' | translate}}</label>
-                                        <p-dropdown  appendTo="body"  [options]="linkedPatients" [(ngModel)]="item.linkedPatient" id="4" [filter]="true" filterMatchMode="contains"
-                                                     [showClear]="true" optionLabel="email" placeholder="{{'safeZone.linkedPatient' | translate}}"  >
-                                        </p-dropdown>
-                                        
-                                    </div>
-
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'safeZone.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'safeZone.centreLongitude' | translate}}</label>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-map-marker"></i>
+                            <p-inputNumber class="w-full" id="1"
+                                           placeholder="{{'safeZone.centreLongitude' | translate}}"
+                                           [(ngModel)]="item.centreLongitude">
+                            </p-inputNumber>
                         </div>
-                    </p-tabPanel>
+                    </div>
 
-                </p-tabView>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'safeZone.centreLatitude' | translate}}</label>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-map-marker"></i>
+                            <p-inputNumber class="w-full" id="2"
+                                           placeholder="{{'safeZone.centreLatitude' | translate}}"
+                                           [(ngModel)]="item.centreLatitude">
+                            </p-inputNumber>
+                        </div>
+                    </div>
 
-        </ng-template>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'safeZone.rayon' | translate}}</label>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-circle"></i>
+                            <p-inputNumber class="w-full" id="3"
+                                           placeholder="{{'safeZone.rayon' | translate}}"
+                                           [(ngModel)]="item.rayon">
+                            </p-inputNumber>
+                        </div>
+                    </div>
 
-        <ng-template pTemplate="footer" >
-            <div class="p-flexbox">
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'safeZone.linkedPatient' | translate}}</label>
+                        <p-dropdown appendTo="body" [options]="linkedPatients"
+                                    [(ngModel)]="item.linkedPatient" id="4"
+                                    [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true" optionLabel="email"
+                                    placeholder="{{'safeZone.linkedPatient' | translate}}"
+                                    styleClass="w-full">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+    </ng-template>
 
-                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
-
-
-                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
-
-
-            </div>
-        </ng-template>
-
-    </p-dialog>
+    <ng-template pTemplate="footer">
+        <div class="dialog-footer">
+            <button pButton pRipple label="{{'cancel' | translate}}"
+                    icon="pi pi-times" class="p-button-text"
+                    (click)="hideEditDialog()">
+            </button>
+            <button pButton pRipple label="{{'validate' | translate}}"
+                    icon="pi pi-check" class="p-button-primary"
+                    (click)="edit()">
+            </button>
+        </div>
+    </ng-template>
+</p-dialog>

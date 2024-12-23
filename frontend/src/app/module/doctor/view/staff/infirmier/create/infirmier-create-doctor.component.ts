@@ -52,6 +52,12 @@ export class InfirmierCreateDoctorComponent  implements OnInit {
 
     ngOnInit(): void {
         this.specializationService.findAll().subscribe((data) => this.specializations = data);
+        this.loadInitialData();
+    }
+//
+    private loadInitialData() {
+        this.specializationService.findAll().subscribe(data => this.specializations = data);
+        this.service.findAll().subscribe(data => this.items = data);
     }
 
 
@@ -87,8 +93,6 @@ export class InfirmierCreateDoctorComponent  implements OnInit {
         this.createDialog = false;
         this.setValidation(true);
     }
-
-
 
 
 

@@ -28,7 +28,8 @@ import {PatientDto} from 'src/app/shared/model/patient/Patient.model';
 import {PatientDoctorService} from 'src/app/shared/service/doctor/patient/PatientDoctor.service';
 @Component({
   selector: 'app-localisation-view-doctor',
-  templateUrl: './localisation-view-doctor.component.html'
+  templateUrl: './localisation-view-doctor.component.html',
+    styleUrls: ['./localisation-view-doctor.component.scss']
 })
 export class LocalisationViewDoctorComponent implements OnInit {
 

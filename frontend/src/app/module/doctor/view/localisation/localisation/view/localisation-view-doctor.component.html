@@ -1,44 +1,79 @@
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}"
+          header="{{'localisation.tabPan' | translate}}"
+          [modal]="true"
+          styleClass="p-fluid edit-dialog"
+          [draggable]="false"
+          [resizable]="false">
 
-<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'localisation.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
         <p-tabView>
             <p-tabPanel header="{{'localisation.tabPan' | translate}}">
                 <div class="grid">
                     <div class="field col-12 md:col-6">
                         <label for="1">{{'localisation.patient' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'localisation.patient' | translate}}" autofocus  id="1" [ngModel]="item.patient?.email">
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-user"></i>
+                            <input class="mb-2 mr-2 w-full" type="text" pInputText
+                                   [disabled]="true"
+                                   placeholder="{{'localisation.patient' | translate}}"
+                                   id="1" [ngModel]="item.patient?.email"/>
+                        </div>
                     </div>
+
                     <div class="field col-12 md:col-6">
                         <label for="2">{{'localisation.dateLocalisation' | translate}}</label>
-                        <p-calendar id="2" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'localisation.dateLocalisation' | translate}}"  [ngModel]="item.dateLocalisation" dateFormat="{{dateFormat}}"></p-calendar>
+                        <p-calendar appendTo="body" id="2" [disabled]="true"
+                                    [showTime]="true" [showSeconds]="false"
+                                    placeholder="{{'localisation.dateLocalisation' | translate}}"
+                                    [ngModel]="item.dateLocalisation"
+                                    dateFormat="{{dateFormat}}"
+                                    styleClass="w-full">
+                        </p-calendar>
                     </div>
+
                     <div class="field col-12 md:col-6">
                         <label for="3">{{'localisation.longitude' | translate}}</label>
-                        <p-inputNumber class="mb-2 mr-2" id="3" [disabled]="true" placeholder="{{'localisation.longitude' | translate}}" [ngModel]="item.longitude"></p-inputNumber>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-map-marker"></i>
+                            <p-inputNumber class="w-full" id="3" [disabled]="true"
+                                           placeholder="{{'localisation.longitude' | translate}}"
+                                           [ngModel]="item.longitude">
+                            </p-inputNumber>
+                        </div>
                     </div>
+
                     <div class="field col-12 md:col-6">
                         <label for="4">{{'localisation.latitude' | translate}}</label>
-                        <p-inputNumber class="mb-2 mr-2" id="4" [disabled]="true" placeholder="{{'localisation.latitude' | translate}}" [ngModel]="item.latitude"></p-inputNumber>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-map-marker"></i>
+                            <p-inputNumber class="w-full" id="4" [disabled]="true"
+                                           placeholder="{{'localisation.latitude' | translate}}"
+                                           [ngModel]="item.latitude">
+                            </p-inputNumber>
+                        </div>
                     </div>
+
                     <div class="field col-12 md:col-6">
                         <label for="5">{{'localisation.capteur' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'localisation.capteur' | translate}}" autofocus  id="5" [ngModel]="item.capteur?.libelle">
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-chip"></i>
+                            <input class="mb-2 mr-2 w-full" type="text" pInputText
+                                   [disabled]="true"
+                                   placeholder="{{'localisation.capteur' | translate}}"
+                                   id="5" [ngModel]="item.capteur?.libelle"/>
+                        </div>
                     </div>
                 </div>
             </p-tabPanel>
-
         </p-tabView>
-
     </ng-template>
 
-    <ng-template pTemplate="footer" >
-        <div class="p-flexbox">
-            <div>
-                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
-            </div>
+    <ng-template pTemplate="footer">
+        <div class="dialog-footer">
+            <button pButton pRipple label="{{'cancel' | translate}}"
+                    icon="pi pi-times" class="p-button-text"
+                    (click)="hideViewDialog()">
+            </button>
         </div>
     </ng-template>
 </p-dialog>
-
-
-
