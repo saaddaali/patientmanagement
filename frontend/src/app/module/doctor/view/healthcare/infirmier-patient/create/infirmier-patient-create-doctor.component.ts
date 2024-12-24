@@ -72,6 +72,7 @@ export class InfirmierPatientCreateDoctorComponent  implements OnInit {
     public saveWithShowOption(showList: boolean) {
         this.service.save().subscribe(item => {
             if (item != null) {
+                console.log(item);
                 this.items.push({...item});
                 this.createDialog = false;
                 this.submitted = false;
