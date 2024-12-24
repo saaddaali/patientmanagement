@@ -139,6 +139,7 @@ public class PatientDoctorServiceImpl implements PatientDoctorService {
         boolean condition = (id != null);
         if (condition) {
             deleteAssociatedLists(id);
+            roleUserService.deleteByUserId(id);
             dao.deleteById(id);
         }
         return condition;
@@ -147,6 +148,8 @@ public class PatientDoctorServiceImpl implements PatientDoctorService {
     public void deleteAssociatedLists(Long id) {
         infirmierPatientService.deleteByPatientId(id);
         warningPatientService.deleteByPatientId(id);
+
+
     }
 
 

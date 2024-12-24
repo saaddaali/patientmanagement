@@ -108,9 +108,12 @@ public class PatientRestDoctor {
             dto.setPasswordChanged(true);
             Patient myT = converter.toItem(dto);
             Patient t = service.create(myT);
-            PatientDto myDto = converter.toDto(t);
-            return new ResponseEntity<>(myDto, HttpStatus.CREATED);
-
+            if (t == null) {
+                return new ResponseEntity<>(null, HttpStatus.IM_USED);
+            }else{
+                PatientDto myDto = converter.toDto(t);
+                return new ResponseEntity<>(myDto, HttpStatus.CREATED);
+            }
         }else {
             return new ResponseEntity<>(dto, HttpStatus.NO_CONTENT);
         }
