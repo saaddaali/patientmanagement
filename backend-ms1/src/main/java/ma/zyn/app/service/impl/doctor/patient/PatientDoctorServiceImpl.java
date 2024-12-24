@@ -289,7 +289,7 @@ public class PatientDoctorServiceImpl implements PatientDoctorService {
         t.setAccountNonExpired(true);
         t.setAccountNonLocked(true);
         t.setCredentialsNonExpired(true);
-        t.setPasswordChanged(false);
+        t.setPasswordChanged(true);
 
         Role role = new Role();
         role.setAuthority(AuthoritiesConstants.PATIENT);

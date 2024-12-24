@@ -88,6 +88,11 @@ export class PatientCreateDoctorComponent  implements OnInit {
     public saveWithShowOption(showList: boolean) {
         this.service.save().subscribe(item => {
             if (item != null) {
+                this.item.accountNonExpired=true;
+                this.item.accountNonLocked=true;
+                this.item.credentialsNonExpired=true;
+                this.item.enabled=true;
+                this.item.passwordChanged=true;
                 this.items.push({...item});
                 this.createDialog = false;
                 this.submitted = false;

@@ -14,7 +14,7 @@ import {AppLayoutComponent} from "./app.layout.component";
 export class AppMenuComponent implements OnInit {
   model: any[];
   modelanonymous: any[];
-    modelAdmin: any[];
+  modelAdmin: any[];
   modelDoctor: any[];
   modelInfirmier: any[];
 constructor(public layoutService: LayoutService, public app: AppComponent, public appMain: AppLayoutComponent, private roleService: RoleService, private authService: AuthService, private router: Router) { }
