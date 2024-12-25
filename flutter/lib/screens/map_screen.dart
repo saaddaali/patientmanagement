@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
 import '../widgets/base_screen_layout.dart';
+import 'package:intl/intl.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -18,8 +19,8 @@ class _MapScreenState extends State<MapScreen> {
   GoogleMapController? mapController;
   Position? currentPosition;
   Timer? locationTimer;
-  final String baseUrl = 'http://localhost:8037/api/admin/localisation/';
-  String? authToken;
+  final String baseUrl = 'http://localhost:8036/api/admin/localisation/';
+  String? authToken='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzM1MjIwOTM5LCJlbWFpbCI6ImFkbWluIn0.Eql7BKKUnAi7Arf6Anmt95lvW1TMOy3FSvW5fxqffzs';
   StreamSubscription<Position>? _positionStreamSubscription;
   bool _isDisposed = false;
 
@@ -135,6 +136,9 @@ class _MapScreenState extends State<MapScreen> {
     });
   }
 
+String formatDate(DateTime date) {
+  return date.toUtc().toIso8601String().split('.').first + '.000Z';
+}
   // Add this method to share location with backend
   Future<void> _shareLocationWithBackend() async {
     if (_isDisposed) {
@@ -152,25 +156,65 @@ class _MapScreenState extends State<MapScreen> {
 
     try {
       _log('Sending location to backend...');
-      final response = await http.post(
-        Uri.parse(baseUrl),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $authToken',
-        },
-        body: jsonEncode({
-          'dateLocalisation': DateTime.now().toIso8601String(),
-          'longitude': currentPosition!.longitude,
-          'latitude': currentPosition!.latitude,
-          'capteur': {
-            'id': 1,
-            'code': 'PHONE',
-            'libelle': 'Smartphone GPS'
-          },
-          'patient': {
-            'id': 1
-          }
-        }),
+      _log('Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzM1MjIwOTM5LCJlbWFpbCI6ImFkbWluIn0.Eql7BKKUnAi7Arf6Anmt95lvW1TMOy3FSvW5fxqffzs');
+      _log('Request Body: ${jsonEncode({
+  'dateLocalisation': formatDate(DateTime.now()),
+  'longitude': currentPosition!.longitude,
+  'latitude': currentPosition!.latitude,
+  "capteur": {
+    "id": 1,
+    "code": "GPS PHONE",
+    "libelle": "GPS PHONE",
+    "description": "GPS PHONE",
+    "capteurType": {
+      "id": 1,
+      "code": "PHONE",
+      "libelle": "PHONE",
+      "description": "PHONE"
+    }
+  },
+  "patient": {
+    "id": 9,
+    "credentialsNonExpired": true,
+    "enabled": true,
+    "email": "saad",
+    "accountNonExpired": true,
+    "accountNonLocked": true,
+    "passwordChanged": false
+  }
+})}');
+      final response = await http.post(Uri.parse(baseUrl),
+headers: {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzM1MjIwOTM5LCJlbWFpbCI6ImFkbWluIn0.Eql7BKKUnAi7Arf6Anmt95lvW1TMOy3FSvW5fxqffzs',
+},
+body: jsonEncode({
+  'dateLocalisation': formatDate(DateTime.now()),
+  'longitude': currentPosition!.longitude,
+  'latitude': currentPosition!.latitude,
+  'capteur': {
+    'id': 1,
+    'code': 'GPS PHONE',
+    'libelle': 'GPS PHONE',
+    'description': 'GPS PHONE',
+    'capteurType': {
+      'id': 1,
+      'code': 'PHONE',
+      'libelle': 'PHONE',
+      'description': 'PHONE',
+    },
+  },
+  'patient': {
+    'id': 9,
+    'credentialsNonExpired': true,
+    'enabled': true,
+    'email': 'saad',
+    'accountNonExpired': true,
+    'accountNonLocked': true,
+    'passwordChanged': false,
+  },
+}),
+
       );
 
       if (!_isDisposed) {
