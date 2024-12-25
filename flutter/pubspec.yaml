@@ -26,6 +26,8 @@ dependencies:
   # Stockage local
   shared_preferences: ^2.2.2
 
+  http: ^1.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -36,3 +38,7 @@ flutter:
   # Décommentez et ajoutez vos assets ici
   assets:
     - assets/
+    - assets/kevin.jpg
+    - assets/amber.jpg
+    - assets/rasheed.jpg
+    - assets/jacob.jpg
