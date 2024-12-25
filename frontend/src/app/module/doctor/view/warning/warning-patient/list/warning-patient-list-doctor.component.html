@@ -73,6 +73,7 @@
                         </th>
                         <th>PATIENT</th>
                         <th>TYPE D'AVERTISSEMENT</th>
+                        <th>Message</th>
                         <th>DATE</th>
                         <th style="width: 120px">ACTIONS</th>
                     </tr>
@@ -84,7 +85,15 @@
                             <p-tableCheckbox [value]="element"></p-tableCheckbox>
                         </td>
                         <td>{{element.patient?.email}}</td>
-                        <td>{{element.warningType?.libelle}}</td>
+
+                        <td>
+                            <p-tag [severity]="element.warningType?.code" [value]="element.warningType?.libelle"></p-tag>
+                        </td>
+                        <td>
+                            <div class="message-container">
+                                <p>{{element.message}}</p>
+                            </div>
+                        </td>
                         <td>{{element.dateWarning | date:'dd/MM/yyyy HH:mm'}}</td>
                         <td>
                             <div class="action-buttons">
@@ -100,6 +109,7 @@
                             </div>
                         </td>
                     </tr>
+
                 </ng-template>
             </p-table>
 
