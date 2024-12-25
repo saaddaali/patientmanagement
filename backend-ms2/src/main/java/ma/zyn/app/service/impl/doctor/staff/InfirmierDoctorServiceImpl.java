@@ -118,6 +118,7 @@ public class InfirmierDoctorServiceImpl implements InfirmierDoctorService {
 	public boolean deleteById(Long id) {
         boolean condition = (id != null);
         if (condition) {
+            roleUserService.deleteByUserId(id);
             dao.deleteById(id);
         }
         return condition;

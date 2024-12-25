@@ -145,9 +145,9 @@ public class InfirmierPatientDoctorServiceImpl implements InfirmierPatientDoctor
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public InfirmierPatient create(InfirmierPatient t) {
-        if (t.getPatient() != null) {
-            t.getPatient().setId(null);
-            t.setPatient(patientService.create(t.getPatient()));
+        if (t.getPatient() == null) {
+            //t.setPatient(patientService.create(t.getPatient()));
+
         }
         InfirmierPatient loaded = findByReferenceEntity(t);
         InfirmierPatient saved;

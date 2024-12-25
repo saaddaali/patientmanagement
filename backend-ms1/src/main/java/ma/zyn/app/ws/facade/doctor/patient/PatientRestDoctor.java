@@ -101,6 +101,11 @@ public class PatientRestDoctor {
     public ResponseEntity<PatientDto> save(@RequestBody PatientDto dto) throws Exception {
         if(dto!=null){
             converter.init(true);
+            dto.setEnabled(true);
+            dto.setAccountNonExpired(true);
+            dto.setAccountNonLocked(true);
+            dto.setCredentialsNonExpired(true);
+            dto.setPasswordChanged(true);
             Patient myT = converter.toItem(dto);
             Patient t = service.create(myT);
             if (t == null) {

@@ -29,6 +29,15 @@
                                    id="11" [(ngModel)]="item.email"/>
                         </div>
                     </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="11">{{'patient.password' | translate}}</label>
+                        <div class="p-input-icon-right">
+                            <i class="pi pi-envelope"></i>
+                            <input class="mb-2 mr-2 w-full" type="text" pInputText
+                                   placeholder="{{'patient.password' | translate}}"
+                                   [(ngModel)]="item.password"/>
+                        </div>
+                    </div>
 
                     <div class="field col-12 md:col-6">
                         <label for="1">{{'patient.dateOfBirth' | translate}}</label>
@@ -71,9 +80,9 @@
                         </p-dropdown>
                     </div>
 
-                    <div class="field col-12">
+                    <div class="field col-12 md:col-6">
                         <label for="3">{{'patient.address' | translate}}</label>
-                        <textarea id="3" pInputTextarea rows="5" cols="30"
+                        <textarea id="3" pInputTextarea rows="5"
                                   placeholder="{{'patient.address' | translate}}"
                                   [(ngModel)]="item.address"
                                   class="w-full">
