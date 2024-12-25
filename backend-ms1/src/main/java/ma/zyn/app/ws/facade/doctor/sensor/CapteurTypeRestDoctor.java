@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/doctor/capteurType/")
+@RequestMapping("/api/doctorgit/capteurType/")
 public class CapteurTypeRestDoctor {
 
 
