@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../widgets/location_filter.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
@@ -19,7 +18,7 @@ class _MapScreenState extends State<MapScreen> {
   GoogleMapController? mapController;
   Position? currentPosition;
   Timer? locationTimer;
-  final String baseUrl = 'http://localhost:8036/api/admin/localisation/';
+  final String baseUrl = 'http://localhost:8037/api/admin/localisation/';
   String? authToken;
   StreamSubscription<Position>? _positionStreamSubscription;
   bool _isDisposed = false;
@@ -84,7 +83,7 @@ class _MapScreenState extends State<MapScreen> {
       _log('❌ Error getting location: $e');
     }
   }
-
+  
   // Listen to location changes for real-time updates
   void _listenToLocationChanges() {
     _log('Starting location stream...');
@@ -212,11 +211,24 @@ class _MapScreenState extends State<MapScreen> {
     return BaseScreenLayout(
       currentIndex: 1,
       child: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-            _buildHeader(),
-            Expanded(
-              child: _buildMap(),
+            Column(
+              children: [
+                _buildHeader(),
+                Expanded(
+                  child: _buildMap(),
+                ),
+              ],
+            ),
+            Positioned(
+              bottom: 16,
+              right: 16,
+              child: FloatingActionButton(
+                backgroundColor: Colors.white,
+                onPressed: _getCurrentLocation,
+                child: const Icon(Icons.my_location),
+              ),
             ),
           ],
         ),
@@ -239,8 +251,10 @@ class _MapScreenState extends State<MapScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
+          
         ],
       ),
+      
     );
   }
 

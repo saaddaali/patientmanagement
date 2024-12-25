@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/contact.dart';
 import 'login_screen.dart';
-import 'map_screen.dart';
 import '../widgets/base_screen_layout.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -122,17 +121,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-              _selectedIndex = 3; // Navigate to Profile tab
-              });
-            },
-            child: CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage('assets/profile.jpg'), // Replace with actual profile image path
-            ),
-            ),
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: _logout,
