@@ -1,0 +1,38 @@
+name: patient_app
+description: "A new Flutter project for patient location tracking"
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Carte et localisation
+  google_maps_flutter: ^2.0.8 # Ensure this is the latest version
+  geolocator: ^9.0.0 # Ensure this is the latest version
+  permission_handler: ^11.3.0
+
+  # Interface utilisateur
+  cupertino_icons: ^1.0.6
+  flutter_svg: ^2.0.10+1
+
+  # État et navigation
+  provider: ^6.1.2
+  get: ^4.6.6
+
+  # Stockage local
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  # Décommentez et ajoutez vos assets ici
+  assets:
+    - assets/
