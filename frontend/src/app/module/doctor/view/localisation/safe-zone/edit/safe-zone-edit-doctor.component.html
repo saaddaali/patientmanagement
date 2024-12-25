@@ -23,7 +23,8 @@
                             <i class="pi pi-map-marker"></i>
                             <p-inputNumber class="w-full" id="1"
                                            placeholder="{{'safeZone.centreLongitude' | translate}}"
-                                           [(ngModel)]="item.centreLongitude">
+                                           [(ngModel)]="item.centreLongitude"
+                                           (ngModelChange)="updateMap()">
                             </p-inputNumber>
                         </div>
                     </div>
@@ -34,7 +35,8 @@
                             <i class="pi pi-map-marker"></i>
                             <p-inputNumber class="w-full" id="2"
                                            placeholder="{{'safeZone.centreLatitude' | translate}}"
-                                           [(ngModel)]="item.centreLatitude">
+                                           [(ngModel)]="item.centreLatitude"
+                                           (ngModelChange)="updateMap()">
                             </p-inputNumber>
                         </div>
                     </div>
@@ -45,7 +47,8 @@
                             <i class="pi pi-circle"></i>
                             <p-inputNumber class="w-full" id="3"
                                            placeholder="{{'safeZone.rayon' | translate}}"
-                                           [(ngModel)]="item.rayon">
+                                           [(ngModel)]="item.rayon"
+                                           (ngModelChange)="updateMap()">
                             </p-inputNumber>
                         </div>
                     </div>

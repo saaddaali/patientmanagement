@@ -43,6 +43,10 @@ export class SafeZoneEditDoctorComponent implements OnInit {
     private _file: any;
     private _files: any;
 
+    map: any;
+    circle: any;
+    marker: any;
+
 
 
 
@@ -93,6 +97,32 @@ export class SafeZoneEditDoctorComponent implements OnInit {
         });
     }
 
+
+    updateMap() {
+        // If the circle already exists, remove it
+        if (this.circle) {
+            this.circle.setMap(null);
+        }
+
+        // Update the map center and marker position
+        const center = new google.maps.LatLng(this.item.centreLatitude, this.item.centreLongitude);
+        this.map.setCenter(center);
+        this.marker.setPosition(center);
+
+        // Add a new circle based on the radius
+        if (this.item.rayon > 0) {
+            this.circle = new google.maps.Circle({
+                map: this.map,
+                radius: this.item.rayon, // radius in meters
+                center: center,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.35
+            });
+        }
+    }
     public prepareEdit() {
     }
 
