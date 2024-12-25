@@ -6,7 +6,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
 import '../widgets/base_screen_layout.dart';
-import 'package:intl/intl.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -20,7 +19,7 @@ class _MapScreenState extends State<MapScreen> {
   Position? currentPosition;
   Timer? locationTimer;
   final String baseUrl = 'http://localhost:8036/api/admin/localisation/';
-  String? authToken='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzM1MjIwOTM5LCJlbWFpbCI6ImFkbWluIn0.Eql7BKKUnAi7Arf6Anmt95lvW1TMOy3FSvW5fxqffzs';
+  String? authToken ;
   StreamSubscription<Position>? _positionStreamSubscription;
   bool _isDisposed = false;
 
@@ -156,39 +155,14 @@ String formatDate(DateTime date) {
 
     try {
       _log('Sending location to backend...');
-      _log('Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzM1MjIwOTM5LCJlbWFpbCI6ImFkbWluIn0.Eql7BKKUnAi7Arf6Anmt95lvW1TMOy3FSvW5fxqffzs');
-      _log('Request Body: ${jsonEncode({
-  'dateLocalisation': formatDate(DateTime.now()),
-  'longitude': currentPosition!.longitude,
-  'latitude': currentPosition!.latitude,
-  "capteur": {
-    "id": 1,
-    "code": "GPS PHONE",
-    "libelle": "GPS PHONE",
-    "description": "GPS PHONE",
-    "capteurType": {
-      "id": 1,
-      "code": "PHONE",
-      "libelle": "PHONE",
-      "description": "PHONE"
-    }
-  },
-  "patient": {
-    "id": 9,
-    "credentialsNonExpired": true,
-    "enabled": true,
-    "email": "saad",
-    "accountNonExpired": true,
-    "accountNonLocked": true,
-    "passwordChanged": false
-  }
-})}');
-      final response = await http.post(Uri.parse(baseUrl),
+      _log('Authorization: Bearer $authToken');
+      final response = await http.put(Uri.parse(baseUrl),
 headers: {
   'Content-Type': 'application/json',
   'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzM1MjIwOTM5LCJlbWFpbCI6ImFkbWluIn0.Eql7BKKUnAi7Arf6Anmt95lvW1TMOy3FSvW5fxqffzs',
 },
 body: jsonEncode({
+  'id':24,
   'dateLocalisation': formatDate(DateTime.now()),
   'longitude': currentPosition!.longitude,
   'latitude': currentPosition!.latitude,

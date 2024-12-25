@@ -74,6 +74,7 @@ public class WebSecurityConfig {
                                 .requestMatchers("/api/admin/**").hasAnyAuthority(AuthoritiesConstants.ADMIN)
                                 .requestMatchers("/api/doctor/**").hasAnyAuthority(AuthoritiesConstants.DOCTOR)
                                 .requestMatchers("/api/infirmier/**").hasAnyAuthority(AuthoritiesConstants.INFIRMIER)
+                                .requestMatchers("/api/admin/capteur/").hasAnyAuthority(AuthoritiesConstants.PATIENT)
                                .anyRequest().authenticated()
 
                 );
