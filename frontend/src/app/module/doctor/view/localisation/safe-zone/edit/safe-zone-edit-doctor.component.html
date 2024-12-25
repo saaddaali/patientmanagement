@@ -9,7 +9,15 @@
         <p-tabView>
             <p-tabPanel header="{{'safeZone.tabPan' | translate}}">
                 <div class="grid">
-                    <div class="field col-12 md:col-6">
+
+                    <!-- Map in one row -->
+                    <div class="field col-12">
+                        <label for="map">{{'safeZone.map' | translate}}</label>
+                        <div id="map" style="height: 300px; width: 100%;"></div>
+                    </div>
+
+                    <!-- Inputs in one line (second row) -->
+                    <div class="field col-12 md:col-4">
                         <label for="1">{{'safeZone.centreLongitude' | translate}}</label>
                         <div class="p-input-icon-right">
                             <i class="pi pi-map-marker"></i>
@@ -20,7 +28,7 @@
                         </div>
                     </div>
 
-                    <div class="field col-12 md:col-6">
+                    <div class="field col-12 md:col-4">
                         <label for="2">{{'safeZone.centreLatitude' | translate}}</label>
                         <div class="p-input-icon-right">
                             <i class="pi pi-map-marker"></i>
@@ -31,7 +39,7 @@
                         </div>
                     </div>
 
-                    <div class="field col-12 md:col-6">
+                    <div class="field col-12 md:col-4">
                         <label for="3">{{'safeZone.rayon' | translate}}</label>
                         <div class="p-input-icon-right">
                             <i class="pi pi-circle"></i>
@@ -42,16 +50,6 @@
                         </div>
                     </div>
 
-                    <div class="field col-12 md:col-6">
-                        <label for="4">{{'safeZone.linkedPatient' | translate}}</label>
-                        <p-dropdown appendTo="body" [options]="linkedPatients"
-                                    [(ngModel)]="item.linkedPatient" id="4"
-                                    [filter]="true" filterMatchMode="contains"
-                                    [showClear]="true" optionLabel="email"
-                                    placeholder="{{'safeZone.linkedPatient' | translate}}"
-                                    styleClass="w-full">
-                        </p-dropdown>
-                    </div>
                 </div>
             </p-tabPanel>
         </p-tabView>

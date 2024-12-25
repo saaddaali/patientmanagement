@@ -62,6 +62,37 @@ export class SafeZoneEditDoctorComponent implements OnInit {
         this.patientService.findAll().subscribe((data) => this.linkedPatients = data);
     }
 
+
+
+    ngAfterViewInit(): void {
+        this.initMap();
+    }
+
+    initMap() {
+        const mapOptions = {
+            center: { lat: this.item.centreLatitude || 33.5897, lng: this.item.centreLongitude || -7.6039 },
+            zoom: 10,
+        };
+        const map = new google.maps.Map(document.getElementById("map") as HTMLElement, mapOptions);
+
+        const marker = new google.maps.Marker({
+            position: { lat: this.item.centreLatitude || 33.5897, lng: this.item.centreLongitude || -7.6039 },
+            map: map,
+            draggable: true,
+        });
+
+        google.maps.event.addListener(marker, 'dragend', (event: any) => {
+            this.item.centreLatitude = event.latLng.lat();
+            this.item.centreLongitude = event.latLng.lng();
+        });
+
+        google.maps.event.addListener(map, 'click', (event: any) => {
+            this.item.centreLatitude = event.latLng.lat();
+            this.item.centreLongitude = event.latLng.lng();
+            marker.setPosition(event.latLng);
+        });
+    }
+
     public prepareEdit() {
     }
 

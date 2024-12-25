@@ -9,27 +9,15 @@
         <p-tabView>
             <p-tabPanel header="{{'safeZone.tabPan' | translate}}">
                 <div class="grid">
-                    <div class="field col-12 md:col-6">
-                        <label for="1">{{'safeZone.centreLongitude' | translate}}</label>
-                        <div class="p-input-icon-right">
-                            <i class="pi pi-map-marker"></i>
-                            <p-inputNumber class="w-full" id="1"
-                                           placeholder="{{'safeZone.centreLongitude' | translate}}"
-                                           [(ngModel)]="item.centreLongitude">
-                            </p-inputNumber>
-                        </div>
+                    <!-- Google Map Section -->
+                    <div class="field col-12">
+                        <label for="map">{{'safeZone.selectLocation' | translate}}</label>
+                        <!-- Add this in the appropriate place in your template -->
+                        <div id="map" style="height: 400px; width: 100%;"></div>
+
                     </div>
 
-                    <div class="field col-12 md:col-6">
-                        <label for="2">{{'safeZone.centreLatitude' | translate}}</label>
-                        <div class="p-input-icon-right">
-                            <i class="pi pi-map-marker"></i>
-                            <p-inputNumber class="w-full" id="2"
-                                           placeholder="{{'safeZone.centreLatitude' | translate}}"
-                                           [(ngModel)]="item.centreLatitude">
-                            </p-inputNumber>
-                        </div>
-                    </div>
+
 
                     <div class="field col-12 md:col-6">
                         <label for="3">{{'safeZone.rayon' | translate}}</label>
