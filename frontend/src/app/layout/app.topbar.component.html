@@ -1,13 +1,13 @@
 <div class="layout-topbar">
-    <a class="layout-topbar-logo" style="display: flex; align-items: center;" routerLink="">
 
-        <span
-            style="font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Name</span>
-    </a>
 
     <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
         <i class="pi pi-bars"></i>
     </button>
+
+    <a class="layout-topbar-logo" style="display: flex; align-items: center;" routerLink="">
+        <span>Name</span>
+    </a>
 
     <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button"
             (click)="layoutService.showProfileSidebar()">

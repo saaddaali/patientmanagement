@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patient_app/screens/profile_screen.dart';
 import '../models/contact.dart';
 import '../widgets/contact_avatar.dart';
 import '../widgets/sos_button.dart';
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildHeader(),
+              _buildHeader(context),
               const SizedBox(height: 24),
               const Text(
                 'Hi, George!',
@@ -49,26 +50,34 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
-    return const Row(
+  Widget _buildHeader(BuildContext context) {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        const Text(
           'SafeZ',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
-        Row(
-          children: [
-            Icon(Icons.notifications_none),
-            SizedBox(width: 16),
-            CircleAvatar(
-              radius: 16,
-              backgroundImage: AssetImage('assets/profile.jpg'),
-            ),
-          ],
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfileScreen()),
+            );
+          },
+          child: Row(
+            children: [
+              Icon(Icons.notifications_none),
+              SizedBox(width: 16),
+              CircleAvatar(
+          radius: 16,
+          backgroundImage: AssetImage('assets/profile.jpg'),
+              ),
+            ],
+          ),
         ),
       ],
     );
