@@ -11,14 +11,14 @@
 
             <div class="actions-container">
                 <div class="left-actions">
-                    <button pButton
+                   <!-- <button pButton
                             label="{{'delete' | translate}}"
                             icon="pi pi-trash"
                             class="p-button-danger"
                             [disabled]="isSelectionDisabled()"
                             *ngIf="deleteActionIsValid"
                             (click)="deleteMultiple()">
-                    </button>
+                    </button> -->
 
                     <button pButton
                             label="{{'search' | translate}}"
@@ -41,17 +41,6 @@
 
             <div class="search-panel" *ngIf="findByCriteriaShow">
                 <div class="grid">
-                    <div class="col-12 md:col-4">
-                        <label for="1-2">{{'localisation.patient' | translate}}</label>
-                        <p-dropdown [options]="patients"
-                                    [(ngModel)]="criteria.patient"
-                                    id="1"
-                                    [filter]="true"
-                                    [showClear]="true"
-                                    placeholder="{{'localisation.patient' | translate}}"
-                                    optionLabel="email">
-                        </p-dropdown>
-                    </div>
 
                     <div class="col-12 md:col-4">
                         <label for="2-1">{{'localisation.dateLocalisationMin' | translate}}</label>
@@ -95,17 +84,6 @@
                         <p-inputNumber mode="decimal" [(ngModel)]="criteria.latitudeMax" id="4-2"></p-inputNumber>
                     </div>
 
-                    <div class="col-12 md:col-4">
-                        <label for="5-2">{{'localisation.capteur' | translate}}</label>
-                        <p-dropdown [options]="capteurs"
-                                    [(ngModel)]="criteria.capteur"
-                                    id="5"
-                                    [filter]="true"
-                                    [showClear]="true"
-                                    placeholder="{{'localisation.capteur' | translate}}"
-                                    optionLabel="libelle">
-                        </p-dropdown>
-                    </div>
                 </div>
 
                 <div class="text-right">
@@ -132,9 +110,8 @@
                             <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                         </th>
                         <th>PATIENT</th>
-                        <th>DATE LOCALISATION</th>
-                        <th>LONGITUDE</th>
-                        <th>LATITUDE</th>
+                        <th>EMAIL</th>
+                        <th>EMERGENCY CONTACT</th>
                         <th>CAPTEUR</th>
                         <th style="width: 120px">ACTIONS</th>
                     </tr>
@@ -145,33 +122,34 @@
                         <td>
                             <p-tableCheckbox [value]="element"></p-tableCheckbox>
                         </td>
+                        <td>{{element.patient?.username}}</td>
                         <td>{{element.patient?.email}}</td>
-                        <td>{{element.dateLocalisation | date:'dd/MM/yyyy HH:mm'}}</td>
-                        <td>{{element.longitude}}</td>
-                        <td>{{element.latitude}}</td>
+                        <td>{{element.patient?.emergencyContact}}</td>
                         <td>{{element.capteur?.libelle}}</td>
                         <td>
                             <div class="action-buttons">
-                                <button pButton
+                              <!--  <button pButton
                                         icon="pi pi-pencil"
                                         class="p-button-text p-button-info"
                                         *ngIf="editActionIsValid"
                                         (click)="edit(element)"
                                         pTooltip="Edit">
                                 </button>
-                                <button pButton
-                                        icon="pi pi-eye"
-                                        class="p-button-text p-button-help"
-                                        *ngIf="viewActionIsValid"
-                                        (click)="view(element)"
-                                        pTooltip="View">
-                                </button>
+
                                 <button pButton
                                         icon="pi pi-trash"
                                         class="p-button-text p-button-danger"
                                         *ngIf="deleteActionIsValid"
                                         (click)="delete(element)"
                                         pTooltip="Delete">
+                                </button> -->
+
+                                <button pButton
+                                        icon="pi pi-map"
+                                        class="p-button-text p-button-help"
+                                        *ngIf="viewActionIsValid"
+                                        (click)="view(element)"
+                                        pTooltip="View in Map">
                                 </button>
                             </div>
                         </td>

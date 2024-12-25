@@ -57,6 +57,10 @@ export class LocalisationDoctorService {
         return this.http.get<Array<LocalisationDto>>(this.API + 'optimized');
     }
 
+    public findById(localisationId:LocalisationDto){
+        return this.http.get<LocalisationDto>(this.API+ 'id/'+localisationId.id);
+    }
+
     public findPaginatedByCriteria(criteria: LocalisationCriteria): Observable<PaginatedList<LocalisationDto>> {
         return this.http.post<PaginatedList<LocalisationDto>>(this.API + 'find-paginated-by-criteria', criteria);
     }
