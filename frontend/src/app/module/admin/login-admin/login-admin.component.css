@@ -8,6 +8,12 @@
     font-family: "Fira Code", sans-serif;
     padding: 2rem;
 }
+.logo-login {
+    height: 70px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 form {
     background: rgba(255, 255, 255, 0.98);
