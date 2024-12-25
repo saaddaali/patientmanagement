@@ -1,27 +1,35 @@
 <p-toast></p-toast>
 <div class="body">
-    <div class="signUp">
-        <h1>Hello👋!</h1>
-        <p>If you don't have an account,<br>
-            create it from here </p>
-        <button class="signUpBtn bg-orange-500" id="register" (click)="register()"><span><i class="pi pi-user"></i></span> Go Register</button>
-        <button class="back" [routerLink]="['/home']"><span><i class="pi pi-home"></i></span>Go Home</button>
-        <img src="assets/layout/login/undraw_login_re_4vu2.svg">
-    </div>
-
     <form (ngSubmit)="submit()" class="form-login">
-        <h1>Sign In</h1>
+        <h1>Doctors Portal</h1>
         <div class="username">
-            <input id="username" type="text" [(ngModel)]="loginDto.username" name="username" required>
-            <label for="username">Username (doctor by default)</label>
+            <label for="username">Medical ID</label>
+            <input
+                id="username"
+                type="text"
+                [(ngModel)]="loginDto.username"
+                name="username"
+                placeholder="Enter your medical ID"
+                required
+            >
         </div>
         <div class="password">
-            <input id="password" type="password" [(ngModel)]="loginDto.password" name="password" required>
-            <label for="password">Password (123 by default)</label>
+            <label for="password">Password</label>
+            <input
+                id="password"
+                type="password"
+                [(ngModel)]="loginDto.password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
         </div>
-        <a class="forget" (click)="forget()">Forget Your Password?</a>
-        <div class="login" style="justify-content: center;">
-            <button class="submit" type="submit" style="border:1px solid#000;">Sign In</button>
+        <a class="forget" (click)="forget()">Forgot password?</a>
+        <div class="login">
+            <button class="submit" type="submit">Access Patient System</button>
+        </div>
+        <div class="register-link">
+            <p>New to the system? <a (click)="register()">Register here</a></p>
         </div>
     </form>
 </div>
