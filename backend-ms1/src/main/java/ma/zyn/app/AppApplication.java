@@ -8,9 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -31,9 +30,10 @@ import ma.zyn.app.zynerator.security.service.facade.*;
 
 import ma.zyn.app.zynerator.security.bean.User;
 import ma.zyn.app.zynerator.security.bean.Role;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
-//@EnableFeignClients
+@EnableDiscoveryClient
 public class AppApplication {
     public static ConfigurableApplicationContext ctx;
 
