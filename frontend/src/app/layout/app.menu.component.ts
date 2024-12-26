@@ -177,104 +177,62 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
 			]
 	    }
     ];
-    this.modelDoctor =
-      [
-
-				{
-                    label: 'Pages',
-                    icon: 'pi pi-fw pi-briefcase',
-                    items: [
-					  {
-						label: 'Localisation Management',
-						icon: 'pi pi-wallet',
-						items: [
-								  {
-									label: 'Liste localisation',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/doctor/localisation/localisation/list']
-								  },
-						]
-					  },
-					  {
-						label: 'Infirmier-Patient Management',
-						icon: 'pi pi-wallet',
-						items: [
-								  {
-									label: 'Liste infirmier patient',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/doctor/healthcare/infirmier-patient/list']
-								  },
-						]
-					  },
-					  {
-						label: 'Patient Management',
-						icon: 'pi pi-wallet',
-						items: [
-								  {
-									label: 'Liste patient',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/doctor/patient/patient/list']
-								  },
-						]
-					  },
-					  {
-						label: 'Infirmier Management',
-						icon: 'pi pi-wallet',
-						items: [
-								  {
-									label: 'Liste infirmier',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/doctor/staff/infirmier/list']
-								  },
-						]
-					  },
-					  {
-						label: 'Safety Zone Management',
-						icon: 'pi pi-wallet',
-						items: [
-								  {
-									label: 'Liste safe zone',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/doctor/localisation/safe-zone/list']
-								  },
-						]
-					  },
-					  {
-						label: 'Warning Patient Management',
-						icon: 'pi pi-wallet',
-						items: [
-								  {
-									label: 'Liste warning patient',
-									icon: 'pi pi-fw pi-plus-circle',
-									routerLink: ['/app/doctor/warning/warning-patient/list']
-								  },
-						]
-					  },
-
-				   {
-					  label: 'Security Management',
-					  icon: 'pi pi-wallet',
-					  items: [
-						  {
-							  label: 'List User',
-							  icon: 'pi pi-fw pi-plus-circle',
-							  routerLink: ['/app/admin/security/user/list']
-						  },
-						  {
-							  label: 'List Model',
-							  icon: 'pi pi-fw pi-plus-circle',
-							  routerLink: ['/app/admin/security/model-permission/list']
-						  },
-						  {
-							  label: 'List Action Permission',
-							  icon: 'pi pi-fw pi-plus-circle',
-							  routerLink: ['/app/admin/security/action-permission/list']
-						  },
-					  ]
-				  }
-			]
-	    }
-    ];
+      this.modelDoctor = [
+          {
+              label: 'DASHBOARD',
+              icon: 'pi pi-home',
+              styleClass: 'dashboard-title',
+              expanded: true,
+          },
+          {
+              label: 'Patient Care',
+              icon: 'pi pi-heart',
+              items: [
+                  {
+                      label: 'Patients',
+                      icon: 'pi pi-users',
+                      routerLink: ['/app/doctor/patient/patient/list']
+                  },
+                  {
+                      label: 'Nurse Assignments',
+                      icon: 'pi pi-user-plus',
+                      routerLink: ['/app/doctor/healthcare/infirmier-patient/list']
+                  },
+                  {
+                      label: 'Warning Cases',
+                      icon: 'pi pi-exclamation-triangle',
+                      routerLink: ['/app/doctor/warning/warning-patient/list']
+                  }
+              ]
+          },
+          {
+              label: 'Staff',
+              icon: 'pi pi-briefcase',
+              items: [
+                  {
+                      label: 'Nurses',
+                      icon: 'pi pi-user',
+                      routerLink: ['/app/doctor/staff/infirmier/list']
+                  }
+              ]
+          },
+          {
+              label: 'Facility',
+              icon: 'pi pi-building',
+              items: [
+                  {
+                      label: 'Locations',
+                      icon: 'pi pi-map-marker',
+                      routerLink: ['/app/doctor/localisation/localisation/list']
+                  },
+                  {
+                      label: 'Safety Zones',
+                      icon: 'pi pi-shield',
+                      routerLink: ['/app/doctor/localisation/safe-zone/list']
+                  }
+              ]
+          },
+      ];
     this.modelInfirmier =
       [
 
