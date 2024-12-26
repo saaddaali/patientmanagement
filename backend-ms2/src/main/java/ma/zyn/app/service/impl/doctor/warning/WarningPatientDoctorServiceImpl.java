@@ -7,29 +7,21 @@ import ma.zyn.app.dao.criteria.core.warning.WarningPatientCriteria;
 import ma.zyn.app.dao.facade.core.warning.WarningPatientDao;
 import ma.zyn.app.dao.specification.core.warning.WarningPatientSpecification;
 import ma.zyn.app.service.facade.doctor.warning.WarningPatientDoctorService;
-import ma.zyn.app.zynerator.service.AbstractServiceImpl;
 import static ma.zyn.app.zynerator.util.ListUtil.*;
-
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.ArrayList;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-
 import ma.zyn.app.zynerator.util.RefelexivityUtil;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import ma.zyn.app.service.facade.doctor.patient.PatientDoctorService ;
-import ma.zyn.app.bean.core.patient.Patient ;
 import ma.zyn.app.service.facade.doctor.warning.WarningTypeDoctorService ;
-import ma.zyn.app.bean.core.warning.WarningType ;
 
-import java.util.List;
+
 @Service
 public class WarningPatientDoctorServiceImpl implements WarningPatientDoctorService {
 
@@ -191,14 +183,6 @@ public class WarningPatientDoctorServiceImpl implements WarningPatientDoctorServ
         boolean eligibleForUpdate = (t.getId() != null && loadedItem != null);
         return (eligibleForCreateCrud || eligibleForCreate || eligibleForUpdate);
     }
-
-
-
-
-
-
-
-
 
     public WarningPatient findByReferenceEntity(WarningPatient t) {
         return t == null || t.getId() == null ? null : findById(t.getId());

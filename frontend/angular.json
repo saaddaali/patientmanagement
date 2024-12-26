@@ -36,9 +36,7 @@
                         "scripts": [
                             "node_modules/prismjs/prism.js",
                             "node_modules/prismjs/components/prism-typescript.js",
-                            "node_modules/quill/dist/quill.js",
-                            "https://maps.googleapis.com/maps/api/js?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao&libraries=geometry,places"
-
+                            "node_modules/quill/dist/quill.js"
                         ]
                     },
                     "configurations": {

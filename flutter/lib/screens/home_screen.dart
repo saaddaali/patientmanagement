@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/contact.dart';
 import 'login_screen.dart';
 import '../widgets/base_screen_layout.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class HomeScreen extends StatefulWidget {
 
@@ -326,73 +328,91 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _handleSOS() async {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Row(
-            children: [
-              Icon(Icons.warning_amber_rounded, color: Colors.red.shade700),
-              const SizedBox(width: 8),
-              const Text('Emergency Alert'),
-            ],
-          ),
-          content: const Text(
-            'This will alert your emergency contacts and share your current location. Continue?'
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                // Implement emergency alert logic here
-                Navigator.of(context).pop();
-                _sendEmergencyAlert();
-              },
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.red,
-              ),
-              child: const Text('Send Alert'),
-            ),
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Row(
+          children: [
+            Icon(Icons.warning_amber_rounded, color: Colors.red.shade700),
+            const SizedBox(width: 8),
+            const Text('Emergency Alert'),
           ],
-        );
-      },
-    );
-  }
-
-  Future<void> _sendEmergencyAlert() async {
-    // Show loading indicator
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Sending emergency alert...'),
-        duration: Duration(seconds: 2),
-      ),
-    );
-    
-    // Implement your emergency alert logic here
-    // For example: send notifications to emergency contacts
-    // and share current location
-    
-    // Show success message
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Row(
-            children: [
-              Icon(Icons.check_circle, color: Colors.white),
-              const SizedBox(width: 8),
-              const Text('Emergency alert sent successfully'),
-            ],
+        ),
+        content: const Text(
+          'This will alert your emergency contacts and send a warning. Continue?'
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Cancel'),
           ),
+          TextButton(
+            onPressed: () async {
+              Navigator.of(context).pop();
+              await _sendEmergencyAlert();
+            },
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.red,
+            ),
+            child: const Text('Send Alert'),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+Future<void> _sendEmergencyAlert() async {
+  const String apiUrl = 'http://localhost:8037/api/admin/warningPatient/';
+  final DateTime now = DateTime.now();
+  final String formattedDate = "${now.month}/${now.day}/${now.year} ${now.hour}:${now.minute}";
+
+  final Map<String, dynamic> payload = {
+    "message": "SOS",
+    "dateWarning": formattedDate,
+    "patient": {
+      "id": 9,
+    },
+    "warningType": {
+      "id": 1,
+      "code": "danger",
+      "libelle": "HIGHT",
+      "description": "Hight"
+    }
+  };
+
+  try {
+    final response = await http.post(
+      Uri.parse(apiUrl),
+      headers: {
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzM1MzE1NTMzLCJlbWFpbCI6ImFkbWluIn0.A5CMVzk-R9FAEyjdTl51ABTkcBSZd0Q4ZqnhAbqsyfI',
+},
+      body: jsonEncode(payload),
+    );
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Emergency alert sent successfully'),
           backgroundColor: Colors.green,
         ),
       );
+    } else {
+      print('Failed to send warning. Status code: ${response.statusCode}');
+      throw Exception('Failed to send warning. Status code: ${response.statusCode}');
     }
+  } catch (error) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Error: $error'),
+        backgroundColor: Colors.red,
+      ),
+    );
   }
-}
+}}
 
 // Add this class at the top of the file
 class NavigationItem {
