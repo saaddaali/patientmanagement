@@ -61,7 +61,7 @@ public class AppApplication {
     @Bean
     public CommandLineRunner demo(UserService userService, RoleService roleService, ModelPermissionService modelPermissionService, ActionPermissionService actionPermissionService, ModelPermissionUserService modelPermissionUserService , DoctorAdminService doctorService, InfirmierAdminService infirmierService) {
     return (args) -> {
-        if(false){
+        if(true){
 
 
         /*

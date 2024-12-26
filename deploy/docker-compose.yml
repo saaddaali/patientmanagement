@@ -38,13 +38,22 @@ services:
 
 
 
-  front-end:
+  front-end-patientmanagement:
     build: ../frontend
-    container_name: frontend
+    container_name: frontend-patientmanagement
     ports:
       - '${FRONT_END_PORT}:80'
     expose:
       - '${FRONT_END_PORT}'
+    networks:
+      - app-network
+    restart: always
+
+  patientmanagementms1-server:
+    build: ../Eureka Server
+    container_name: eurekaServer
+    ports:
+      - "8761:8761"
     networks:
       - app-network
     restart: always
@@ -97,7 +106,7 @@ services:
     volumes:
       - patientmanagementms2-data:/var/lib/mysql #postgre /var/lib/postgresql/data
     ports:
-      - "${PATIENTMANAGEMENTMS2_DB_PORT}:3306" #postgre 5432
+      - "3307:3307" #postgre 5432
     environment:
       - MYSQL_DATABASE=${PATIENTMANAGEMENTMS2_DB_NAME} #POSTGRES_DB=${ZYN1724669534506MS1_DB_NAME}
       - MYSQL_USER=${PATIENTMANAGEMENTMS2_DB_USER} #POSTGRES_USER=${ZYN1724669534506MS1_DB_USER}
