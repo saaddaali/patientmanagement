@@ -30,6 +30,7 @@ import ma.zyn.app.config.security.service.facade.*;
 
 import ma.zyn.app.config.security.bean.User;
 import ma.zyn.app.config.security.bean.Role;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -56,6 +57,10 @@ public class AppApplication {
         return ctx;
     }
 
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
     @Bean
     public CommandLineRunner demo(UserService userService, RoleService roleService, ModelPermissionService modelPermissionService, ActionPermissionService actionPermissionService, ModelPermissionUserService modelPermissionUserService , DoctorAdminService doctorService, InfirmierAdminService infirmierService) {
     return (args) -> {

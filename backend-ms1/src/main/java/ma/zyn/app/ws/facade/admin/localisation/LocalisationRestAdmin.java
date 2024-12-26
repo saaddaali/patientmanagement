@@ -2,7 +2,13 @@ package  ma.zyn.app.ws.facade.admin.localisation;
 
 import io.swagger.v3.oas.annotations.Operation;
 
-import org.springframework.http.HttpStatus;
+import ma.zyn.app.bean.core.localisation.SafeZone;
+import ma.zyn.app.service.facade.admin.localisation.SafeZoneAdminService;
+import ma.zyn.app.service.facade.admin.warning.WarningPatientAdminService;
+import org.apache.poi.hpsf.Decimal;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
 
 import ma.zyn.app.bean.core.localisation.Localisation;
 import ma.zyn.app.dao.criteria.core.localisation.LocalisationCriteria;
@@ -12,17 +18,23 @@ import ma.zyn.app.ws.dto.localisation.LocalisationDto;
 import ma.zyn.app.config.util.PaginatedList;
 
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/admin/localisation/")
 public class LocalisationRestAdmin {
 
 
+    @Value("${flask.server.url:http://127.0.0.1:5000/check-location}")
+    private String analyseurApi;
+
+    private final RestTemplate restTemplate;
 
 
     @Operation(summary = "Finds a list of all localisations")
@@ -83,9 +95,60 @@ public class LocalisationRestAdmin {
             Localisation updated = service.update(t);
             LocalisationDto myDto = converter.toDto(updated);
             res = new ResponseEntity<>(myDto, HttpStatus.OK);
+            SafeZone safeZone = safeZoneAdminService.findByLinkedPatientId(dto.getPatient().getId()).get(0);
+            ResponseEntity<Boolean> respone = checkLocation(dto.getLatitude(), dto.getLongitude(), safeZone.getCentreLatitude(), safeZone.getCentreLongitude(), safeZone.getRayon());
+            System.out.println("Localisation updated: "+respone.getBody());
+
         }
         return res;
     }
+
+    @PostMapping("/check-location")
+    public ResponseEntity<Boolean> checkLocation(
+            @RequestParam BigDecimal localisationLat,
+            @RequestParam BigDecimal localisationLong,
+            @RequestParam BigDecimal centerLat,
+            @RequestParam BigDecimal centerLong,
+            @RequestParam BigDecimal radius) {
+        try {
+            // Build the request body to send to the Flask service
+            Map<String, Object> flaskRequestBody = Map.of(
+                    "location", List.of(localisationLat, localisationLong),  // Location coordinates
+                    "safeZone", Map.of(
+                            "center", List.of(centerLat, centerLong),  // Safe zone center
+                            "radius", radius  // Safe zone radius
+                    )
+            );
+
+
+            // Set headers
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            // Create request entity
+            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(flaskRequestBody, headers);
+
+            // Send POST request to Flask service
+            ResponseEntity<Map> response = restTemplate.postForEntity(analyseurApi, entity, Map.class);
+
+            // Extract warning status from Flask response
+            Map<String, Object> responseBody = response.getBody();
+            if (responseBody != null && responseBody.containsKey("warning")) {
+                boolean warning = (boolean) responseBody.get("warning");
+                return ResponseEntity.ok(warning); // Return the boolean value (true or false)
+            }
+
+            // Handle unexpected response structure
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(false); // Default to false in case of error
+
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(false); // Default to false if an exception occurs
+        }
+    }
+
+
+
+
 
     @Operation(summary = "Delete list of localisation")
     @PostMapping("multiple")
@@ -177,13 +240,18 @@ public class LocalisationRestAdmin {
 
 
 
-   public LocalisationRestAdmin(LocalisationAdminService service, LocalisationConverter converter){
-        this.service = service;
+   public LocalisationRestAdmin(RestTemplate restTemplate, LocalisationAdminService service, LocalisationConverter converter, SafeZoneAdminService safeZoneAdminService, WarningPatientAdminService warningPatientAdminService){
+       this.restTemplate = restTemplate;
+       this.service = service;
         this.converter = converter;
-    }
+       this.safeZoneAdminService = safeZoneAdminService;
+       this.warningPatientAdminService = warningPatientAdminService;
+   }
 
     private final LocalisationAdminService service;
     private final LocalisationConverter converter;
+    private final SafeZoneAdminService safeZoneAdminService;
+    private final WarningPatientAdminService warningPatientAdminService;
 
 
 
