@@ -1,0 +1,182 @@
+<div class="grid">
+    <div class="col-12 lg:col-6 xl:col-3">
+        <div class="card mb-0">
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Patients</span>
+                    <div class="text-900 font-medium text-xl">152</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-blue-100 border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    <i class="pi pi-user text-blue-500 text-xl"></i>
+                </div>
+            </div>
+            <span class="text-green-500 font-medium">24 new </span>
+            <span class="text-500">admissions</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-6 xl:col-3">
+        <div class="card mb-0">
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Warnings</span>
+                    <div class="text-900 font-medium text-xl">50</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-orange-100 border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    <i class="pi pi-exclamation-triangle text-orange-500 text-xl"></i>
+                </div>
+            </div>
+            <span class="text-red-500 font-medium">10 high-risk </span>
+            <span class="text-500">patients</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-6 xl:col-3">
+        <div class="card mb-0">
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Staff</span>
+                    <div class="text-900 font-medium text-xl">28441</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-cyan-100 border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    <i class="pi pi-users text-cyan-500 text-xl"></i>
+                </div>
+            </div>
+            <span class="text-green-500 font-medium">520  </span>
+            <span class="text-500">available</span>
+        </div>
+    </div>
+    <div class="col-12 lg:col-6 xl:col-3">
+        <div class="card mb-0">
+            <div class="flex justify-content-between mb-3">
+                <div>
+                    <span class="block text-500 font-medium mb-3">Equipment</span>
+                    <div class="text-900 font-medium text-xl">152 Unavailable</div>
+                </div>
+                <div class="flex align-items-center justify-content-center bg-purple-100 border-round" [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                    <i class="pi pi-receipt text-purple-500 text-xl"></i>
+                </div>
+            </div>
+            <span class="text-orange-500 font-medium">85 </span>
+            <span class="text-500">in maintenance</span>
+        </div>
+    </div>
+
+    <div class="col-12 xl:col-6">
+        <div class="card">
+            <h5>Recent Patient</h5>
+            <!-- Table -->
+            <p-table  [value]="items"
+                     [columns]="cols"
+                     [rows]="10"
+                     [rowHover]="true"
+                     dataKey="id"
+                     styleClass="p-datatable-sm">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>USERNAME</th>
+                        <th>DATE OF BIRTH</th>
+                        <th>GENDER</th>
+                        <th>EMERGENCY CONTACT</th>
+                        <th>EMAIL</th></tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td>{{element.username}}</td>
+                        <td>{{element.dateOfBirth | date:'dd/MM/yyyy HH:mm'}}</td>
+                        <td>{{element.gender?.libelle}}</td>
+                        <td>{{element.emergencyContact}}</td>
+                        <td>{{element.email}}</td>
+
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="card">
+            <div class="flex align-items-center justify-content-between mb-5">
+                <h5>High-Risk Patients</h5>
+                <div>
+                    <button pButton type="button" icon="pi pi-ellipsis-v" class="p-button-rounded p-button-text p-button-plain" (click)="menu.toggle($event)"></button>
+                    <p-menu #menu [popup]="true" [model]=""></p-menu>
+                </div>
+            </div>
+            <ul class="list-none p-0 m-0">
+                <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
+                    <div>
+                        <span class="text-900 font-medium mr-2 mb-1 md:mb-0">saad</span>
+                        <div class="mt-1 text-600">No Locatlisation found</div>
+                    </div>
+                    <div class="mt-2 md:mt-0 flex align-items-center">
+                        <div class="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" [ngStyle]="{height: '8px'}">
+                            <div class="bg-red-500 h-full" [ngStyle]="{width: '80%'}"></div>
+                        </div>
+                        <span class="text-red-500 ml-3 font-medium">High risk</span>
+                    </div>
+                </li>
+                <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-4">
+                    <div>
+                        <span class="text-900 font-medium mr-2 mb-1 md:mb-0">souki</span>
+                        <div class="mt-1 text-600">Out Of SafeZone (100m)</div>
+                    </div>
+                    <div class="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
+                        <div class="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" [ngStyle]="{height: '8px'}">
+                            <div class="bg-orange-500 h-full" [ngStyle]="{width: '50%'}"></div>
+                        </div>
+                        <span class="text-orange-500 ml-3 font-medium">Medium risk</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12 xl:col-6">
+        <div class="card">
+            <div class="flex align-items-center justify-content-between mb-4">
+                <h5>Notifications</h5>
+                <div>
+                    <button pButton type="button" icon="pi pi-ellipsis-v" class="p-button-rounded p-button-text p-button-plain" (click)="menu.toggle($event)"></button>
+                    <p-menu #menu [popup]="true" ></p-menu>
+                </div>
+            </div>
+
+            <span class="block text-600 font-medium mb-3">TODAY</span>
+            <ul class="p-0 mx-0 mt-0 mb-4 list-none">
+                <li class="flex align-items-center py-2 border-bottom-1 surface-border">
+                    <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-blue-100 border-circle mr-3 flex-shrink-0">
+                        <i class="pi pi-user text-blue-500 text-xl"></i>
+                    </div>
+                    <span class="text-900 line-height-3">New patient admitted
+                    <span class="text-700"> John Doe</span>
+                </span>
+                </li>
+                <li class="flex align-items-center py-2">
+                    <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-orange-100 border-circle mr-3 flex-shrink-0">
+                        <i class="pi pi-exclamation-triangle text-orange-500 text-xl"></i>
+                    </div>
+                    <span class="text-700 line-height-3">High-risk patient
+                    <span class="text-blue-500 font-medium"> Jane Doe</span>
+                </span>
+                </li>
+            </ul>
+
+            <span class="block text-600 font-medium mb-3">YESTERDAY</span>
+            <ul class="p-0 m-0 list-none">
+                <li class="flex align-items-center py-2 border-bottom-1 surface-border">
+                    <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-blue-100 border-circle mr-3 flex-shrink-0">
+                        <i class="pi pi-user text-blue-500 text-xl"></i>
+                    </div>
+                    <span class="text-900 line-height-3">Patient discharged
+                    <span class="text-700"> Bob Smith</span>
+                </span>
+                </li>
+                <li class="flex align-items-center py-2 border-bottom-1 surface-border">
+                    <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-pink-100 border-circle mr-3 flex-shrink-0">
+                        <i class="pi pi-question text-pink-500 text-xl"></i>
+                    </div>
+                    <span class="text-900 line-height-3">New patient inquiry
+                    <span class="text-700"> from website</span>
+                </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

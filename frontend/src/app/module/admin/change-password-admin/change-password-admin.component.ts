@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Message, MessageService} from 'primeng/api';
-import {AuthService} from 'src/app/zynerator/security/shared/service/Auth.service';
+import {AuthService} from 'src/app/config/security/shared/service/Auth.service';
 import {LayoutService} from 'src/app/layout/service/app.layout.service';
-import { ChangePasswordDto } from 'src/app/zynerator/security/shared/model/ChangePassword.model';
+import { ChangePasswordDto } from 'src/app/config/security/shared/model/ChangePassword.model';
 import { HttpErrorResponse } from '@angular/common/http';
 
 

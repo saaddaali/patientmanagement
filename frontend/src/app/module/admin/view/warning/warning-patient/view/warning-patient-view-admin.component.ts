@@ -8,14 +8,14 @@ import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 
 import {environment} from 'src/environments/environment';
 
-import {RoleService} from 'src/app/zynerator/security/shared/service/Role.service';
-import {AbstractService} from 'src/app/zynerator/service/AbstractService';
-import {BaseDto} from 'src/app/zynerator/dto/BaseDto.model';
-import {BaseCriteria} from 'src/app/zynerator/criteria/BaseCriteria.model';
-import {StringUtilService} from 'src/app/zynerator/util/StringUtil.service';
-import {ServiceLocator} from 'src/app/zynerator/service/ServiceLocator';
+import {RoleService} from 'src/app/config/security/shared/service/Role.service';
+import {AbstractService} from 'src/app/config/service/AbstractService';
+import {BaseDto} from 'src/app/config/dto/BaseDto.model';
+import {BaseCriteria} from 'src/app/config/criteria/BaseCriteria.model';
+import {StringUtilService} from 'src/app/config/util/StringUtil.service';
+import {ServiceLocator} from 'src/app/config/service/ServiceLocator';
 import {ConfirmationService, MessageService,MenuItem} from 'primeng/api';
-import {FileTempDto} from 'src/app/zynerator/dto/FileTempDto.model';
+import {FileTempDto} from 'src/app/config/dto/FileTempDto.model';
 
 
 import {WarningPatientAdminService} from 'src/app/shared/service/admin/warning/WarningPatientAdmin.service';

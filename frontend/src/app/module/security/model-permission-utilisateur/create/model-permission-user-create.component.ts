@@ -1,16 +1,16 @@
 import {Component, OnInit, Input} from '@angular/core';
 
-import { AbstractCreateController } from 'src/app/zynerator/controller/AbstractCreateController';
+import { AbstractCreateController } from 'src/app/config/controller/AbstractCreateController';
 
-import {ModelPermissionUserService} from 'src/app/zynerator/security/shared/service/ModelPermissionUser.service';
-import {ModelPermissionUserDto} from 'src/app/zynerator/security/shared/model/ModelPermissionUser.model';
-import {ModelPermissionUserCriteria} from 'src/app/zynerator/security/shared/criteria/ModelPermissionUserCriteria.model';
-import {ModelPermissionDto} from 'src/app/zynerator/security/shared/model/ModelPermission.model';
-import {ModelPermissionService} from 'src/app/zynerator/security/shared/service/ModelPermission.service';
-import {UserDto} from 'src/app/zynerator/security/shared/model/User.model';
-import {UserService} from 'src/app/zynerator/security/shared/service/User.service';
-import {ActionPermissionDto} from 'src/app/zynerator/security/shared/model/ActionPermission.model';
-import {ActionPermissionService} from 'src/app/zynerator/security/shared/service/ActionPermission.service';
+import {ModelPermissionUserService} from 'src/app/config/security/shared/service/ModelPermissionUser.service';
+import {ModelPermissionUserDto} from 'src/app/config/security/shared/model/ModelPermissionUser.model';
+import {ModelPermissionUserCriteria} from 'src/app/config/security/shared/criteria/ModelPermissionUserCriteria.model';
+import {ModelPermissionDto} from 'src/app/config/security/shared/model/ModelPermission.model';
+import {ModelPermissionService} from 'src/app/config/security/shared/service/ModelPermission.service';
+import {UserDto} from 'src/app/config/security/shared/model/User.model';
+import {UserService} from 'src/app/config/security/shared/service/User.service';
+import {ActionPermissionDto} from 'src/app/config/security/shared/model/ActionPermission.model';
+import {ActionPermissionService} from 'src/app/config/security/shared/service/ActionPermission.service';
 @Component({
   selector: 'app-model-permission-user-create',
   templateUrl: './model-permission-user-create.component.html'

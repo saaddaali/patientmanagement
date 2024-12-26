@@ -8,9 +8,9 @@ import { SafeZoneCriteria } from 'src/app/shared/criteria/localisation/SafeZoneC
 import { PatientDto } from 'src/app/shared/model/patient/Patient.model';
 import { PatientDoctorService } from 'src/app/shared/service/doctor/patient/PatientDoctor.service';
 import { environment } from 'src/environments/environment';
-import { ServiceLocator } from 'src/app/zynerator/service/ServiceLocator';
-import {RoleService} from "../../../../../../zynerator/security/shared/service/Role.service";
-import {StringUtilService} from "../../../../../../zynerator/util/StringUtil.service";
+import { ServiceLocator } from 'src/app/config/service/ServiceLocator';
+import {RoleService} from "../../../../../../config/security/shared/service/Role.service";
+import {StringUtilService} from "../../../../../../config/util/StringUtil.service";
 
 declare var google: any;  // Declare the Google Maps API global variable
 

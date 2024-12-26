@@ -1,7 +1,7 @@
 import {CapteurDto} from '../sensor/Capteur.model';
 import {PatientDto} from '../patient/Patient.model';
 
-import {BaseDto} from 'src/app/zynerator/dto/BaseDto.model';
+import {BaseDto} from 'src/app/config/dto/BaseDto.model';
 
 
 export class LocalisationDto extends BaseDto{

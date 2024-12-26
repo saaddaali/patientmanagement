@@ -1,10 +1,10 @@
 import {Component, OnInit, Input} from '@angular/core';
 
-import { AbstractCreateController } from 'src/app/zynerator/controller/AbstractCreateController';
+import { AbstractCreateController } from 'src/app/config/controller/AbstractCreateController';
 
-import {ActionPermissionService} from 'src/app/zynerator/security/shared/service/ActionPermission.service';
-import {ActionPermissionDto} from 'src/app/zynerator/security/shared/model/ActionPermission.model';
-import {ActionPermissionCriteria} from 'src/app/zynerator/security/shared/criteria/ActionPermissionCriteria.model';
+import {ActionPermissionService} from 'src/app/config/security/shared/service/ActionPermission.service';
+import {ActionPermissionDto} from 'src/app/config/security/shared/model/ActionPermission.model';
+import {ActionPermissionCriteria} from 'src/app/config/security/shared/criteria/ActionPermissionCriteria.model';
 @Component({
   selector: 'app-action-permission-create',
   templateUrl: './action-permission-create.component.html'

@@ -1,20 +1,20 @@
 import {Component, OnInit, Input} from '@angular/core';
 
-import { AbstractCreateController } from 'src/app/zynerator/controller/AbstractCreateController';
+import { AbstractCreateController } from 'src/app/config/controller/AbstractCreateController';
 
-import {UserService} from 'src/app/zynerator/security/shared/service/User.service';
-import {UserDto} from 'src/app/zynerator/security/shared/model/User.model';
-import {UserCriteria} from 'src/app/zynerator/security/shared/criteria/UserCriteria.model';
-import {RoleUserDto} from 'src/app/zynerator/security/shared/model/RoleUser.model';
-import {RoleUserService} from 'src/app/zynerator/security/shared/service/RoleUser.service';
-import {ModelPermissionDto} from 'src/app/zynerator/security/shared/model/ModelPermission.model';
-import {ModelPermissionService} from 'src/app/zynerator/security/shared/service/ModelPermission.service';
-import {RoleDto} from 'src/app/zynerator/security/shared/model/Role.model';
-import {RoleService} from 'src/app/zynerator/security/shared/service/Role.service';
-import {ModelPermissionUserDto} from 'src/app/zynerator/security/shared/model/ModelPermissionUser.model';
-import {ModelPermissionUserService} from 'src/app/zynerator/security/shared/service/ModelPermissionUser.service';
-import {ActionPermissionDto} from 'src/app/zynerator/security/shared/model/ActionPermission.model';
-import {ActionPermissionService} from 'src/app/zynerator/security/shared/service/ActionPermission.service';
+import {UserService} from 'src/app/config/security/shared/service/User.service';
+import {UserDto} from 'src/app/config/security/shared/model/User.model';
+import {UserCriteria} from 'src/app/config/security/shared/criteria/UserCriteria.model';
+import {RoleUserDto} from 'src/app/config/security/shared/model/RoleUser.model';
+import {RoleUserService} from 'src/app/config/security/shared/service/RoleUser.service';
+import {ModelPermissionDto} from 'src/app/config/security/shared/model/ModelPermission.model';
+import {ModelPermissionService} from 'src/app/config/security/shared/service/ModelPermission.service';
+import {RoleDto} from 'src/app/config/security/shared/model/Role.model';
+import {RoleService} from 'src/app/config/security/shared/service/Role.service';
+import {ModelPermissionUserDto} from 'src/app/config/security/shared/model/ModelPermissionUser.model';
+import {ModelPermissionUserService} from 'src/app/config/security/shared/service/ModelPermissionUser.service';
+import {ActionPermissionDto} from 'src/app/config/security/shared/model/ActionPermission.model';
+import {ActionPermissionService} from 'src/app/config/security/shared/service/ActionPermission.service';
 
 @Component({
     selector: 'app-user-create',

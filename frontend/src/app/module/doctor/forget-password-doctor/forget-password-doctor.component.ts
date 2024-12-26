@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Message, MessageService } from 'primeng/api';
-import { AuthService } from '../../../zynerator/security/shared/service/Auth.service';
+import { AuthService } from '../../../config/security/shared/service/Auth.service';
 import { LayoutService } from '../../../layout/service/app.layout.service';
 import { Router } from '@angular/router';
-import { ForgetPassword } from 'src/app/zynerator/security/shared/model/ForgetPassword.model';
+import { ForgetPassword } from 'src/app/config/security/shared/model/ForgetPassword.model';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

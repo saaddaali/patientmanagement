@@ -5,7 +5,7 @@ import {DoctorDto} from '../staff/Doctor.model';
 import {WarningPatientDto} from '../warning/WarningPatient.model';
 import {WarningTypeDto} from '../warning/WarningType.model';
 
-import {BaseDto} from 'src/app/zynerator/dto/BaseDto.model';
+import {BaseDto} from 'src/app/config/dto/BaseDto.model';
 
 
 export class PatientDto extends BaseDto{

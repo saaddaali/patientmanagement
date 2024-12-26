@@ -1,11 +1,11 @@
 import {Component, OnInit, Input} from '@angular/core';
 
 
-import {AbstractEditController} from 'src/app/zynerator/controller/AbstractEditController';
+import {AbstractEditController} from 'src/app/config/controller/AbstractEditController';
 
-import {RoleService} from 'src/app/zynerator/security/shared/service/Role.service';
-import {RoleDto} from 'src/app/zynerator/security/shared/model/Role.model';
-import {RoleCriteria} from 'src/app/zynerator/security/shared/criteria/RoleCriteria.model';
+import {RoleService} from 'src/app/config/security/shared/service/Role.service';
+import {RoleDto} from 'src/app/config/security/shared/model/Role.model';
+import {RoleCriteria} from 'src/app/config/security/shared/criteria/RoleCriteria.model';
 
 
 

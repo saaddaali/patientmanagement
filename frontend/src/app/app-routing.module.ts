@@ -1,6 +1,6 @@
 import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {AuthGuard} from 'src/app/zynerator/security/guards/auth.guard';
+import {AuthGuard} from 'src/app/config/security/guards/auth.guard';
 import {AppLayoutComponent} from 'src/app/layout/app.layout.component';
 
 import {HomePublicComponent} from 'src/app/public/home/home-public.component';

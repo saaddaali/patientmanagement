@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 
 import {environment} from 'src/environments/environment';
-import {PaginatedList} from 'src/app/zynerator/dto/PaginatedList.model';
+import {PaginatedList} from 'src/app/config/dto/PaginatedList.model';
 import * as moment from 'moment/moment';
 
 import {DoctorDto} from 'src/app/shared/model/staff/Doctor.model';

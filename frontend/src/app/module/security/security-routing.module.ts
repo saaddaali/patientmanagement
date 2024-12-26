@@ -2,7 +2,7 @@
 
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {AuthGuard} from 'src/app/zynerator/security/guards/auth.guard';
+import {AuthGuard} from 'src/app/config/security/guards/auth.guard';
 import {ActionPermissionListComponent} from './action-permission/list/action-permission-list.component';
 import {ModelPermissionUserListComponent} from './model-permission-utilisateur/list/model-permission-user-list.component';
 import {RoleListComponent} from './role/list/role-list.component';

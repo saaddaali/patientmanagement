@@ -1,11 +1,11 @@
 import {Component, OnInit, Input} from '@angular/core';
 
 
-import {AbstractEditController} from 'src/app/zynerator/controller/AbstractEditController';
+import {AbstractEditController} from 'src/app/config/controller/AbstractEditController';
 
-import {ModelPermissionService} from 'src/app/zynerator/security/shared/service/ModelPermission.service';
-import {ModelPermissionDto} from 'src/app/zynerator/security/shared/model/ModelPermission.model';
-import {ModelPermissionCriteria} from 'src/app/zynerator/security/shared/criteria/ModelPermissionCriteria.model';
+import {ModelPermissionService} from 'src/app/config/security/shared/service/ModelPermission.service';
+import {ModelPermissionDto} from 'src/app/config/security/shared/model/ModelPermission.model';
+import {ModelPermissionCriteria} from 'src/app/config/security/shared/criteria/ModelPermissionCriteria.model';
 
 
 

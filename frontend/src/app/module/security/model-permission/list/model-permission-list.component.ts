@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ModelPermissionService} from 'src/app/zynerator/security/shared/service/ModelPermission.service';
-import {ModelPermissionDto} from 'src/app/zynerator/security/shared/model/ModelPermission.model';
-import {ModelPermissionCriteria} from 'src/app/zynerator/security/shared/criteria/ModelPermissionCriteria.model';
-import {AbstractListController} from 'src/app/zynerator/controller/AbstractListController';
+import {ModelPermissionService} from 'src/app/config/security/shared/service/ModelPermission.service';
+import {ModelPermissionDto} from 'src/app/config/security/shared/model/ModelPermission.model';
+import {ModelPermissionCriteria} from 'src/app/config/security/shared/criteria/ModelPermissionCriteria.model';
+import {AbstractListController} from 'src/app/config/controller/AbstractListController';
 import { environment } from 'src/environments/environment';
 
 

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {  MessageService} from 'primeng/api';
-import {AuthService} from 'src/app/zynerator/security/shared/service/Auth.service';
+import {AuthService} from 'src/app/config/security/shared/service/Auth.service';
 import {LayoutService} from 'src/app/layout/service/app.layout.service';
-import {UserDto} from "src/app/zynerator/security/shared/model/User.model";
+import {UserDto} from "src/app/config/security/shared/model/User.model";
 import {environment} from "src/environments/environment";
-import { LoginDto } from 'src/app/zynerator/security/shared/model/Login.model';
+import { LoginDto } from 'src/app/config/security/shared/model/Login.model';
 
 
 

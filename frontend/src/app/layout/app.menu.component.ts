@@ -1,9 +1,9 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
-import {RoleService} from "../zynerator/security/shared/service/Role.service";
+import {RoleService} from "../config/security/shared/service/Role.service";
 import {AppComponent} from "../app.component";
-import {AuthService} from "../zynerator/security/shared/service/Auth.service";
+import {AuthService} from "../config/security/shared/service/Auth.service";
 import {Router} from "@angular/router";
 import {AppLayoutComponent} from "./app.layout.component";
 
@@ -181,6 +181,7 @@ constructor(public layoutService: LayoutService, public app: AppComponent, publi
           {
               label: 'DASHBOARD',
               icon: 'pi pi-home',
+              routerLink: ['/app/doctor'],
               styleClass: 'dashboard-title',
               expanded: true,
           },

@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 
 
-import {AbstractViewController} from 'src/app/zynerator/controller/AbstractViewController';
+import {AbstractViewController} from 'src/app/config/controller/AbstractViewController';
 import { environment } from 'src/environments/environment';
 
-import {ModelPermissionService} from 'src/app/zynerator/security/shared/service/ModelPermission.service';
-import {ModelPermissionDto} from 'src/app/zynerator/security/shared/model/ModelPermission.model';
-import {ModelPermissionCriteria} from 'src/app/zynerator/security/shared/criteria/ModelPermissionCriteria.model';
+import {ModelPermissionService} from 'src/app/config/security/shared/service/ModelPermission.service';
+import {ModelPermissionDto} from 'src/app/config/security/shared/model/ModelPermission.model';
+import {ModelPermissionCriteria} from 'src/app/config/security/shared/criteria/ModelPermissionCriteria.model';
 
 @Component({
   selector: 'app-model-permission-view',

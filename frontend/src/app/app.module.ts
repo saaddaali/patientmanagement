@@ -36,15 +36,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppLayoutModule } from './layout/app.layout.module';
 
-import {RoleService} from './zynerator/security/shared/service/Role.service';
-import {UserService} from './zynerator/security/shared/service/User.service';
-import {ServiceLocator} from './zynerator/service/ServiceLocator';
-import {JwtInterceptor} from './zynerator/security/interceptors/jwt.interceptor';
+import {RoleService} from './config/security/shared/service/Role.service';
+import {UserService} from './config/security/shared/service/User.service';
+import {ServiceLocator} from './config/service/ServiceLocator';
+import {JwtInterceptor} from './config/security/interceptors/jwt.interceptor';
 
 import {MenuService} from './layout/app.menu.service';
 
-import {SpinnerComponent} from './zynerator/spinner/spinner.component';
-import { HttpRequestInterceptor } from './zynerator/spinner/http.interceptor';
+import {SpinnerComponent} from './config/spinner/spinner.component';
+import { HttpRequestInterceptor } from './config/spinner/http.interceptor';
 
 import {PublicModule} from "./public/public.module";
 import {PublicRoutingModule} from "./public/public-routing.module";

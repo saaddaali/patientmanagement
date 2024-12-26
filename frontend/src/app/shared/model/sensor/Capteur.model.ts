@@ -1,6 +1,6 @@
 import {CapteurTypeDto} from './CapteurType.model';
 
-import {BaseDto} from 'src/app/zynerator/dto/BaseDto.model';
+import {BaseDto} from 'src/app/config/dto/BaseDto.model';
 
 
 export class CapteurDto extends BaseDto{

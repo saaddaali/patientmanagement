@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 
 
-import {AbstractViewController} from 'src/app/zynerator/controller/AbstractViewController';
+import {AbstractViewController} from 'src/app/config/controller/AbstractViewController';
 import { environment } from 'src/environments/environment';
 
-import {RoleService} from 'src/app/zynerator/security/shared/service/Role.service';
-import {RoleDto} from 'src/app/zynerator/security/shared/model/Role.model';
-import {RoleCriteria} from 'src/app/zynerator/security/shared/criteria/RoleCriteria.model';
+import {RoleService} from 'src/app/config/security/shared/service/Role.service';
+import {RoleDto} from 'src/app/config/security/shared/model/Role.model';
+import {RoleCriteria} from 'src/app/config/security/shared/criteria/RoleCriteria.model';
 
 @Component({
   selector: 'app-role-view',

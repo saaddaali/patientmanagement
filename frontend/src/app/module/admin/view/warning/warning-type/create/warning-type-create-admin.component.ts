@@ -8,9 +8,9 @@ import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 
 import {environment} from 'src/environments/environment';
 
-import {RoleService} from 'src/app/zynerator/security/shared/service/Role.service';
-import {StringUtilService} from 'src/app/zynerator/util/StringUtil.service';
-import {ServiceLocator} from 'src/app/zynerator/service/ServiceLocator';
+import {RoleService} from 'src/app/config/security/shared/service/Role.service';
+import {StringUtilService} from 'src/app/config/util/StringUtil.service';
+import {ServiceLocator} from 'src/app/config/service/ServiceLocator';
 
 
 

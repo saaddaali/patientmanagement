@@ -1,19 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 
 
-import {AbstractViewController} from 'src/app/zynerator/controller/AbstractViewController';
+import {AbstractViewController} from 'src/app/config/controller/AbstractViewController';
 import { environment } from 'src/environments/environment';
 
-import {ModelPermissionUserService} from 'src/app/zynerator/security/shared/service/ModelPermissionUser.service';
-import {ModelPermissionUserDto} from 'src/app/zynerator/security/shared/model/ModelPermissionUser.model';
-import {ModelPermissionUserCriteria} from 'src/app/zynerator/security/shared/criteria/ModelPermissionUserCriteria.model';
+import {ModelPermissionUserService} from 'src/app/config/security/shared/service/ModelPermissionUser.service';
+import {ModelPermissionUserDto} from 'src/app/config/security/shared/model/ModelPermissionUser.model';
+import {ModelPermissionUserCriteria} from 'src/app/config/security/shared/criteria/ModelPermissionUserCriteria.model';
 
-import {ModelPermissionDto} from 'src/app/zynerator/security/shared/model/ModelPermission.model';
-import {ModelPermissionService} from 'src/app/zynerator/security/shared/service/ModelPermission.service';
-import {UserDto} from 'src/app/zynerator/security/shared/model/User.model';
-import {UserService} from 'src/app/zynerator/security/shared/service/User.service';
-import {ActionPermissionDto} from 'src/app/zynerator/security/shared/model/ActionPermission.model';
-import {ActionPermissionService} from 'src/app/zynerator/security/shared/service/ActionPermission.service';
+import {ModelPermissionDto} from 'src/app/config/security/shared/model/ModelPermission.model';
+import {ModelPermissionService} from 'src/app/config/security/shared/service/ModelPermission.service';
+import {UserDto} from 'src/app/config/security/shared/model/User.model';
+import {UserService} from 'src/app/config/security/shared/service/User.service';
+import {ActionPermissionDto} from 'src/app/config/security/shared/model/ActionPermission.model';
+import {ActionPermissionService} from 'src/app/config/security/shared/service/ActionPermission.service';
 @Component({
   selector: 'app-model-permission-user-view',
   templateUrl: './model-permission-user-view.component.html'

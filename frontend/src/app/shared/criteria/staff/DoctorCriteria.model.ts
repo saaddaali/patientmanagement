@@ -1,6 +1,6 @@
 import {SpecializationCriteria} from './SpecializationCriteria.model';
 
-import {BaseCriteria} from 'src/app/zynerator/criteria/BaseCriteria.model';
+import {BaseCriteria} from 'src/app/config/criteria/BaseCriteria.model';
 
 export class DoctorCriteria extends BaseCriteria {
 

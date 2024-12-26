@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {AuthGuard} from 'src/app/zynerator/security/guards/auth.guard';
+import {AuthGuard} from 'src/app/config/security/guards/auth.guard';
 
 import { ActivationDoctorComponent } from './activation-doctor/activation-doctor.component';
 import { LoginDoctorComponent } from './login-doctor/login-doctor.component';
 import { RegisterDoctorComponent } from './register-doctor/register-doctor.component';
 import { ForgetPasswordDoctorComponent } from './forget-password-doctor/forget-password-doctor.component';
 import { ChangePasswordDoctorComponent } from './change-password-doctor/change-password-doctor.component';
+import {DashboardComponent} from "./view/dashboard/dashboard.component";
 
 @NgModule({
     imports: [
@@ -15,6 +16,16 @@ import { ChangePasswordDoctorComponent } from './change-password-doctor/change-p
                 {
                     path: '',
                     children: [
+                        {
+                            path: '',
+                            children: [
+                                {
+                                    path: '',
+                                    component: DashboardComponent ,
+                                    canActivate: [AuthGuard]
+                                }
+                            ]
+                        },
                         {
                             path: 'login',
                             children: [

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {RoleService} from 'src/app/zynerator/security/shared/service/Role.service';
-import {RoleDto} from 'src/app/zynerator/security/shared/model/Role.model';
-import {RoleCriteria} from 'src/app/zynerator/security/shared/criteria/RoleCriteria.model';
-import {AbstractListController} from 'src/app/zynerator/controller/AbstractListController';
+import {RoleService} from 'src/app/config/security/shared/service/Role.service';
+import {RoleDto} from 'src/app/config/security/shared/model/Role.model';
+import {RoleCriteria} from 'src/app/config/security/shared/criteria/RoleCriteria.model';
+import {AbstractListController} from 'src/app/config/controller/AbstractListController';
 import { environment } from 'src/environments/environment';
 
 
