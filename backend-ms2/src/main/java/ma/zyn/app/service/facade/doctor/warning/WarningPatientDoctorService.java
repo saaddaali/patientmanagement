@@ -3,8 +3,6 @@ package ma.zyn.app.service.facade.doctor.warning;
 import java.util.List;
 import ma.zyn.app.bean.core.warning.WarningPatient;
 import ma.zyn.app.dao.criteria.core.warning.WarningPatientCriteria;
-import ma.zyn.app.zynerator.service.IService;
-
 
 
 public interface WarningPatientDoctorService {

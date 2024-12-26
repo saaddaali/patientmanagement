@@ -1,14 +1,14 @@
 package ma.zyn.app.service.impl.admin.patient;
 
 
-import ma.zyn.app.zynerator.exception.EntityNotFoundException;
+import ma.zyn.app.config.exception.EntityNotFoundException;
 import ma.zyn.app.bean.core.patient.Patient;
 import ma.zyn.app.dao.criteria.core.patient.PatientCriteria;
 import ma.zyn.app.dao.facade.core.patient.PatientDao;
 import ma.zyn.app.dao.specification.core.patient.PatientSpecification;
 import ma.zyn.app.service.facade.admin.patient.PatientAdminService;
-import ma.zyn.app.zynerator.service.AbstractServiceImpl;
-import static ma.zyn.app.zynerator.util.ListUtil.*;
+
+import static ma.zyn.app.config.util.ListUtil.*;
 
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-import ma.zyn.app.zynerator.util.RefelexivityUtil;
+import ma.zyn.app.config.util.RefelexivityUtil;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,28 +25,23 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ma.zyn.app.service.facade.admin.staff.InfirmierAdminService ;
-import ma.zyn.app.bean.core.staff.Infirmier ;
 import ma.zyn.app.service.facade.admin.healthcare.InfirmierPatientAdminService ;
 import ma.zyn.app.bean.core.healthcare.InfirmierPatient ;
 import ma.zyn.app.service.facade.admin.patient.GenderAdminService ;
-import ma.zyn.app.bean.core.patient.Gender ;
 import ma.zyn.app.service.facade.admin.staff.DoctorAdminService ;
-import ma.zyn.app.bean.core.staff.Doctor ;
 import ma.zyn.app.service.facade.admin.warning.WarningPatientAdminService ;
 import ma.zyn.app.bean.core.warning.WarningPatient ;
 import ma.zyn.app.service.facade.admin.warning.WarningTypeAdminService ;
-import ma.zyn.app.bean.core.warning.WarningType ;
 
 import java.time.LocalDateTime;
-import ma.zyn.app.zynerator.security.service.facade.UserService;
-import ma.zyn.app.zynerator.security.service.facade.RoleService;
-import ma.zyn.app.zynerator.security.service.facade.RoleUserService;
-import ma.zyn.app.zynerator.security.bean.Role;
-import ma.zyn.app.zynerator.security.bean.RoleUser;
-import ma.zyn.app.zynerator.security.common.AuthoritiesConstants;
-import ma.zyn.app.zynerator.security.service.facade.ModelPermissionUserService;
-import java.util.Collection;
-import java.util.List;
+import ma.zyn.app.config.security.service.facade.UserService;
+import ma.zyn.app.config.security.service.facade.RoleService;
+import ma.zyn.app.config.security.service.facade.RoleUserService;
+import ma.zyn.app.config.security.bean.Role;
+import ma.zyn.app.config.security.bean.RoleUser;
+import ma.zyn.app.config.security.common.AuthoritiesConstants;
+import ma.zyn.app.config.security.service.facade.ModelPermissionUserService;
+
 @Service
 public class PatientAdminServiceImpl implements PatientAdminService {
 

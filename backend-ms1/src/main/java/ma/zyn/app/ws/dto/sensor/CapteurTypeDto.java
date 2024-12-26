@@ -1,6 +1,6 @@
 package  ma.zyn.app.ws.dto.sensor;
 
-import ma.zyn.app.zynerator.dto.AuditBaseDto;
+import ma.zyn.app.config.dto.AuditBaseDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 

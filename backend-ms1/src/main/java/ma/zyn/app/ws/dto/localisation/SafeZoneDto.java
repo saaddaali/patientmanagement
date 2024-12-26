@@ -1,6 +1,6 @@
 package  ma.zyn.app.ws.dto.localisation;
 
-import ma.zyn.app.zynerator.dto.AuditBaseDto;
+import ma.zyn.app.config.dto.AuditBaseDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.math.BigDecimal;

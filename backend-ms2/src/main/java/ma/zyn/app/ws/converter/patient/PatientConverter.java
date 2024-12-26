@@ -3,30 +3,23 @@ package  ma.zyn.app.ws.converter.patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.BeanUtils;
-import ma.zyn.app.zynerator.converter.AbstractConverterHelper;
+import ma.zyn.app.config.converter.AbstractConverterHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-import ma.zyn.app.zynerator.util.ListUtil;
+import ma.zyn.app.config.util.ListUtil;
 
 import ma.zyn.app.ws.converter.staff.InfirmierConverter;
-import ma.zyn.app.bean.core.staff.Infirmier;
 import ma.zyn.app.ws.converter.healthcare.InfirmierPatientConverter;
-import ma.zyn.app.bean.core.healthcare.InfirmierPatient;
-import ma.zyn.app.ws.converter.patient.GenderConverter;
 import ma.zyn.app.bean.core.patient.Gender;
 import ma.zyn.app.ws.converter.staff.DoctorConverter;
 import ma.zyn.app.bean.core.staff.Doctor;
 import ma.zyn.app.ws.converter.warning.WarningPatientConverter;
-import ma.zyn.app.bean.core.warning.WarningPatient;
 import ma.zyn.app.ws.converter.warning.WarningTypeConverter;
-import ma.zyn.app.bean.core.warning.WarningType;
 
 
-
-import ma.zyn.app.zynerator.util.StringUtil;
-import ma.zyn.app.zynerator.converter.AbstractConverter;
-import ma.zyn.app.zynerator.util.DateUtil;
+import ma.zyn.app.config.util.StringUtil;
+import ma.zyn.app.config.util.DateUtil;
 import ma.zyn.app.bean.core.patient.Patient;
 import ma.zyn.app.ws.dto.patient.PatientDto;
 

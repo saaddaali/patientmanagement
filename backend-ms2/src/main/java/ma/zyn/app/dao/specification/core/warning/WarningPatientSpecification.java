@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.specification.core.warning;
 
 import ma.zyn.app.dao.criteria.core.warning.WarningPatientCriteria;
 import ma.zyn.app.bean.core.warning.WarningPatient;
-import ma.zyn.app.zynerator.specification.AbstractSpecification;
+import ma.zyn.app.config.specification.AbstractSpecification;
 
 
 public class WarningPatientSpecification extends  AbstractSpecification<WarningPatientCriteria, WarningPatient>  {

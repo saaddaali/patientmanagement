@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.specification.core.patient;
 
 import ma.zyn.app.dao.criteria.core.patient.GenderCriteria;
 import ma.zyn.app.bean.core.patient.Gender;
-import ma.zyn.app.zynerator.specification.AbstractSpecification;
+import ma.zyn.app.config.specification.AbstractSpecification;
 
 
 public class GenderSpecification extends  AbstractSpecification<GenderCriteria, Gender>  {

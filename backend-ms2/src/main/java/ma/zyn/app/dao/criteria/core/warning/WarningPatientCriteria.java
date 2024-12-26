@@ -3,11 +3,10 @@ package  ma.zyn.app.dao.criteria.core.warning;
 
 import ma.zyn.app.dao.criteria.core.patient.PatientCriteria;
 
-import ma.zyn.app.zynerator.criteria.BaseCriteria;
+import ma.zyn.app.config.criteria.BaseCriteria;
 
 import java.util.List;
 import java.time.LocalDateTime;
-import java.time.LocalDate;
 
 public class WarningPatientCriteria extends  BaseCriteria  {
 

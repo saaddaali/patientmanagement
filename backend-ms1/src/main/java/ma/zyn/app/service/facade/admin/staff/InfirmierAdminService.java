@@ -3,8 +3,6 @@ package ma.zyn.app.service.facade.admin.staff;
 import java.util.List;
 import ma.zyn.app.bean.core.staff.Infirmier;
 import ma.zyn.app.dao.criteria.core.staff.InfirmierCriteria;
-import ma.zyn.app.zynerator.service.IService;
-
 
 
 public interface InfirmierAdminService {

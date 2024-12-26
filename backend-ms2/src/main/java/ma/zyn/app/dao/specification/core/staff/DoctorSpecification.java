@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.specification.core.staff;
 
 import ma.zyn.app.dao.criteria.core.staff.DoctorCriteria;
 import ma.zyn.app.bean.core.staff.Doctor;
-import ma.zyn.app.zynerator.specification.AbstractSpecification;
+import ma.zyn.app.config.specification.AbstractSpecification;
 
 
 public class DoctorSpecification extends  AbstractSpecification<DoctorCriteria, Doctor>  {

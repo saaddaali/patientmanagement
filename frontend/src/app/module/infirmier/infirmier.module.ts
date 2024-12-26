@@ -27,11 +27,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessageModule } from 'primeng/message';
 import {MessagesModule} from 'primeng/messages';
 
-import { LoginInfirmierComponent } from './login-infirmier/login-infirmier.component';
-import { RegisterInfirmierComponent } from './register-infirmier/register-infirmier.component';
-import { ChangePasswordInfirmierComponent } from './change-password-infirmier/change-password-infirmier.component';
-import { ActivationInfirmierComponent } from './activation-infirmier/activation-infirmier.component';
-import { ForgetPasswordInfirmierComponent } from './forget-password-infirmier/forget-password-infirmier.component';
+
 
 
 import { PatientInfirmierModule } from './view/patient/patient-infirmier.module';
@@ -47,11 +43,6 @@ import {SecurityRoutingModule} from 'src/app/module/security/security-routing.mo
 
 @NgModule({
   declarations: [
-   LoginInfirmierComponent,
-   RegisterInfirmierComponent,
-   ChangePasswordInfirmierComponent,
-   ActivationInfirmierComponent,
-   ForgetPasswordInfirmierComponent
   ],
   imports: [
     CommonModule,
@@ -89,11 +80,6 @@ import {SecurityRoutingModule} from 'src/app/module/security/security-routing.mo
    SecurityRoutingModule
   ],
   exports: [
-    LoginInfirmierComponent,
-    RegisterInfirmierComponent,
-    ChangePasswordInfirmierComponent,
-    ActivationInfirmierComponent,
-    ForgetPasswordInfirmierComponent,
 
     PatientInfirmierModule,
     LocalisationInfirmierModule,

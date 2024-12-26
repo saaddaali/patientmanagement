@@ -3,8 +3,6 @@ package ma.zyn.app.service.facade.admin.staff;
 import java.util.List;
 import ma.zyn.app.bean.core.staff.Doctor;
 import ma.zyn.app.dao.criteria.core.staff.DoctorCriteria;
-import ma.zyn.app.zynerator.service.IService;
-
 
 
 public interface DoctorAdminService {

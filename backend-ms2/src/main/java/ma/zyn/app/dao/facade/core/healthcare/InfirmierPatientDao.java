@@ -1,6 +1,6 @@
 package ma.zyn.app.dao.facade.core.healthcare;
 
-import ma.zyn.app.zynerator.repository.AbstractRepository;
+import ma.zyn.app.config.repository.AbstractRepository;
 import ma.zyn.app.bean.core.healthcare.InfirmierPatient;
 import org.springframework.stereotype.Repository;
 import java.util.List;

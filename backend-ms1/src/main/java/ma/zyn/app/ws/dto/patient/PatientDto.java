@@ -1,23 +1,18 @@
 package  ma.zyn.app.ws.dto.patient;
 
-import ma.zyn.app.zynerator.dto.AuditBaseDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import ma.zyn.app.zynerator.security.bean.Role;
+import ma.zyn.app.config.security.bean.Role;
 import java.util.Collection;
-import ma.zyn.app.zynerator.security.ws.dto.UserDto;
+import ma.zyn.app.config.security.ws.dto.UserDto;
 import java.util.List;
-import java.util.Date;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 
-import ma.zyn.app.ws.dto.staff.InfirmierDto;
 import ma.zyn.app.ws.dto.healthcare.InfirmierPatientDto;
 import ma.zyn.app.ws.dto.staff.DoctorDto;
 import ma.zyn.app.ws.dto.warning.WarningPatientDto;
-import ma.zyn.app.ws.dto.warning.WarningTypeDto;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

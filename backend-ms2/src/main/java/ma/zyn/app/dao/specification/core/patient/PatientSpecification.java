@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.specification.core.patient;
 
 import ma.zyn.app.dao.criteria.core.patient.PatientCriteria;
 import ma.zyn.app.bean.core.patient.Patient;
-import ma.zyn.app.zynerator.specification.AbstractSpecification;
+import ma.zyn.app.config.specification.AbstractSpecification;
 
 
 public class PatientSpecification extends  AbstractSpecification<PatientCriteria, Patient>  {

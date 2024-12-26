@@ -1,11 +1,10 @@
 package  ma.zyn.app.ws.dto.staff;
 
-import ma.zyn.app.zynerator.dto.AuditBaseDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import ma.zyn.app.zynerator.security.bean.Role;
+import ma.zyn.app.config.security.bean.Role;
 import java.util.Collection;
-import ma.zyn.app.zynerator.security.ws.dto.UserDto;
+import ma.zyn.app.config.security.ws.dto.UserDto;
 
 
 

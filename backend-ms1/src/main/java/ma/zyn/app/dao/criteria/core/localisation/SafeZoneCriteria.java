@@ -3,7 +3,7 @@ package  ma.zyn.app.dao.criteria.core.localisation;
 
 import ma.zyn.app.dao.criteria.core.patient.PatientCriteria;
 
-import ma.zyn.app.zynerator.criteria.BaseCriteria;
+import ma.zyn.app.config.criteria.BaseCriteria;
 
 import java.util.List;
 

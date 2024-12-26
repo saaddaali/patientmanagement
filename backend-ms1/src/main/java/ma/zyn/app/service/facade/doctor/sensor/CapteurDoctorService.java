@@ -3,8 +3,6 @@ package ma.zyn.app.service.facade.doctor.sensor;
 import java.util.List;
 import ma.zyn.app.bean.core.sensor.Capteur;
 import ma.zyn.app.dao.criteria.core.sensor.CapteurCriteria;
-import ma.zyn.app.zynerator.service.IService;
-
 
 
 public interface CapteurDoctorService {

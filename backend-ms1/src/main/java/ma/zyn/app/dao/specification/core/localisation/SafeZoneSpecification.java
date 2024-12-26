@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.specification.core.localisation;
 
 import ma.zyn.app.dao.criteria.core.localisation.SafeZoneCriteria;
 import ma.zyn.app.bean.core.localisation.SafeZone;
-import ma.zyn.app.zynerator.specification.AbstractSpecification;
+import ma.zyn.app.config.specification.AbstractSpecification;
 
 
 public class SafeZoneSpecification extends  AbstractSpecification<SafeZoneCriteria, SafeZone>  {

@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.specification.core.sensor;
 
 import ma.zyn.app.dao.criteria.core.sensor.CapteurTypeCriteria;
 import ma.zyn.app.bean.core.sensor.CapteurType;
-import ma.zyn.app.zynerator.specification.AbstractSpecification;
+import ma.zyn.app.config.specification.AbstractSpecification;
 
 
 public class CapteurTypeSpecification extends  AbstractSpecification<CapteurTypeCriteria, CapteurType>  {

@@ -8,7 +8,7 @@ package ma.zyn.app.bean.core.patient;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ma.zyn.app.zynerator.bean.BaseEntity;
+import ma.zyn.app.config.bean.BaseEntity;
 import jakarta.persistence.*;
 import java.util.Objects;
 

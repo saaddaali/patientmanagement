@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.specification.core.staff;
 
 import ma.zyn.app.dao.criteria.core.staff.SpecializationCriteria;
 import ma.zyn.app.bean.core.staff.Specialization;
-import ma.zyn.app.zynerator.specification.AbstractSpecification;
+import ma.zyn.app.config.specification.AbstractSpecification;
 
 
 public class SpecializationSpecification extends  AbstractSpecification<SpecializationCriteria, Specialization>  {

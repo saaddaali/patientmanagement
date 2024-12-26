@@ -1,14 +1,14 @@
 package ma.zyn.app.service.impl.admin.localisation;
 
 
-import ma.zyn.app.zynerator.exception.EntityNotFoundException;
+import ma.zyn.app.config.exception.EntityNotFoundException;
 import ma.zyn.app.bean.core.localisation.Localisation;
 import ma.zyn.app.dao.criteria.core.localisation.LocalisationCriteria;
 import ma.zyn.app.dao.facade.core.localisation.LocalisationDao;
 import ma.zyn.app.dao.specification.core.localisation.LocalisationSpecification;
 import ma.zyn.app.service.facade.admin.localisation.LocalisationAdminService;
-import ma.zyn.app.zynerator.service.AbstractServiceImpl;
-import static ma.zyn.app.zynerator.util.ListUtil.*;
+
+import static ma.zyn.app.config.util.ListUtil.*;
 
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-import ma.zyn.app.zynerator.util.RefelexivityUtil;
+import ma.zyn.app.config.util.RefelexivityUtil;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +25,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ma.zyn.app.service.facade.admin.sensor.CapteurAdminService ;
-import ma.zyn.app.bean.core.sensor.Capteur ;
 import ma.zyn.app.service.facade.admin.patient.PatientAdminService ;
-import ma.zyn.app.bean.core.patient.Patient ;
 
-import java.util.List;
 @Service
 public class LocalisationAdminServiceImpl implements LocalisationAdminService {
 

@@ -2,9 +2,7 @@ package  ma.zyn.app.dao.criteria.core.staff;
 
 
 
-import ma.zyn.app.zynerator.criteria.BaseCriteria;
-
-import java.util.List;
+import ma.zyn.app.config.criteria.BaseCriteria;
 
 public class SpecializationCriteria extends  BaseCriteria  {
 

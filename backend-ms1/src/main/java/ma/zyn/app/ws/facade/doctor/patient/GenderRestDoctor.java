@@ -6,7 +6,7 @@ import ma.zyn.app.dao.criteria.core.patient.GenderCriteria;
 import ma.zyn.app.service.facade.admin.patient.GenderAdminService;
 import ma.zyn.app.ws.converter.patient.GenderConverter;
 import ma.zyn.app.ws.dto.patient.GenderDto;
-import ma.zyn.app.zynerator.util.PaginatedList;
+import ma.zyn.app.config.util.PaginatedList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

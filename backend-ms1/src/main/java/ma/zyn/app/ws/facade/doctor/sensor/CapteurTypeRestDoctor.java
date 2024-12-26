@@ -6,7 +6,7 @@ import ma.zyn.app.dao.criteria.core.sensor.CapteurTypeCriteria;
 import ma.zyn.app.service.facade.admin.sensor.CapteurTypeAdminService;
 import ma.zyn.app.ws.converter.sensor.CapteurTypeConverter;
 import ma.zyn.app.ws.dto.sensor.CapteurTypeDto;
-import ma.zyn.app.zynerator.util.PaginatedList;
+import ma.zyn.app.config.util.PaginatedList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

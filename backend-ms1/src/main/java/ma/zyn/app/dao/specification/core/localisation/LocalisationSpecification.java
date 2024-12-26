@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.specification.core.localisation;
 
 import ma.zyn.app.dao.criteria.core.localisation.LocalisationCriteria;
 import ma.zyn.app.bean.core.localisation.Localisation;
-import ma.zyn.app.zynerator.specification.AbstractSpecification;
+import ma.zyn.app.config.specification.AbstractSpecification;
 
 
 public class LocalisationSpecification extends  AbstractSpecification<LocalisationCriteria, Localisation>  {

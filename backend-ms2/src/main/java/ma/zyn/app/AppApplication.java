@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import java.math.BigDecimal;
@@ -25,13 +24,13 @@ import ma.zyn.app.bean.core.staff.Doctor;
 import ma.zyn.app.service.facade.admin.staff.DoctorAdminService;
 import ma.zyn.app.bean.core.staff.Infirmier;
 import ma.zyn.app.service.facade.admin.staff.InfirmierAdminService;
-import ma.zyn.app.zynerator.security.bean.*;
-import ma.zyn.app.zynerator.security.common.AuthoritiesConstants;
-import ma.zyn.app.zynerator.security.service.facade.*;
+import ma.zyn.app.config.security.bean.*;
+import ma.zyn.app.config.security.common.AuthoritiesConstants;
+import ma.zyn.app.config.security.service.facade.*;
 
 
-import ma.zyn.app.zynerator.security.bean.User;
-import ma.zyn.app.zynerator.security.bean.Role;
+import ma.zyn.app.config.security.bean.User;
+import ma.zyn.app.config.security.bean.Role;
 
 @SpringBootApplication
 @EnableDiscoveryClient

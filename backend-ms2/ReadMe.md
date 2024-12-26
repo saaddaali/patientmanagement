@@ -19,11 +19,12 @@ docker ps
 
 ## MinIo
 1- go to http://localhost:9001/login
-login: minio  and pass: minio1234 (see .env file of docker compose)
+login: saad@2024  and pass: saad@2024  (see .env file of docker compose)
 
 2- go to identity >> users menu
 create a user:
-login : zyn pass: zyn@2024 role: read and write
+login : saad
+pass: saad role: read and write
 
 3- edit the user and click on service account >> create
 copy access key and secret key in application.prop
@@ -41,12 +42,12 @@ openssl genpkey -algorithm RSA -out key.pem -pkeyopt rsa_keygen_bits:2048
 //zynkey
 openssl req -new -key key.pem -out cert.csr -subj "/CN=YourIPOrLocalhost"
 openssl x509 -req -days 365 -in cert.csr -signkey key.pem -out cert.pem
-openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12 -name yourAliasZynForExample
+openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12 -name yourAliasForExample
 //genKey
 
 ## Generate certif using SSL for front end
-//got to : frontend\zyn\ssl\localhost
-openssl pkcs12 -in ./../../../../backend-ms1/zyn/ssl/localhost/keystore.p12 -out keyStore.pem -nodes
+//got to : frontend\sec\ssl\localhost
+openssl pkcs12 -in ./../../../../backend-ms1/sec/ssl/localhost/keystore.p12 -out keyStore.pem -nodes
 //zynkey
 openssl rsa -in keyStore.pem -out key.pem
 openssl x509 -in keyStore.pem -out cert.pem -days 365
@@ -71,15 +72,15 @@ login: admin  and pass: admin (by default and change login and pass)
 
 sudo apt install certbot python3-certbot-nginx
 
-create sub domain api.zynerator.com for example
+create sub domain api.app.com for example
 
-sudo certbot --nginx -d api.zynerator.com
+sudo certbot --nginx -d api.app.com
 
 --------------------------------------------------
 in case of config prob (default.config in nginx :: /etc/nginx/sites-enabled/default.conf)
 
 server {
-server_name api.zynerator.com;
+server_name api.app.com;
 
 
 location / {
@@ -103,14 +104,14 @@ proxy_pass "http://localhost:8036/back";
 
 
 listen 443 ssl; # managed by Certbot
-ssl_certificate /etc/letsencrypt/live/api.zynerator.com/fullchain.pem; # managed by Certbot
-ssl_certificate_key /etc/letsencrypt/live/api.zynerator.com/privkey.pem; # managed by Certbot
+ssl_certificate /etc/letsencrypt/live/api.app.com/fullchain.pem; # managed by Certbot
+ssl_certificate_key /etc/letsencrypt/live/api.app.com/privkey.pem; # managed by Certbot
 include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
 --------------------------------------------
-sudo certbot --nginx -d api.zynerator.com -d api.zynerator.com
+sudo certbot --nginx -d api.app.com -d api.app.com
 sudo certbot renew --dry-run
 
 

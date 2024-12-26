@@ -11,9 +11,6 @@ import {ChangePasswordAdminComponent} from 'src/app/module/admin/change-password
 import {LoginDoctorComponent} from 'src/app/module/doctor/login-doctor/login-doctor.component';
 import {RegisterDoctorComponent} from 'src/app/module/doctor/register-doctor/register-doctor.component';
 import {ChangePasswordDoctorComponent} from 'src/app/module/doctor/change-password-doctor/change-password-doctor.component';
-import {LoginInfirmierComponent} from 'src/app/module/infirmier/login-infirmier/login-infirmier.component';
-import {RegisterInfirmierComponent} from 'src/app/module/infirmier/register-infirmier/register-infirmier.component';
-import {ChangePasswordInfirmierComponent} from 'src/app/module/infirmier/change-password-infirmier/change-password-infirmier.component';
 
 @NgModule({
     imports: [
@@ -26,9 +23,6 @@ import {ChangePasswordInfirmierComponent} from 'src/app/module/infirmier/change-
                 {path: 'doctor/login', component: LoginDoctorComponent },
                 {path: 'doctor/register', component: RegisterDoctorComponent },
                 {path: 'doctor/changePassword', component: ChangePasswordDoctorComponent },
-                {path: 'infirmier/login', component: LoginInfirmierComponent },
-                {path: 'infirmier/register', component: RegisterInfirmierComponent },
-                {path: 'infirmier/changePassword', component: ChangePasswordInfirmierComponent },
                 {
                     path: 'app',
                     component: AppLayoutComponent,

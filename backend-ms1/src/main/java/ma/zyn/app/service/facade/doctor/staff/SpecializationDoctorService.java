@@ -3,8 +3,6 @@ package ma.zyn.app.service.facade.doctor.staff;
 import java.util.List;
 import ma.zyn.app.bean.core.staff.Specialization;
 import ma.zyn.app.dao.criteria.core.staff.SpecializationCriteria;
-import ma.zyn.app.zynerator.service.IService;
-
 
 
 public interface SpecializationDoctorService {

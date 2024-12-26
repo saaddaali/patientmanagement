@@ -5,22 +5,15 @@ import java.util.List;
 import java.time.LocalDateTime;
 
 
-import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-
-import ma.zyn.app.bean.core.staff.Infirmier;
 import ma.zyn.app.bean.core.healthcare.InfirmierPatient;
 import ma.zyn.app.bean.core.staff.Doctor;
 import ma.zyn.app.bean.core.warning.WarningPatient;
-import ma.zyn.app.bean.core.warning.WarningType;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ma.zyn.app.zynerator.bean.BaseEntity;
 import jakarta.persistence.*;
 import java.util.Objects;
-import ma.zyn.app.zynerator.security.bean.User;
+import ma.zyn.app.config.security.bean.User;
 
 @Entity
 @Table(name = "patient")

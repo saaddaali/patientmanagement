@@ -3,8 +3,6 @@ package ma.zyn.app.service.facade.doctor.localisation;
 import java.util.List;
 import ma.zyn.app.bean.core.localisation.SafeZone;
 import ma.zyn.app.dao.criteria.core.localisation.SafeZoneCriteria;
-import ma.zyn.app.zynerator.service.IService;
-
 
 
 public interface SafeZoneDoctorService {

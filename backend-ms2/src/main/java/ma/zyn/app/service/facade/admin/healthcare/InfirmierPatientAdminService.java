@@ -3,8 +3,6 @@ package ma.zyn.app.service.facade.admin.healthcare;
 import java.util.List;
 import ma.zyn.app.bean.core.healthcare.InfirmierPatient;
 import ma.zyn.app.dao.criteria.core.healthcare.InfirmierPatientCriteria;
-import ma.zyn.app.zynerator.service.IService;
-
 
 
 public interface InfirmierPatientAdminService {

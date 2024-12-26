@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.criteria.core.staff;
 
 
 
-import ma.zyn.app.zynerator.security.dao.criteria.core.UserCriteria;
+import ma.zyn.app.config.security.dao.criteria.core.UserCriteria;
 
 import java.util.List;
 

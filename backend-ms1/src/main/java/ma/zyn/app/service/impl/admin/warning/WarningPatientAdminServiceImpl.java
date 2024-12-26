@@ -1,14 +1,14 @@
 package ma.zyn.app.service.impl.admin.warning;
 
 
-import ma.zyn.app.zynerator.exception.EntityNotFoundException;
+import ma.zyn.app.config.exception.EntityNotFoundException;
 import ma.zyn.app.bean.core.warning.WarningPatient;
 import ma.zyn.app.dao.criteria.core.warning.WarningPatientCriteria;
 import ma.zyn.app.dao.facade.core.warning.WarningPatientDao;
 import ma.zyn.app.dao.specification.core.warning.WarningPatientSpecification;
 import ma.zyn.app.service.facade.admin.warning.WarningPatientAdminService;
-import ma.zyn.app.zynerator.service.AbstractServiceImpl;
-import static ma.zyn.app.zynerator.util.ListUtil.*;
+
+import static ma.zyn.app.config.util.ListUtil.*;
 
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-import ma.zyn.app.zynerator.util.RefelexivityUtil;
+import ma.zyn.app.config.util.RefelexivityUtil;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +25,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ma.zyn.app.service.facade.admin.patient.PatientAdminService ;
-import ma.zyn.app.bean.core.patient.Patient ;
 import ma.zyn.app.service.facade.admin.warning.WarningTypeAdminService ;
-import ma.zyn.app.bean.core.warning.WarningType ;
 
-import java.util.List;
 @Service
 public class WarningPatientAdminServiceImpl implements WarningPatientAdminService {
 

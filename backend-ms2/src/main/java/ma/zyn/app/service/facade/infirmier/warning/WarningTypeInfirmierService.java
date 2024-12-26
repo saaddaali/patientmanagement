@@ -3,8 +3,6 @@ package ma.zyn.app.service.facade.infirmier.warning;
 import java.util.List;
 import ma.zyn.app.bean.core.warning.WarningType;
 import ma.zyn.app.dao.criteria.core.warning.WarningTypeCriteria;
-import ma.zyn.app.zynerator.service.IService;
-
 
 
 public interface WarningTypeInfirmierService {

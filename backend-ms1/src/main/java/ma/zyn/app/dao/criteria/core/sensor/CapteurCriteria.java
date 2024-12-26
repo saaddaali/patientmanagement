@@ -2,7 +2,7 @@ package  ma.zyn.app.dao.criteria.core.sensor;
 
 
 
-import ma.zyn.app.zynerator.criteria.BaseCriteria;
+import ma.zyn.app.config.criteria.BaseCriteria;
 
 import java.util.List;
 

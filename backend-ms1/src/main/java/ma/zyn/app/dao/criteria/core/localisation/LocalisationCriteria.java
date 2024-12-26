@@ -4,11 +4,10 @@ package  ma.zyn.app.dao.criteria.core.localisation;
 import ma.zyn.app.dao.criteria.core.sensor.CapteurCriteria;
 import ma.zyn.app.dao.criteria.core.patient.PatientCriteria;
 
-import ma.zyn.app.zynerator.criteria.BaseCriteria;
+import ma.zyn.app.config.criteria.BaseCriteria;
 
 import java.util.List;
 import java.time.LocalDateTime;
-import java.time.LocalDate;
 
 public class LocalisationCriteria extends  BaseCriteria  {
 

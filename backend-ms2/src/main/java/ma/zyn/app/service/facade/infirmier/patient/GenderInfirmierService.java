@@ -3,8 +3,6 @@ package ma.zyn.app.service.facade.infirmier.patient;
 import java.util.List;
 import ma.zyn.app.bean.core.patient.Gender;
 import ma.zyn.app.dao.criteria.core.patient.GenderCriteria;
-import ma.zyn.app.zynerator.service.IService;
-
 
 
 public interface GenderInfirmierService {

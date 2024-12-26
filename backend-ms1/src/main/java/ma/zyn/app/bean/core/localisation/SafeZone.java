@@ -9,7 +9,7 @@ import ma.zyn.app.bean.core.patient.Patient;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ma.zyn.app.zynerator.bean.BaseEntity;
+import ma.zyn.app.config.bean.BaseEntity;
 import jakarta.persistence.*;
 import java.util.Objects;
 import java.math.BigDecimal;

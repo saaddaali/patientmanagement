@@ -4,16 +4,12 @@ package ma.zyn.app.bean.core.healthcare;
 import java.time.LocalDateTime;
 
 
-import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-
 import ma.zyn.app.bean.core.staff.Infirmier;
 import ma.zyn.app.bean.core.patient.Patient;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ma.zyn.app.zynerator.bean.BaseEntity;
+import ma.zyn.app.config.bean.BaseEntity;
 import jakarta.persistence.*;
 import java.util.Objects;
 
