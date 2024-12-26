@@ -145,7 +145,7 @@ public class WarningPatientAdminServiceImpl implements WarningPatientAdminServic
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public WarningPatient create(WarningPatient t) {
-        if (t.getPatient() != null) {
+        if (t.getPatient() == null) {
             t.getPatient().setId(null);
             t.setPatient(patientService.create(t.getPatient()));
         }
