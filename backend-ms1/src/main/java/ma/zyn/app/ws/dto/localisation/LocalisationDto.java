@@ -20,6 +20,7 @@ public class LocalisationDto  extends AuditBaseDto {
 
     private PatientDto patient ;
     private CapteurDto capteur ;
+    private Boolean inZone;
 
 
 
@@ -70,9 +71,11 @@ public class LocalisationDto  extends AuditBaseDto {
         this.capteur = capteur;
     }
 
+    public Boolean getInZone() {
+        return inZone;
+    }
 
-
-
-
-
+    public void setInZone(Boolean inZone) {
+        this.inZone = inZone;
+    }
 }

@@ -46,6 +46,8 @@ public class LocalisationConverter {
                 item.setLongitude(dto.getLongitude());
             if(StringUtil.isNotEmpty(dto.getLatitude()))
                 item.setLatitude(dto.getLatitude());
+            if(dto.getInZone()!=null)
+                item.setInZone(dto.getInZone());
             if(dto.getPatient() != null && dto.getPatient().getId() != null){
                 item.setPatient(new Patient());
                 item.getPatient().setId(dto.getPatient().getId());
@@ -76,6 +78,8 @@ public class LocalisationConverter {
                 dto.setLongitude(item.getLongitude());
             if(StringUtil.isNotEmpty(item.getLatitude()))
                 dto.setLatitude(item.getLatitude());
+            if(item.getInZone()!=null)
+                dto.setInZone(item.getInZone());
             if(this.patient && item.getPatient()!=null) {
                 dto.setPatient(patientConverter.toDto(item.getPatient())) ;
 

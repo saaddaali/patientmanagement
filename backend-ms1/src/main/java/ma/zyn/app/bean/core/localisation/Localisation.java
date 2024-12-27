@@ -31,6 +31,7 @@ public class Localisation  extends BaseEntity     {
 
     private Patient patient ;
     private Capteur capteur ;
+    private Boolean inZone;
 
 
     public Localisation(){
@@ -82,6 +83,15 @@ public class Localisation  extends BaseEntity     {
     public void setLatitude(BigDecimal latitude){
         this.latitude = latitude;
     }
+
+    public Boolean getInZone() {
+        return inZone;
+    }
+
+    public void setInZone(Boolean inZone) {
+        this.inZone = inZone;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "capteur")
     public Capteur getCapteur(){

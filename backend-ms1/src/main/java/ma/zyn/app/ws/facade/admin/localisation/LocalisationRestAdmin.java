@@ -3,8 +3,12 @@ package  ma.zyn.app.ws.facade.admin.localisation;
 import io.swagger.v3.oas.annotations.Operation;
 
 import ma.zyn.app.bean.core.localisation.SafeZone;
+import ma.zyn.app.bean.core.warning.WarningPatient;
+import ma.zyn.app.bean.core.warning.WarningType;
 import ma.zyn.app.service.facade.admin.localisation.SafeZoneAdminService;
 import ma.zyn.app.service.facade.admin.warning.WarningPatientAdminService;
+import ma.zyn.app.service.facade.admin.warning.WarningTypeAdminService;
+import ma.zyn.app.ws.converter.patient.PatientConverter;
 import org.apache.poi.hpsf.Decimal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,6 +27,8 @@ import org.springframework.web.client.RestTemplate;
 
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -98,6 +104,14 @@ public class LocalisationRestAdmin {
             SafeZone safeZone = safeZoneAdminService.findByLinkedPatientId(dto.getPatient().getId()).get(0);
             ResponseEntity<Boolean> respone = checkLocation(dto.getLatitude(), dto.getLongitude(), safeZone.getCentreLatitude(), safeZone.getCentreLongitude(), safeZone.getRayon());
             System.out.println("Localisation updated: "+respone.getBody());
+            if (respone.getBody().booleanValue()) {
+                if (Boolean.TRUE.equals(dto.getInZone())){
+                    myDto.setInZone(false);
+                    WarningPatient warningPatient = warningPatientAdminService.findById(22L);
+                    warningPatient.setDateWarning(LocalDateTime.now());
+                    warningPatientAdminService.update(warningPatient);
+                }
+            }
 
         }
         return res;
@@ -240,18 +254,20 @@ public class LocalisationRestAdmin {
 
 
 
-   public LocalisationRestAdmin(RestTemplate restTemplate, LocalisationAdminService service, LocalisationConverter converter, SafeZoneAdminService safeZoneAdminService, WarningPatientAdminService warningPatientAdminService){
+   public LocalisationRestAdmin(RestTemplate restTemplate, LocalisationAdminService service, LocalisationConverter converter, SafeZoneAdminService safeZoneAdminService, WarningPatientAdminService warningPatientAdminService, WarningTypeAdminService warningTypeAdminService){
        this.restTemplate = restTemplate;
        this.service = service;
         this.converter = converter;
        this.safeZoneAdminService = safeZoneAdminService;
        this.warningPatientAdminService = warningPatientAdminService;
+       this.warningTypeAdminService = warningTypeAdminService;
    }
 
     private final LocalisationAdminService service;
     private final LocalisationConverter converter;
     private final SafeZoneAdminService safeZoneAdminService;
     private final WarningPatientAdminService warningPatientAdminService;
+    private final WarningTypeAdminService warningTypeAdminService;
 
 
 
