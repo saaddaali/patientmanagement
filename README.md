@@ -2,6 +2,12 @@
 
 MediTrack, an innovative healthcare monitoring system designed to track and ensure the safety of patients with cognitive disorders.
 
+## Demonstration
+
+https://github.com/user-attachments/assets/a47a650b-74e6-4e18-be06-b00befd69fd4
+
+
+
 ## Software architecture
 The architecture integrates several modern technologies and frameworks,
 each serving a specific purpose in the system:
