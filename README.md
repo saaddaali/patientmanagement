@@ -47,7 +47,7 @@ To clean and package the project, run the following command:
 Build the Docker image with the following command:
 
 ```bash
-docker build -t ride-link:v1 .
+docker build -t medi-track-ms1-v1 .
 ```
 
 ## Display the Created Docker Image
