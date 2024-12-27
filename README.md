@@ -79,26 +79,6 @@ To view the running container, use:
 docker ps
 ```
 
-## MinIO Configuration
-
-1. Open MinIO at http://localhost:9001/login
-2. Login credentials:
-   - Username: saad@2024
-   - Password: saad@2024
-   (Check .env file in the Docker Compose folder for credentials)
-3. In the MinIO dashboard:
-   - Navigate to Identity >> Users
-   - Create a user:
-     - Username: saad
-     - Password: saad
-     - Role: read and write
-4. Edit the user and click Service Account >> Create
-5. Copy the Access Key and Secret Key to your application.properties file
-6. Connect as "zyn" using the login credentials and create your bucket
-7. Test file upload with:
-   - Endpoint: http://localhost:8036/api/cloud/upload/bucket/your-default-bucket
-   - Method: POST
-   - Body: form-data with your file
 
 ## Generate SSL Certificates for Backend
 
