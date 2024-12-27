@@ -181,13 +181,6 @@ ng serve
 
 Navigate to http://localhost:4200/
 
-### Code Scaffolding
-
-Generate new components or services:
-
-```bash
-ng generate component component-name
-```
 
 ### Build the Angular Project
 
