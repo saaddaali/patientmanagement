@@ -1,44 +1,195 @@
-# Location Sharing App
+# Ride Link App
 
-A Flutter application that allows users to share their location with contacts and view them on a map.
+This project consists of two microservices (MS) that work together. Follow the instructions below to build and configure the app, set up Docker, MinIO, SSL certificates, and Sonar, and install necessary tools.
 
-## Features
+## Build the Project
 
-- Real-time location sharing
-- Contact management
-- Interactive map view
-- User profiles
-- Bottom navigation for easy access to main features
+To clean and package the project, run the following command:
 
+```bash
+.\mvnw clean package -DskipTests
+```
 
-### State Management
-This project uses Provider for state management. Key features:
-- Centralized state management
-- Reactive updates
-- Dependency injection
-- Easy testing
+## Create the Docker Image
 
-## Contributing
+Build the Docker image with the following command:
 
-1. Fork the repository
-2. Create your feature branch (git checkout -b feature/AmazingFeature)
-3. Commit your changes (git commit -m 'Add some AmazingFeature')
-4. Push to the branch (git push origin feature/AmazingFeature)
-5. Open a Pull Request
+```bash
+docker build -t ride-link:v1 .
+```
 
-## License
+## Display the Created Docker Image
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+To view the created Docker image, run:
 
-## Acknowledgments
+```bash
+docker images
+```
 
-- Flutter team for the amazing framework
-- Contributors and maintainers
-- Open source community
+## Run the Docker Container
 
+Start the container using:
 
+```bash
+docker run -d -p 8036:8036 --name ride-link-v1 ride-link:v1
+```
 
-## Project Status
+## Display the Running Container
 
-Current Version: 1.0.0
-Status: Active Development
+To view the running container, use:
+
+```bash
+docker ps
+```
+
+## MinIO Configuration
+
+1. Open MinIO at http://localhost:9001/login
+2. Login credentials:
+   - Username: saad@2024
+   - Password: saad@2024
+   (Check .env file in the Docker Compose folder for credentials)
+3. In the MinIO dashboard:
+   - Navigate to Identity >> Users
+   - Create a user:
+     - Username: saad
+     - Password: saad
+     - Role: read and write
+4. Edit the user and click Service Account >> Create
+5. Copy the Access Key and Secret Key to your application.properties file
+6. Connect as "zyn" using the login credentials and create your bucket
+7. Test file upload with:
+   - Endpoint: http://localhost:8036/api/cloud/upload/bucket/your-default-bucket
+   - Method: POST
+   - Body: form-data with your file
+
+## Generate SSL Certificates for Backend
+
+Generate SSL certificates for both localhost and production:
+
+```bash
+# Create the private key
+openssl genpkey -algorithm RSA -out key.pem -pkeyopt rsa_keygen_bits:2048
+
+# Create certificate signing request
+openssl req -new -key key.pem -out cert.csr -subj "/CN=YourIPOrLocalhost"
+
+# Create self-signed certificate
+openssl x509 -req -days 365 -in cert.csr -signkey key.pem -out cert.pem
+
+# Create PKCS12 keystore
+openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12 -name yourAliasForExample
+```
+
+## Generate SSL Certificates for Frontend
+
+Navigate to `frontend\sec\ssl\localhost` and run:
+
+```bash
+openssl pkcs12 -in ./../../../../backend-ms1/sec/ssl/localhost/keystore.p12 -out keyStore.pem -nodes
+openssl rsa -in keyStore.pem -out key.pem
+openssl x509 -in keyStore.pem -out cert.pem -days 365
+```
+
+## SonarQube Configuration
+
+1. Open SonarQube at http://localhost:9000
+2. Login credentials:
+   - Username: admin
+   - Password: admin (change after first login)
+3. Create a local project:
+   - Go to http://localhost:9000/projects/create
+   - Click on "Create a local project"
+   - Select "Use the global setting" and click Create
+   - Choose "Create locally" and generate a token
+   - Choose Maven and copy the generated command
+
+## Install SSL Using Let's Encrypt
+
+1. Install Certbot:
+```bash
+sudo apt install certbot python3-certbot-nginx
+```
+
+2. Create a subdomain (e.g., api.app.com)
+
+3. Generate and install SSL:
+```bash
+sudo certbot --nginx -d api.app.com
+```
+
+4. For configuration issues, modify the NGINX configuration (`/etc/nginx/sites-enabled/default.conf`):
+
+```nginx
+server {
+    server_name api.app.com;
+
+    location / {
+        rewrite ^/(.*) $1 break;
+        proxy_pass "http://localhost:8036";
+    }
+
+    location /backend {
+        rewrite ^/backend(.*) $1 break;
+        proxy_pass "http://localhost:8090";
+    }
+
+    location /superadmin {
+        rewrite ^/superadmin(.*) $1 break;
+        proxy_pass "http://localhost:8030";
+    }
+
+    listen 443 ssl;
+    ssl_certificate /etc/letsencrypt/live/api.app.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/api.app.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+```
+
+5. Test SSL certificate renewal:
+```bash
+sudo certbot renew --dry-run
+```
+
+## Angular Project Setup
+
+### Development Server
+
+Start the Angular development server:
+
+```bash
+ng serve
+```
+
+Navigate to http://localhost:4200/
+
+### Code Scaffolding
+
+Generate new components or services:
+
+```bash
+ng generate component component-name
+```
+
+### Build the Angular Project
+
+Build for production:
+
+```bash
+ng build --configuration production
+```
+
+### Running Tests
+
+Run unit tests:
+
+```bash
+ng test
+```
+
+Run end-to-end tests:
+
+```bash
+ng e2e
+```
