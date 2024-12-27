@@ -1,6 +1,34 @@
 # MediTrack App
 
 MediTrack, an innovative healthcare monitoring system designed to track and ensure the safety of patients with cognitive disorders.
+
+## Software architecture
+The architecture integrates several modern technologies and frameworks,
+each serving a specific purpose in the system:
+
+### Frontend Web Application (Angular)
+The healthcare staff interface is built using Angular, a robust TypeScript-
+based framework. This single-page application provides a dynamic and re-
+sponsive interface for healthcare providers to monitor patients, manage safe
+zones, and respond to alerts in real-time. Angular’s component-based ar-
+chitecture ensures maintainable and scalable code while offering excellent
+performance for real-time data visualization.
+
+### Mobile Application (Flutter)
+The patient-side mobile application is developed using Flutter, Google’s UI
+toolkit for building natively compiled applications. This choice enables cross-
+platform compatibility while maintaining native performance for critical fea-
+tures like GPS tracking and SOS functionality. The app continuously trans-
+mits location data and provides an intuitive interface for patients to request
+assistance when needed.
+
+### RESTful APIs with Spring Security
+The backend APIs are secured using Spring Security framework integrated
+with JSON Web Tokens (JWT) authentication. This ensures that all com-
+munications between clients and servers are authenticated and authorized
+appropriately. The JWT implementation provides stateless authentication,
+making the system more scalable and secure.
+
 ## Build the Project
 
 To clean and package the project, run the following command:
