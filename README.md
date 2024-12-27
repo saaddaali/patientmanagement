@@ -1,6 +1,6 @@
 # Ride Link App
 
-This project consists of two microservices (MS) that work together. Follow the instructions below to build and configure the app, set up Docker, MinIO, SSL certificates, and Sonar, and install necessary tools.
+This project consists of 3 microservices (MS) that work together. Follow the instructions below to build and configure the app, set up Docker, MinIO, SSL certificates, and Sonar, and install necessary tools.
 
 ## Build the Project
 
@@ -31,8 +31,13 @@ docker images
 Start the container using:
 
 ```bash
-docker run -d -p 8036:8036 --name ride-link-v1 ride-link:v1
+docker run -d -p 8036:8036 --name medi-track-ms1-v1 medi-track-ms1-v1
 ```
+
+```bash
+docker run -d -p 8037:8037 --name medi-track-ms2-v1 medi-track-ms2-v1
+```
+
 
 ## Display the Running Container
 
