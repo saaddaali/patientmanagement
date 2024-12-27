@@ -166,6 +166,7 @@ body: jsonEncode({
   'dateLocalisation': formatDate(DateTime.now()),
   'longitude': currentPosition!.longitude,
   'latitude': currentPosition!.latitude,
+  'inZone': true,
   'capteur': {
     'id': 1,
     'code': 'GPS PHONE',
@@ -306,6 +307,8 @@ body: jsonEncode({
     }
   }
 
+  
+
   @override
   void dispose() {
     _log('Disposing MapScreen...');
@@ -316,3 +319,5 @@ body: jsonEncode({
     super.dispose();
   }
 }
+
+
