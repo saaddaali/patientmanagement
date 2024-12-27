@@ -1,7 +1,6 @@
-# Ride Link App
+# MediTrack App
 
-This project consists of 3 microservices (MS) that work together. Follow the instructions below to build and configure the app, set up Docker, MinIO, SSL certificates, and Sonar, and install necessary tools.
-
+MediTrack, an innovative healthcare monitoring system designed to track and ensure the safety of patients with cognitive disorders.
 ## Build the Project
 
 To clean and package the project, run the following command:
