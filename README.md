@@ -29,7 +29,7 @@ munications between clients and servers are authenticated and authorized
 appropriately. The JWT implementation provides stateless authentication,
 making the system more scalable and secure.
 
-##MediTrack System Architecture Overview
+## MediTrack System Architecture Overview
 
 ![WhatsApp Image 2024-12-27 at 02 20 58](https://github.com/user-attachments/assets/bb811200-c898-464b-b925-266af5a3ee87)
 
