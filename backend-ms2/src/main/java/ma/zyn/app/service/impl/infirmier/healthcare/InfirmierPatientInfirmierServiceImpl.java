@@ -142,7 +142,7 @@ public class InfirmierPatientInfirmierServiceImpl implements InfirmierPatientInf
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
     public InfirmierPatient create(InfirmierPatient t) {
-        if (t.getPatient() != null) {
+        if (t.getPatient() == null) {
             t.getPatient().setId(null);
             t.setPatient(patientService.create(t.getPatient()));
         }

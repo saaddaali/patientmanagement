@@ -80,6 +80,12 @@ export class PatientCreateDoctorComponent  implements OnInit {
         this.validateForm();
         if (this.errorMessages.length === 0) {
             this.saveWithShowOption(false);
+            this.messageService.add({
+                severity: 'success',
+                summary: 'Succès',
+                detail:'Patient added',
+                life: 3000
+            });
         } else {
             this.messageService.add({severity: 'error',summary: 'Erreurs',detail: 'Merci de corrigé les erreurs sur le formulaire'});
         }

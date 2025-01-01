@@ -32,7 +32,10 @@ def check_location():
             "distance": distance,
             "warning": warning,
             "message": "Out of safe zone" if warning else "Within safe zone"
-        })
+        }
+        
+        )
+    
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

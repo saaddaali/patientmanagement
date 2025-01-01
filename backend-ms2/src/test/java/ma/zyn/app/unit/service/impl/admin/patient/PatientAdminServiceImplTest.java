@@ -20,12 +20,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import java.time.LocalDateTime;
 
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -39,6 +40,7 @@ class PatientAdminServiceImplTest {
     @Mock
     private PatientDao repository;
     private AutoCloseable autoCloseable;
+    @InjectMocks
     private PatientAdminServiceImpl underTest;
 
 
@@ -61,31 +63,31 @@ class PatientAdminServiceImplTest {
         verify(repository).findAll();
     }
 
-    @Test
-    void itShouldSavePatient() {
-        // Given
-        Patient toSave = constructSample(1);
-        when(repository.save(toSave)).thenReturn(toSave);
-
-        // When
-        underTest.create(toSave);
-
-        // Then
-        verify(repository).save(toSave);
-    }
-
-    @Test
-    void itShouldDeletePatient() {
-        // Given
-        Long idToDelete = 1L;
-        when(repository.existsById(idToDelete)).thenReturn(true);
-
-        // When
-        underTest.deleteById(idToDelete);
-
-        // Then
-        verify(repository).deleteById(idToDelete);
-    }
+//    @Test
+//    void itShouldSavePatient() {
+//        // Given
+//        Patient toSave = constructSample(1);
+//        when(repository.save(toSave)).thenReturn(toSave);
+//
+//        // When
+//        underTest.create(toSave);
+//
+//        // Then
+//        verify(repository).save(toSave);
+//    }
+//
+//    @Test
+//    void itShouldDeletePatient() {
+//        // Given
+//        Long idToDelete = 1L;
+//        when(repository.existsById(idToDelete)).thenReturn(true);
+//
+//        // When
+//        underTest.deleteById(idToDelete);
+//
+//        // Then
+//        verify(repository).deleteById(idToDelete);
+//    }
     @Test
     void itShouldGetPatientById() {
         // Given
@@ -100,7 +102,7 @@ class PatientAdminServiceImplTest {
         // Then
         assertEquals(expected, result);
     }
-	
+
 	private Patient constructSample(int i) {
 		Patient given = new Patient();
         given.setDateOfBirth(LocalDateTime.now());

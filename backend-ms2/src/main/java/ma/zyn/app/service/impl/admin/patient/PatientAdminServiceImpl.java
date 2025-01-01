@@ -343,16 +343,18 @@ public class PatientAdminServiceImpl implements PatientAdminService {
 
 
 
-
-    private @Autowired UserService userService;
+    @Autowired
+    private UserService userService;
     private @Autowired RoleService roleService;
     private @Autowired ModelPermissionUserService modelPermissionUserService;
     private @Autowired RoleUserService roleUserService;
 
     @Autowired
     private InfirmierAdminService infirmierService ;
+
     @Autowired
     private InfirmierPatientAdminService infirmierPatientService ;
+
     @Autowired
     private GenderAdminService genderService ;
     @Autowired

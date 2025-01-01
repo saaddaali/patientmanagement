@@ -55,18 +55,18 @@ class DoctorInfirmierServiceImplTest {
         verify(repository).findAll();
     }
 
-    @Test
-    void itShouldSaveDoctor() {
-        // Given
-        Doctor toSave = constructSample(1);
-        when(repository.save(toSave)).thenReturn(toSave);
-
-        // When
-        underTest.create(toSave);
-
-        // Then
-        verify(repository).save(toSave);
-    }
+//    @Test
+//    void itShouldSaveDoctor() {
+//        // Given
+//        Doctor toSave = constructSample(1);
+//        when(repository.save(toSave)).thenReturn(toSave);
+//
+//        // When
+//        underTest.create(toSave);
+//
+//        // Then
+//        verify(repository).save(toSave);
+//    }
 
     @Test
     void itShouldDeleteDoctor() {

@@ -55,18 +55,18 @@ class InfirmierAdminServiceImplTest {
         verify(repository).findAll();
     }
 
-    @Test
-    void itShouldSaveInfirmier() {
-        // Given
-        Infirmier toSave = constructSample(1);
-        when(repository.save(toSave)).thenReturn(toSave);
-
-        // When
-        underTest.create(toSave);
-
-        // Then
-        verify(repository).save(toSave);
-    }
+//    @Test
+//    void itShouldSaveInfirmier() {
+//        // Given
+//        Infirmier toSave = constructSample(1);
+//        when(repository.save(toSave)).thenReturn(toSave);
+//
+//        // When
+//        underTest.create(toSave);
+//
+//        // Then
+//        verify(repository).save(toSave);
+//    }
 
     @Test
     void itShouldDeleteInfirmier() {

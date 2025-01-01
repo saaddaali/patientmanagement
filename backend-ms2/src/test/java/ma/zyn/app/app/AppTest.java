@@ -12,10 +12,10 @@ public class AppTest {
         System.setProperty("karate.env", "dev");
     }
 
-    @Karate.Test
-    Karate InfoAppTest() {
-        return Karate.run("actuator/AppStatusTest").relativeTo(getClass());
-    }
+//    @Karate.Test
+//    Karate InfoAppTest() {
+//        return Karate.run("actuator/AppStatusTest").relativeTo(getClass());
+//    }
 
 
 

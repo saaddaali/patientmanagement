@@ -213,7 +213,7 @@ export class PatientListDoctorComponent implements OnInit {
                         this.messageService.add({
                             severity: 'success',
                             summary: 'Succès',
-                            detail: 'Element Supprimé',
+                            detail: 'Patient Supprimé',
                             life: 3000
                         });
                     }

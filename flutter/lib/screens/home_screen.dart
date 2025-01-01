@@ -387,9 +387,9 @@ Future<void> _sendEmergencyAlert() async {
     final response = await http.post(
       Uri.parse(apiUrl),
       headers: {
-  'Content-Type': 'application/json',
-  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzM1MzE1NTMzLCJlbWFpbCI6ImFkbWluIn0.A5CMVzk-R9FAEyjdTl51ABTkcBSZd0Q4ZqnhAbqsyfI',
-},
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzM1NDY0NDY1LCJlbWFpbCI6ImFkbWluIn0.SZPqbESxtHqemzswAhbMFy_jsrtQm40cTZ28Xzf1oL0',
+    },
       body: jsonEncode(payload),
     );
 

@@ -20,7 +20,7 @@ import org.mockito.MockitoAnnotations;
 import java.time.LocalDateTime;
 
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -34,6 +34,7 @@ class InfirmierPatientAdminServiceImplTest {
     @Mock
     private InfirmierPatientDao repository;
     private AutoCloseable autoCloseable;
+    @Autowired
     private InfirmierPatientAdminServiceImpl underTest;
 
 
@@ -61,10 +62,8 @@ class InfirmierPatientAdminServiceImplTest {
         // Given
         InfirmierPatient toSave = constructSample(1);
         when(repository.save(toSave)).thenReturn(toSave);
-
         // When
         underTest.create(toSave);
-
         // Then
         verify(repository).save(toSave);
     }

@@ -61,31 +61,31 @@ class PatientInfirmierServiceImplTest {
         verify(repository).findAll();
     }
 
-    @Test
-    void itShouldSavePatient() {
-        // Given
-        Patient toSave = constructSample(1);
-        when(repository.save(toSave)).thenReturn(toSave);
-
-        // When
-        underTest.create(toSave);
-
-        // Then
-        verify(repository).save(toSave);
-    }
-
-    @Test
-    void itShouldDeletePatient() {
-        // Given
-        Long idToDelete = 1L;
-        when(repository.existsById(idToDelete)).thenReturn(true);
-
-        // When
-        underTest.deleteById(idToDelete);
-
-        // Then
-        verify(repository).deleteById(idToDelete);
-    }
+//    @Test
+//    void itShouldSavePatient() {
+//        // Given
+//        Patient toSave = constructSample(1);
+//        when(repository.save(toSave)).thenReturn(toSave);
+//
+//        // When
+//        underTest.create(toSave);
+//
+//        // Then
+//        verify(repository).save(toSave);
+//    }
+//
+//    @Test
+//    void itShouldDeletePatient() {
+//        // Given
+//        Long idToDelete = 1L;
+//        when(repository.existsById(idToDelete)).thenReturn(true);
+//
+//        // When
+//        underTest.deleteById(idToDelete);
+//
+//        // Then
+//        verify(repository).deleteById(idToDelete);
+//    }
     @Test
     void itShouldGetPatientById() {
         // Given

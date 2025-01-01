@@ -95,6 +95,12 @@ export class PatientEditDoctorComponent implements OnInit {
         this.validateForm();
         if (this.errorMessages.length === 0) {
             this.editWithShowOption(false);
+            this.messageService.add({
+                severity: 'success',
+                summary: 'Succès',
+                detail:'Patient updated',
+                life: 3000
+            });
         } else {
             this.messageService.add({
                 severity: 'error',
